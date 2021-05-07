@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="85"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_scheme_name"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="15"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+
+            <ImageView
+                android:id="@+id/imgDetails"
+                android:layout_margin="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/transaction"
+                android:tint="@color/color_light_orange" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorGray"
+            android:layout_height="wrap_content"
+            android:text="Folio no : " />
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="258524"
+            android:id="@+id/tv_folio_no"/>
+
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+          android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorGray"
+            android:layout_height="wrap_content"
+            android:text="Units : " />
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="258524"
+            android:id="@+id/tv_units"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Cost " />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="1,50,045"
+                android:id="@+id/tv_cost"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:textColor="@color/light_green"
+                android:layout_height="wrap_content"
+                android:text="10% " />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Net Gain " />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="1,50,045"
+                android:id="@+id/tv_net_gain"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/light_green"
+                android:layout_height="wrap_content"
+                android:text="10% "
+                android:id="@+id/tv_gain_or_loss_percent"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Market Value " />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="1,50,045"
+                android:id="@+id/tv_market_value"/>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorGray"
+                    android:layout_height="wrap_content"
+                    android:text="XIRR : " />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="10%"
+                    android:id="@+id/tv_xiir"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/transact"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_inner_orange"
+        android:layout_width="wrap_content"
+        android:drawablePadding="20dp"
+        android:drawableRight="@drawable/dropdown"
+        android:layout_height="wrap_content"
+        android:text="Transact"/>
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/light_gray"/>
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".fragments.DashboardFragment">
+
+    <include layout="@layout/header_layout"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_weight=".65"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Kotak Balanced Advantage Fund"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_weight=".05"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/transaction"
+                        android:tint="@color/color_light_orange" />
+
+                    <TextView
+                        android:id="@+id/amount"
+                        android:layout_weight=".25"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="19,15,045"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_weight=".05"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/right_arrow" />
+
+
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Net Gain"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorGray" />
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/gain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="61,045"
+                            android:textSize="15sp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/gainPercent"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="31.49%"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/rounded_inner_green"
+                            android:textSize="13sp"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="XIRR : "
+                            android:textColor="@color/colorGray"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/xirr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10%"
+                            android:textSize="14sp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/color_light_orange" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:text="Cost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:text="Market Value"
+                    android:layout_width="0dp"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cost"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="--"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/marketValue"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="--"
+                    android:layout_width="0dp"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:text="Folio No."
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:text="Units"
+                    android:layout_width="0dp"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/folioNo"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="--"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/unit"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="--"
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>
+

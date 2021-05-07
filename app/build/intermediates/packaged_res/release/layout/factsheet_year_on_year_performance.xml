@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year-on-Year Performance"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(Scheme Vs CRISIL Hybrid 50 + 50 Moderate Total Return Index)"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/bar_chart_year_on_year_performance"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

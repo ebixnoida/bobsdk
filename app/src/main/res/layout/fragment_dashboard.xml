@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.DashboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragments.DashboardFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Value"
+                android:textSize="14sp"
+                android:textColor="@color/colorGray" />
+
+        <LinearLayout
+            android:id="@+id/llAmount"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19,15,045"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/tv_current_value"/>
+
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/right_arrow"
+                android:id="@+id/img_right_arrow"/>
+
+        </LinearLayout>
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invested Amount"
+                android:textSize="14sp"
+                android:textColor="@color/colorGray" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14,10,000"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/tv_invested_amount_value"/>
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unrealized Gain/Loss"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorGray" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4,16,045"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_utilized_gain_or_loss_value"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dividend/Interest"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorGray" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45,000"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_utilized_devidend_or_interest_value"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Net Gain"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorGray" />
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4,61,045"
+                            android:textSize="18sp"
+                            android:textColor="@color/light_green"
+                            android:id="@+id/tv_utilized_net_gain_value"/>
+
+                        <TextView
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="31.49%"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/rounded_inner_green"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:id="@+id/tv_utilized_net_gain_percent_value"/>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IRR"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorGray" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9.47%"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tv_irr_value"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy New Fund"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvNewFund"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:background="@drawable/rounded_inner_orange"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_gravity="bottom|center_vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/transaction"/>
+
+                    <TextView
+                        android:gravity="bottom|center_vertical"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New \nFunds"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_gravity="bottom|center_vertical"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/add"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/existingPortfolio"
+                    android:background="@drawable/rounded_inner_dark_gray"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_gravity="bottom|center_vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/transaction"/>
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_gravity="bottom|center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Existing \nPortfolio"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_gravity="bottom|center_vertical"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/add"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore More"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvExploreMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"/>
+
+
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="75"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upcoming SIPs"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You do not have any scheduled SIP."
+                        android:textSize="12sp"
+                        android:textColor="@color/colorGray" />
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SIP helps you invest regularly for better gains."
+                        android:textSize="12sp"
+                        android:textColor="@color/colorGray" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/startNow"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_inner_orange"
+                    android:layout_width="0dp"
+                    android:layout_weight="25"
+                    android:layout_height="wrap_content"
+                    android:text="Start Now"
+                    android:padding="10dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="60"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your Risk Profile is :-"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conservative"
+                            android:textSize="20sp"
+                            android:textColor="@color/color_light_orange"
+                            android:id="@+id/tv_risk_profile_value"/>
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:padding="10dp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/rounded_inner_orange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Re-access You Risk Profile"
+                            android:id="@+id/btn_re_access_risk_profile"/>
+
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="40"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/risk_profile_view"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"/>
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction In Last 7 Days"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

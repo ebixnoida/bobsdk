@@ -1,0 +1,1737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.TermsAndConditionActivity">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearHeader">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center|start"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="25dp"
+
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:text="@string/fa_icon_menu"
+                        android:visibility="visible" />
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Wealth Management - Signup "
+                        android:layout_marginLeft="@dimen/_12sdp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_light_orange"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
+        <View android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/light_gray"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/linearHeader">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp">
+        <TextView
+            android:textColor="@color/color_light_orange"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terms And Conditions" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda” refers to refers to Bank of Baroda (BOB), a banking company having its Head office at Baroda House, P.B.No.506, Mandvi, Baroda -390 006, Gujarat, India and Corporate Office at Baroda Corporate Centre at C-26, G-Block, Bandra-Kurla Complex, Bandra (East), Mumbai-400051 including any branch / office thereof." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. “Customer/s” shall mean the Account holder registered on this platform who is eligible to make Mutual Fund transactions using this platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. “Account Holder” shall mean a resident of India, Non Resident Indians (“NRIs”), corporate account holders, and foreign account holders holding an account with Bank Of Baroda. Corporate account holders, foreign account holders and NRIs may or may not be eligible to register and/or transact using this platform at the sole discretion of Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Bank Of Baroda shall mean the Investments Microsite and this online mutual funds transaction platform where the customers can register themselves successfully to avail of all the functionalities of the platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. “Investment Microsite” refers to the website owned, established maintained by Bank Of Baroda located at the URL https://www.bankofbaroda.com/." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. “Personal Information” refers to any personal information shared by the Customer/s with Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. “Portfolio” shall refer to the mutual fund investments of the Customers with respect to which Bank Of Baroda is acting as distributor." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. “linked Accounts” refers to Bank Of Baroda savings/ current accounts of the Customer held with Bank Of Baroda linked with his/her CIF id used for registration on Portal." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. In these Terms, unless the contrary intention appears" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. A reference to:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. An “amendment” includes a supplement, modification, novation, replacement or re-enactment and “amended” is to be construed accordingly." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. An “authorization” or “approval” includes an authorization, consent, clearance, approval, permission, resolution, license, exemption, filing and registration;" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. “law” includes any constitution, statue, law, rule, regulation, ordinance, judgement, order, decree, authorization, or any published, directive, guideline, requirement or governmental restriction having the force of law, or any determination by, or interpretation of any of the foregoing by, any judicial authority, whether in effect as of the date of signing/submission of the application form or thereafter and each as amended from time to time." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. The singular includes the plural (and vice versa);" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xi. The words, I, me, my, Customer and Users refer to the person(s) who open the account and / or avail of the Services and / or facilities." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xii. The headings in these Terms are inserted for convenience of reference only and to be ignored in construing and interpreting the Terms;" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xiii. Reference to the words “include” and “including” shall be construed without any limitation;" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xiv. Reference to a gender shall include references to the female, male and neuter genders" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="II APPLICABILITY OF TERMS AND CONDITIONS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. These terms form the contract between the customer/s and Bank Of Baroda for Investment account opening and availing online investment services through this platform. For availing services, customer shall be required to register on the platform and agree to these Terms and the Risk Profiler Terms. In order to successfully avail the services offered and transact through this platform, the customer/s shall have to read and agree to the Order Confirmation Terms separately at the end of the concerned transaction. Bank Of Baroda shall be entitled at its sole discretion to accept or reject such registration and/or transaction requests of the customer/s and its decision in this regard shall be final and binding. By using this platform for availing services, the customer/s acknowledges and accepts these Terms." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="III AUTHORIZATION" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer hereby appoints Bank Of Baroda as his/her agent to *transact i.e. purchase, switch and redeem units of mutual funds on his/her behalf, as may be instructed by the Customer from time to time, on the terms and conditions mentioned herein. The Customer agrees that Bank Of Baroda may at its sole discretion vary the terms and conditions or withdraw any of the facilities provided herein from time to time." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer shall irrevocably authorise Bank Of Baroda to execute his/her instructions with regards to purchase switch or redemption of the units." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. *Transaction rights will be pursuant to the customer executing and granting a mandate in favour of Bank Of Baroda, in the manner and form as prescribed by Bank Of Baroda from time to time. A mandate will be applicable to all Investment Accounts whether presently existing or to be opened in future. These terms and conditions set out the rights and obligations of you, the User and / or customer, and us, the Bank, in connection with your use of the Services and/or Facilities." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:textAllCaps="true"
+            android:layout_height="wrap_content"
+            android:text="III PURCHASE / SALE" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Transaction instructions only from Registered Customers of Bank Of Baroda Portal Platform would be processed. Registered customers can only Purchase, Redeem and Switch Mutual Fund units through this service." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. There may be an Exit Load in Mutual Fund schemes, which are mentioned in the offer document. Please check the same before investing." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Investments from residents in the United States of America and Canada are not permitted in certain mutual funds. Bank Of Baroda shall not be liable for rejections of such applications by Mutual Funds, where investor is an US and Canada resident." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Purchase instructions shall be processed only after funds sufficient to cover the purchase price and other costs and charges have been received by Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. If for any reasons Bank Of Baroda is unable to purchase or redeem the full quantity of units such as instructed by the Customer, Bank Of Baroda shall be entitled at its discretion and the Customer shall irrevocably authorised Bank Of Baroda to purchase or sell (as the case may be) a lesser quantity of units/securities. Bank Of Baroda shall not be responsible for the non-execution of the Customer’s instruction for the entire quantity or the remaining quantity." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. If after execution of any transaction it is for any reason found that Bank Of Baroda has not been put in sufficient funds, the Customer shall pay the deficient amount to Bank Of Baroda forthwith on demand failing which Bank Of Baroda may (but shall not be bound to) square up the transaction at any time at the Customer’s sole risk and cost. Any loss on such squaring up will be borne solely by the Customer and he/she will pay to Bank Of Baroda the additional amount that may be payable by the Customer, Bank Of Baroda's demand being conclusive." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. The Customer shall agree and acknowledge that the facility provided herein is presently available in respect of select Mutual Funds only with whom Bank Of Baroda has entered into a separate arrangement." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. The Customer shall agree and acknowledge that any instruction given or purported to be given by him/her before the cut off time as may be intimated by Bank Of Baroda to the Customer from time to time, would be processed on the same day. Any instructions received after the prescribed cut off time will be processed on the next working day." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. The Customer shall acknowledge that the units of the schemes shall be allotted, redeemed or switched, at the Applicable Net Asset Value (NAV)** on the date of the transaction, if the application for purchase, redemption or switch is received by the Mutual Fund before the cut-off time as specified by Bank Of Baroda and consistent with the terms of the Scheme. However Bank Of Baroda shall not be liable for any loss that may arise to the Customer as a result of the incorrect NAV applied on units allotted to the Customer by the Mutual Fund." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. The Customer shall acknowledge that any transaction request falling due on a holiday would be processed on the next business day and respective NAV would be applicable as per the Mutual Fund's offer document. The shall also acknowledge that transactions once placed can be cancelled, provided the cancellation is initiated on the same day, and prior to the cut off time." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. III REGISTRATION &amp; RISK PROFILING" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The customers who are not registered for Bank Of Baroda WMS platform, shall not be allowed to attempt any transaction until they obtain registration for Bank Of Baroda WMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Only the KYC Registration Agency (KRA) verified investors get transaction rights on Bank Of Baroda WMS Platform. Accordingly while registering for the Bank Of Baroda WMS platform, the Customer’s KYC status will be verified though SEBI approved KYC Registration Agency (KRA Agency). The Customer hereby agrees and authorizes Bank Of Baroda to check their KYC status by sharing the PAN No. with the KRA Agency." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. If the Customer KYC/ Online registration is required to be done at the KRA Agency and/ or RTAs, the Customer’s KYC details available with Bank Of Baroda shall be used to complete for the registration(s). The Customers shall agree and authorise Bank Of Baroda to submit the Bank’s KYC Documents (Account No., Mode of Operation, Branch, Permanent Address, Correspondence Address, Name, Pan, DOB, Photograph, and signature)/ investor related documents with the KYC Agency and/or RTA for the purpose of validation, registration and to comply with regulatory requirement notified from time to time." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Once the process of online registration is completed, which includes success confirmation from Know Your Client Registration Agency “KRA”, customer is allowed to initiate a transaction. Once the success confirmation is received from the Registrar &amp; Transfer Agent “RTA”, the order will be executed on that day’s (day of successful confirmation from RTA) NAV. In case RTA reject the request, that order will be cancelled &amp; Customer will be informed via Email/SMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. The Customers, who are registered for Bank Of Baroda WMS, shall be able to view all the features available on the Bank Of Baroda WMS platform and shall also be allowed to use all the functionalities of the platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•	Power packed features to help you create wealth!" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. The Customers who already have their portfolio with Bank Of Baroda, their portfolio shall automatically be imported to this platform for convenience of the Customers." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. The customers who don’t already have their portfolio with Bank Of Baroda and customers who have their portfolio with Bank Of Baroda but have not undergone risk profiling shall have to undergo risk profiling and agree to the applicable terms and conditions. In the aforesaid case, the Customer shall be taken to the risk profiling questionnaire page to complete the same." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. Basis the result of the risk profiler, the final ‘Risk Profile’ of the Customers, and the suggested model asset allocation shall be displayed on the Bank Of Baroda WMS platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•	Power packed features to help you create wealth!" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. The suggested model asset allocation is indicative and shall not constitute or be deemed to constitute legal, tax, securities or investment advice, or opinion regarding the appropriateness of any investment, or a solicitation for any product or service. The information provided is merely for general understanding and reference. The customer needs to verify all the facts, law and contents with the text of the prevailing statutes and seek appropriate professional advice before acting on the basis of any information displayed on the platform as the taxation implications may vary depending upon the facts in each case/interpretation by tax authorities and since tax laws are subject to change from time to time. Bank Of Baroda expressly disclaims any liability to any person, in respect of anything done or omitted to be done by any such person by placing reliance upon the suggested model asset allocation. The use of information displayed on the Bank Of Baroda WMS platform is entirely at the recipient’s own risk. Bank Of Baroda does not accept any responsibility for any error whether caused by negligence or otherwise or for any losses or damage incurred by anyone in reliance on anything set out on the Bank Of Baroda WMS. The information set out on the Bank Of Baroda WMS platform may be subject to updation, completion, revision, verification and amendment and such information may change materially. Bank Of Baroda is acting merely as a distributor of third parties for mutual funds and will not be liable for any losses/damage incurred by Customer by putting reliance on the suggested allocation." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. The customer hereby understands and agrees that the suggestion are based on data collected from a third party and Bank Of Baroda shall not be liable for any loss/damage suffered by the Customer by putting reliance on the same." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xi. The Customer acknowledges that by bringing the investment to the customer’s attention, Bank Of Baroda accepts no liability with respect to the accuracy or completeness of the information furnished to the Customer in respect thereof." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xii. The Customer agrees and acknowledges that notwithstanding the fact that Bank Of Baroda may have brought the investment to the attention of the Customer, all decisions to transact in the investments/mutual funds would be the Customer’s own based on his/her independent assessment of the risks associated with investing in the mutual funds and by undertaking all necessary investigations and obtaining legal, accounting, tax or other professional advice to the Customer’s satisfaction." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xiii. Customer will have an option of updating his/her risk profile by re-taking the risk profile questionnaire under the ‘Risk Profile’ section on Bank Of Baroda WMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IV SERVICES" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Bank Of Baroda WMS platform consists of the below mentioned sections:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Dashboard: This is the first section where the registered customer gets redirected to after login into Bank Of Baroda WMS. In this section the customers can view top level details of their portfolio such as Model asset allocation, Portfolio Performance, Product Allocation, Top Holdings and Last transactions. Detailed functionalities available in this section are as follows:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. “Home Icon” – This icon allows Customers to go to the dashboard section of Bank Of Baroda WMS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. “Filter Icon”- This icon allows Customers to toggle between their online and offline portfolio" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. “Transact Icon” – This icon allows Customers to go to the invest section." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. “Cart Icon” – This icon allows Customers to go to the Investment Cart and carry out multiple transactions by authenticating once." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. “Notification Bell Icon” – This icon allows Customers to view system generated notifications and alerts." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. “User Icon” – This icon allows Customers to view their relationship manager’s name, email id and mobile number." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. “Hanburger Icon” – This icon allows Customers to navigate to the following sections:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. “Dashboard” – This option allows Customers to go to the dashboard section of Bank Of Baroda WMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. “Portfolio Analytics” – This option allow Customers to navigate to the Portfolio Analytics section of Bank Of Baroda WMS where they can view the mutual fund portfolio that they have purchased through Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. “Reports” – This option allows Customers to navigate to the report section of Bank Of Baroda WMS where they can view holdings, transactions, investment maturity, insurance, corporate action and realised gain/loss statement for their Bank Of Baroda portfolio." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. “Transact” – This option allows Customers to navigate to the Invest section of Bank Of Baroda WMS where they can carry out buy, systematic investment plans (SIP), switch, redemption, systematic transfer plans (STP), systematic withdrawal plans (SWP), stop SIP, Stop STP and stop SWP." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. “Online Registration” – This option allows Customers to navigate to the Online Registration page of Bank Of Baroda WMS where they can initiate self-registration and get transaction access on Bank Of Baroda WMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. “Order Status” – This option allows Customers to navigate to Order Status section of Bank Of Baroda WMS where they can view status of their orders placed." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. “Risk Profiling” – This option allows Customers to navigate to the Risk Profile section of Bank Of Baroda WMS where they can view the details of their Risk Profile and re-take the risk assessment questionnaire." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V TRANSACTION AND ORDER CONFIRMATION" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The order confirmation screen will display all the transaction that were present in the cart, as per the details entered by the Customer grouped as per transaction type." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer shall have to read and agree to the relevant terms and conditions applicable for confirming the transaction and successfully placing the order." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. The Customer understands that the purchase transactions can be carried out from any of the Linked Accounts, and the redemption proceeds and the dividends credits (if any) shall be deposited into the same account that was used for the purchase." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VI UNAUTHORIZED ACCESS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customers shall take all necessary precautions to prevent unauthorized and illegal use of the Bank Of Baroda WMS platform and the Services offered therein." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. In case the Customer uses the platform for any purpose which is wrongful, unlawful, illegal, improper or which is not authorized under these Terms/other specified terms then Bank Of Baroda shall be entitled, at its sole discretion and without liability to the Customer, to take all such steps, actions and measures as may be deemed necessary or proper, including but not limited to refusing to carry out the transaction or disabling the use of the platform by the Customer." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VII REPRESENTATIONS AND WARRANTIES BY CUSTOMER" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customers grant an express authority to Bank Of Baroda for carrying out transactions and instructions duly authenticated by them on the platform. The Customer agrees and acknowledges that Bank Of Baroda shall not be held liable/responsible in any manner for any such transactions executed through the Bank Of Baroda WMS platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer agrees and acknowledges that Bank Of Baroda shall in no way be held responsible or liable if the Customer incurs any loss as a result of information being disclosed by Bank Of Baroda regarding his account(s) in accordance with law, or carrying the instruction of the Customer pursuant to the availment of Service(s) by him/her." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. The Customers acknowledge that all investment decisions are matter of personal choice made by them at their sole discretion and post their own evaluation of the risks involved." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Bank Of Baroda is not acting as the custodian of the Customer's portfolio of securities or funds or managing/administering/controlling the same in any manner whatsoever." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. The Customer understands, acknowledges and agrees that financial markets are controlled by independent market forces and hence are very volatile in nature. As a consequence of which, the investments in financial products are subject to a very high degree of risk and the associated returns cannot be predicted with absolute certainty. Prior to making any investment, the Customer must ensure" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="that he/she has studied the economic, political and financial risks involved, that he/she understands the" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="inherent risk of investing in a product and that unless a financial product is capital guaranteed, his/her" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="losses may exceed the Customer's investment. If the Customer is not sure of the involved risks, it is advisable to seek appropriate professional advice from financial advisor/chartered accountant/lawyer. The products will be subject to terms and conditions that the Customer must familiarize himself/herself with before he/she makes the decision to invest in any product or service. Before the Customer invests" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="in a product or service, he must understand carefully, and if required, with help of an expert independent" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="counsel, the features and risks of each product or service as given in the product documentation, such as marketing material, risk disclosure booklet etc." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. By making any investment decision, the Customer confirms to Bank Of Baroda that it is a well-informed decision and that he has such knowledge and experience in financial matters as may be necessary to be able to evaluate the merits and risks of entering into the proposed transaction. The Customer also confirms that he/she is capable of bearing the economic risks associated with such investments." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. The information the Customer provides to Bank Of Baroda will be kept confidential. However, the Customer authorizes Bank Of Baroda to share his/her information with Bank Of Baroda's affiliates, auditors, professional advisors and other persons who have a duty of confidentiality towards it which also includes" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bank Of Baroda's service providers and persons to whom Bank Of Baroda may be required to disclose this information by law or regulation, including but not limited to any regulatory authority or any governmental body, authority or agency, having jurisdiction over Bank Of Baroda or any of its branches, subsidiaries or affiliates." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. The Customer shall maintain the secrecy of all information of confidential nature and shall ensure that the same is not disclosed to any person voluntarily, accidentally or by mistake. The Customer agrees and acknowledges that any loss, damage, liability caused or suffered by the Customer due to disclosure of any or all information of confidential nature shall be borne by him/her without transferring any liability or responsibility towards Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. The Customer shall comply with such guidelines, instructions or terms as Bank Of Baroda may prescribe from time to time with respect to Bank Of Baroda WMS." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIII JOINT ACCOUNTS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Joint accounts in 'Either Or Survivor' mode can be used to make purchases on Bank Of Baroda WMS platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Access to Bank Of Baroda WMS platform will be made available within the Bank Of Baroda Mobile, Bank Of Baroda WMS website login of any of the holders to the account." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. For all transactions done through Bank Of Baroda WMS platform authentication by any of the holders of joint accounts in ‘Either Or Survivor’ mode will be considered valid and binding on the joint holders for processing transactions." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IX CHARGES AND FEES" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. All sales and purchases and all other acts done by the Bank for me pursuant to these terms and conditions shall be at my risk and cost and in consideration thereof, I agree to pay charges/fees as per the Bank's schedule of charges/fees. The schedule of charges is subject to change without prior notice and consent to such changes, which may be made in Future. I agree and understand that the Bank'charges/ fees are in addition to those levied by the mutual fund Company." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The charges/fees shall be paid by me to the Bank on my giving instructions to the Bank. All fees, charges and reimbursement of expenditure shall be paid or made in full by me without any counter claim, set off or withholding. All our liabilities and obligations hereunder to the Bank shall be joint or several." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X MAINTENANCE OF SUFFICIENT BALANCE" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer shall ensure that there are sufficient funds in the Linked Accounts for undertaking transactions through this Bank Of Baroda WMS platform and Bank Of Baroda shall not be liable for any consequences arising out of its failure to carry out the instructions due to inadequacy of funds and/or credit facilities. Provided however that Bank Of Baroda shall, at its sole discretion, be entitled to carry out the instructions notwithstanding such inadequacy without seeking the prior approval from or notice to the Customer and he/she shall be responsible to repay with interest the resulting overdraft, advance or credit thereby created and for all related costs and charges." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer expressly agrees and acknowledges that in the event he/she applies for Service(s) provided by Bank Of Baroda through this platform, he/she may do so, by submitting the required documents online in the manner specified by Bank Of Baroda, unless specifically required by Bank Of Baroda to be submitted in physical form only / also. In the event such Services are sanctioned by Bank Of Baroda to the Customer, he/she expressly agrees and acknowledges to have read and understood these Terms that govern such Services and be bound by such Terms at all times during the time the Service is availed, and as may be amended by Bank Of Baroda from time to time. Further, the Customer agrees and undertakes to sign such other documents as may be required by Bank Of Baroda from time to time in this regard." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XI AUTHORITY TO Bank Of Baroda" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer irrevocably and unconditionally authorises Bank Of Baroda to access all his Linked Account(s) for effecting banking or other transactions performed by the Customer through the Bank Of Baroda platform. The instructions of the Customer shall be effected only when such instructions are in accordance with the prescribed procedure and applicable laws." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Bank Of Baroda shall have no obligation to verify the authenticity of any transaction / instruction received
+from the Customer through the Bank Of Baroda WMS platform or purporting to have been sent by the Customer other than by the required means of verification and authentication for access to the Bank Of Baroda WMS application." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. All the records of Bank Of Baroda generated by the transactions arising out of the availment and use of
+Service(s) through the Bank Of Baroda WMS platform, including the time the transaction recorded shall be
+conclusive proof of the genuineness and accuracy of the transaction. While Bank Of Baroda shall endeavor to carry out the instructions promptly, they shall not be responsible for any delay in carrying on the
+instructions due to any reason whatsoever, including due to failure of operational systems, technical
+issues or any requirement of law.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. The relationship of the Customer and Bank Of Baroda is governed exclusively by the Risk Profiler Terms, Order Confirmation Terms, Common Transaction Form Terms, Investment Execution Authorization Form terms, and the terms mentioned in this Terms &amp; Conditions document and no presumption of any relation other than that contemplated by the aforesaid documents shall be presumed or exist. Bank Of Baroda is not acting in a fiduciary capacity when making available any of the products and services through the Bank Of Baroda WMS application, and accepts no liability nor responsibility whatsoever with respect to the use of the information and documents displayed on the Bank Of Baroda WMS platform." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. The products, services and benefits of the Bank Of Baroda WMS platform are subject to the terms and conditions governing them as specified by Bank Of Baroda /third party from time to time. Nothing contained herein shall constitute or be deemed to constitute an advice, invitation or solicitation to sell/purchase any products/services of Bank Of Baroda / third party and is not intended to create any rights and obligations. Bank Of Baroda is acting merely as a distributor of third parties for mutual funds. Any investment in such third party products shall constitute a contract between the investor and the third party. Participation by Bank Of Baroda's Customers is on a purely voluntary basis and there is no direct or indirect linkage between the provision of the banking services offered by Bank Of Baroda to its Customers and their investment in third party products. Bank Of Baroda shall not be responsible for any third party products, goods, services and offers." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. The Customer shall authorise Bank Of Baroda to do, perform or execute upon my express instructions and at my risk and cost, all or any of the following acts, deeds, matters and things:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. To subscribe to the units of the mutual fund &amp; securities on his /her behalf and to pay to the units/securities so purchased, on Cusstomer’ss instructions." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. To receive the account statement pertaining to the above units/securities and to acknowledge receipt of the same." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. To redeem /sell the units/securities held by the Customer (whether solely or jointly with others) and to receive the payment of the redemption/sale price and acknowledge receipt of the same, based on Customer’s instructions." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. To sign all such writings and do all such acts as may be required for redeeming any units/securities." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. To collect, receive and give good effectual receipts and discharges for any sum including dividend, interest or income arising from the units/securities and to sign and endorse dividend and interest warrants." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. To collect and deposit monies in an account opened in the Customer’s name with the Bank and to make such debits in the said account as may be necessary." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. To give instructions and orders to brokers and agents including instructions and orders of sale, purchase ,transfer, splitting and consolidation of securities and to pay remuneration, brokerage, commissions and other sums to such brokers and agents." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. To correspond with and give notice to the mutual fund and corresponding asset management company on Customer’s behalf." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. To instruct the mutual fund and/or the corresponding asset management company to make note of instructions with regards to nomination /changes in investment plan/any other changes." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XII INSTRUCTIONS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. All instructions for accessing the Bank Of Baroda WMS platform and/ or availment of Service(s) shall be
+given, through computer, mobile phones or any other medium/channel enabled by Bank Of Baroda for the purpose, by the Customer in the manner indicated by Bank Of Baroda.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Units purchased through Bank Of Baroda WMS Platform shall be redeemed through Bank Of Baroda WMS Platform, or in any other manner as may be acceptable to the Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. The Customer is also responsible for the accuracy and authenticity of the instructions provided to Bank Of Baroda and the same shall be considered to be sufficient to operate / access the Bank Of Baroda WMS platform and/or avail/ effect Service(s) through the same." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Bank Of Baroda has no liability or obligation to keep a record of the instructions of the Customer or for verifying the Customer's instructions." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. Bank Of Baroda may refuse to act on any instruction unless they are given in a manner and form acceptable to Bank Of Baroda and in accordance with Bank Of Baroda's policy. However Bank Of Baroda shall have no responsibility to determine the authenticity of any instruction given or purported to be given by the Customer. Nor shall the Customer hold the Bank liable on account of bank acting in good faith on any of his/her instructions." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. Bank Of Baroda may refuse to comply with the instructions without assigning any reason and shall not be under any duty to assess the prudence or otherwise of any instruction and have the right to suspend the operations through the Bank Of Baroda WMS platform if it has reason to believe that Customer's instructions will lead or expose Bank Of Baroda to direct or indirect loss or may require an indemnity from the Customer before continuing to operate Bank Of Baroda WMS platform Service(s)." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. Any instruction, order, direction, request entered using the recognized mode of verification and
+authentication of the Customer shall be deemed to be an instruction, order, directive, request received
+from him/her. All instructions, requests, directives, orders, directions, entered by the Customer, either
+electronically or otherwise are based upon the Customer's decisions or are the sole responsibility of the Customer.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. Bank Of Baroda may at its discretion not carry out my instructions where the bank has reasons to believe (which decision of the Bank I shall not question or dispute) that the instructions are not genuine or are otherwise improper or unclear or raise a doubt. Bank Of Baroda shall not be liable if any instructions are not carried out for any reasons whatsoever." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. The Customer understands that providing an instruction, direction, order, request to Bank Of Baroda, either electronically or otherwise, does not guarantee execution of such instruction, direction, order or
+request. Bank Of Baroda shall not be deemed to have received any instruction, direction, order or request
+electronically transmitted by the Customer until it confirms the receipt of such instruction, direction,
+order or request.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. Bank Of Baroda needs to receive clear instructions from the Customer to induce the bank to effect fund transfer activities on his/her behalf. The Customers shall agree to indemnify Bank Of Baroda against any improper/fraudulent fund transfer instruction purported to be received from him/her. The Bank shall not be obliged to accept from the Customer any oral or facsimile instructions. In order to, however, induce the bank to act upon communications and instructions transmitted by manual procedures (Facsimile, Mail, messenger, Telephone call centre) the Customer shall irrevocably agree that, absent Bank Of Baroda(s) gross negligence, bad faith or willful misconduct, as long as Bank Of Baroda acts in Compliance with such authorisation / instruction, Bank Of Baroda shall be indemnified for and held free and harmless from and against any and all responsibility for, any and all costs, claims, losses or liabilities of any nature (Direct or Indirect) resulting from any act of omission (or any delay) in response to instructions to the Bank to transfer or purchase, sell or otherwise dispose off commodities or securities, together with any and all attendant costs and expenses including Bank Of Baroda(s) reasonable legal fees and expenses, collectively referred to as losses. The Customer shall acknowledge that the security and the control procedures provided by Bank Of Baroda are designed to verify the source the communication and not to detect errors in transmission or content including discrepancies between names and account numbers and that the Bank, or any intermediary, may execute an instruction by reference account number only, even if the name on the account is also provided. Nothing contain herein shall require Bank Of Baroda to violate any applicable laws, rules or the procedures/Instructions. Bank Of Baroda shall have no further duty to verify the content of any instruction and communications, whether or not authorised, sent in its name and accepted by Bank Of Baroda. Bank Of Baroda will process the transaction instruction as it is received and will not validate the same for holdings, correctness of transaction and any other information." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XII CUSTOMER DATA" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer is responsible for the correctness of information supplied to Bank Of Baroda for access /use of the Bank Of Baroda WMS platform and/or availment of Services through any other means such as electronic mail or written communication. Bank Of Baroda accepts no liability for the consequences arising out of erroneous information supplied by the Customer. If the Customer notices an error in the information supplied to Bank Of Baroda either in the application form or any other communication, he shall immediately intimate Bank Of Baroda about the same and Bank Of Baroda shall endeavour to correct the error wherever possible on a reasonable efforts basis." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Information about performance of the fund, risk return details etc. displayed on this Bank Of Baroda WMS
+platform are sourced from a third party and Bank Of Baroda is not responsible for the accuracy of this information. Bank Of Baroda cannot be held liable for any losses incurred due to reliance on such information.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XIV LIABILITY OF USER AND Bank Of Baroda" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Neither Bank Of Baroda nor its Affiliates shall be held responsible/liable for any unauthorized transactions occurring through the access / use of the Bank Of Baroda WMS platform and/or availment of Services and the Customer hereby fully indemnifies and holds Bank Of Baroda and the Affiliates harmless against any action, suit, proceeding initiated against it or any loss, cost or damage incurred by it as a result thereof." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Bank Of Baroda shall under no circumstance be held liable to the Customers if the access to the Bank Of Baroda WMS platform and/or Services is not available in the desired manner for reasons beyond
+the control of Bank Of Baroda including but not limited to natural calamities, legal restraints, and faults in the telecommunication network or network failure.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Under no circumstances shall Bank Of Baroda be liable for any damages whatsoever whether such damages are direct, indirect, incidental consequential and irrespective of whether any claim is based on loss of revenue, interruption of business or any loss of any character or nature whatsoever and whether sustained by Customer or by any other person pursuant to the use of Bank Of Baroda WMS product/Service(s)." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Illegal or improper use of Bank Of Baroda WMS platform and/or Services shall render the Customer liable for
+payment of financial charges as decided by Bank Of Baroda and/or will result in suspension of the operations through the platform.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. The processing and/or rejection of any transaction initiated by the Customer is at the sole discretion of the RTA AMC and Bank Of Baroda shall not be held liable for any claims related to or arising out of the same." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. Bank Of Baroda cannot be held liable / responsible for any delay in crediting funds back to the Registered Account of the Customers for any transaction rejected by RTA/AMC." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. Bank Of Baroda shall not in the absence of gross negligence on Bank Of Baroda's part, be liable to me for any act, omission or delay by the mutual fund or for any claims which the Customer may suffer or incur as a result of or in course or discharge by the Bank of its nominees, agents, officers or sub custodian of Bank Of Baroda's duties." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. Without prejudice to what is stated above, Bank Of Baroda shall not be held liable for of by reason of any loss or damage or failure to comply or delay in complying with its obligations under these terms and conditions which is caused directly or indirectly by any event or circumstances beyond Bank Of Baroda's reasonable control. These include system failures, network errors, delay or loss of data due to the above and in circumstances of acts of God, floods, epidemics, quarantine, riot or civil commotion and war." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ix. The Customer further agrees to indemnify Bank Of Baroda for any loss that may arise as a result of system failure, accident or any of the reasons mentioned above." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x. Bank Of Baroda shall not be liable for and the Customer shall indemnify Bank Of Baroda for any Losses, damages, expenses, costs, liabilities and claims of whatsoever nature caused by fraudulent or unauthorised use of my signatures." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xi. Bank Of Baroda will not be liable for any error or inaccuracies for any of the publicly available information that may be provided to the Customer by Bank Of Baroda." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xii. Bank Of Baroda shall be under no duty to verify compliance with any restrictions on the Customer’s investment powers." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xiii. Bank Of Baroda will not be liable for any loss, damage, cost, charges or expenses directly or indirectly caused by reasons of any defects or imperfections or mechanical or other failure with relation to computer, cable, telex, telephone or postal system." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XV POWER OF Bank Of Baroda" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer shall authorise Bank Of Baroda to exercise the following powers on his/her behalf at such time in such manner as Bank Of Baroda may in its discretion think fit for the purpose of performing its powers, duties and responsibilities set out hereunder." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. To do or omit to do all such and things as Bank Of Baroda may in its discretion consider to be necessary or desirable in order to perform its duties hereunder or to comply with any laws, orders, rules, regulations or directions of any Government or regulatory or other authorities." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Appoint on the Customer’s behalf any agents /nominees/sub-custodian or any other person for doing any acts or deeds hereunder including the keeping of Debentures in safe custody." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Generally to employ agents/attorneys, brokers dealers and managers on the Customer’s behalf." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XVI ROLE OF THE BANK" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer shall expressly agree and acknowledge that any information contained in Bank Of Baroda's Brochures or other materials or otherwise communicated by Bank Of Baroda shall not be constructed by the Customer as investment and that all decisions to purchase or sell units/securities made by the Customer shall be on the basis of his/her own personal judgment arrived at after due consideration. The Customer shall also understand and agree that Bank Of Baroda does not in any manner:" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Provide any Buy /sell or other recommendations; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Guarantee payments on any units; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Guarantee of liquidity of any units; or!" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. Make any offer to buy back any units; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v. Guarantee the redemption or repayment of any units on maturity; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vi. Guarantee the payments of interest or dividend; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vii. Promise, indicate or guarantee any returns; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viii. Guarantee any good delivery." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. If notwithstanding anything stated herein Bank Of Baroda or any employee of Bank Of Baroda gives any advice or representation to the Customer, Bank Of Baroda shall have no liability for any such advice or representation made, as it will be the Customer’s responsibility to make an independent assessment." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. The Customer shall also understand that any sum invested through Bank Of Baroda WMS portal is not a deposit with the Bank and is not bank insured. The same is not endorsed or guaranteed and does not constitute obligations of Bank Of Baroda or any of the subsidiaries associated or affiliated companies whose role in only as described in these terms and conditions. The securities purchased are subject to investment risks, including the possible loss of principal amount invested. The value of the units/securities held by the Customer will fluctuate. If the Customer redeem his/her units/shares, he/she may receive more or less than he/she paid depending upon market value of the securities in the fund or trust at the time of redemption. Past results are not a guarantee to future performance. Yield or performance fluctuates and reflects past results. Yield or funds past performance should not be considered as an indication or guarantee of future yields or results." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XV DISCLAIMER OF WARRANTIES" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer expressly agrees that the access / use of the Bank Of Baroda WMS platform and/or availment of Services are at his/her sole risk. The Bank Of Baroda WMS platform and related Services are provided on an as is and as available basis." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Except as warranted in Terms, Bank Of Baroda expressly disclaims all warranties of any kind, whether express or implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, data accuracy and completeness, and any warranties relating to non-infringement in Bank Of Baroda WMS/ Services." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Bank Of Baroda does not warrant that access to Website, Bank Of Baroda WMS and/or Services shall be uninterrupted, timely, secure, or error free nor does it make any warranty as to the results that may be obtained from the Website and/or Bank Of Baroda WMS or use, accuracy or reliability of the Bank Of Baroda WMS platform and/or Services. Bank Of Baroda does not warrant and shall not be responsible for any delay in carrying on the instructions due to any reason whatsoever, including due to failure of operational systems, technical issues or any requirement of law." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XVI INDEMNITY" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. In consideration of Bank Of Baroda providing access to the Bank Of Baroda WMS platrorm and/or Services, the Customer shall, at his own expense, indemnify and hold Bank Of Baroda, its directors and employees, representatives, agents and/or the Affiliates, as the case may be, indemnified against all losses and expenses on full indemnity basis which Bank Of Baroda may incur, sustain, suffer or is likely to suffer in connection with Bank Of Baroda's or Affiliates' execution of the Customer's instructions and against all actions, claims, demands, proceedings, losses, damages, costs, charges and expenses as a consequence or by reason of providing Service through the Bank Of Baroda WMS platform, for any action taken or omitted to be taken by Bank Of Baroda and or the Affiliates, its officers, employees or agents, on the instructions of the Customer. The Customer will pay Bank Of Baroda and or the Affiliates such amount as may be determined by Bank Of Baroda and/or the Affiliates to be sufficient to indemnify it against any such, loss or expenses even though they may not have arisen or are contingent in nature." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Further, the Customer agrees, at its own expense, to indemnify, defend and hold harmless Bank Of Baroda, its directors and employees, representatives, agents, and its Affiliates against any claim, suit, action or other proceeding brought against Bank Of Baroda, its directors and employees, representatives, agents, and Affiliates by a third party, to the extent that such claim, suit, action of other proceeding brought against Bank Of Baroda, its directors and employees, representatives, agents, and Affiliates is based on or arises in connection with:!" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. a violation of Terms contained herein, the Order Confirmation Terms and Risk Profiler Terms by the Customer;"/>
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. any deletions, additions, insertions or alterations to, or any unauthorized use of / access to Bank Of Baroda WMS/ Service(s), by the Customer;" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. any misrepresentation or breach of representation or warranty made by the Customer contained herein; or" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. any breach of any covenant or obligation to be performed by the Customer hereunder." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. The Customer agrees to pay any and all costs, damages and expenses, including, but not limited to,
+reasonable attorneys' fees and costs awarded against it or otherwise incurred by or in connection with or arising from any such claim, suit, and action or proceeding attributable to any such claim.
+iv. The Customer hereby agrees that under all circumstances, Bank Of Baroda's total aggregate liability for claims relating to Bank Of Baroda's obligations contemplated under these Terms, whether for breach or in tort (including but not limited to negligence) shall be limited to the transaction charges/fees or consideration paid by User within the previous twelve (12) months for use of / access to Bank Of Baroda WMS / availing Service(s), excluding any amount paid towards transactions.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•	Power packu create wealth!" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="XVII DISCLOSURE OF INFORMATION" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer agrees that Bank Of Baroda and/or its Affiliates or their contractors may hold and process his/her personal information and all other information concerning his Account(s) on computer, mobile
+phones or otherwise in connection with the use of / access to the Bank Of Baroda WMS platform /availing
+Service(s) as well as for analysis, credit scoring and marketing.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer also agrees that Bank Of Baroda may disclose, in strict confidence, to other institutions, such personal information as may be reasonably necessary for reasons inclusive of but not limited to participation in any telecommunication or electronic clearing network, in compliance with a legal directive, for credit rating by recognized credit scoring agencies, or for fraud prevention purposes." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. Section 3 of Information Technology Act, 2000 prescribes the procedure for authentication of electronic records, which states that a subscriber may authenticate an electronic record by affixing his digital signature and Section 5 provides legal recognition to digital signature for authentication of electronic records. However, Bank Of Baroda has adopted the mode of authentication of Customer by means of verification of Bank Of Baroda Mobile App Mpin and Password, Debit Card PIN, Internet Banking User ID and password allotted by Bank Of Baroda to Customer or through any other mode of verification as may be stipulated at the discretion of Bank Of Baroda, which are not recognized under Information Technology Act, 2000 for authentication of electronic records. Therefore, the Customer is solely responsible to maintain the secrecy and confidentiality of the Bank Of Baroda Mobile login details / Debit Card details/Internet Banking login details without any liability of Bank Of Baroda in this regard." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XVIII CHANGE OF TERMS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda shall have the absolute discretion to amend or supplement any of Terms, Primary Terms and Conditions, Risk Profiler Terms, Order Confirmation Terms or any other applicable terms any time and shall give prior notice of one month by hosting the same on Website, Bank Of Baroda WMS platform or in any other manner as decided by Bank Of Baroda The Customer shall be responsible for regularly reviewing these Terms, Primary Terms and Conditions, Risk Profiler Terms, Order Confirmation Terms and other terms including amendments thereto as may be posted on Website and/or the Bank Of Baroda WMS platform. Such amended Terms, Primary Terms and Conditions, Risk Profiler Terms, Order Confirmation Terms and other terms will thereupon apply to and be binding on the Customer at the expiry of one month from the date of notice." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. If in the opinion of the Customer, the changes are to his/her disadvantage, he/she may opt to close the
+Account and/or discontinue with Service(s), without paying any extra charges or interest, at any time up to two months from the date of the notice by intimating Bank Of Baroda of the same.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. By using any new Services as may be introduced by Bank Of Baroda, the Customer shall be deemed to have
+accepted the changed Terms and additional terms and conditions stipulated by Bank Of Baroda.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XIX NON-TRANSFERABILITY" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The grant of access to the Bank Of Baroda WMS platform to the Customer is not transferable under any circumstance and shall be used only by the Customer." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX TERMINATION"
+            android:textAllCaps="true"/>
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda or the Customer may terminate the aforesaid services by giving 30 days prior notice in writing to the other party provided that the Customer shall not be relieved of his/her obligations hereunder notwithstanding such termination incurred prior to the date on which such termination shall become effective." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXI CORRESPONDENCE"
+            android:textAllCaps="true"/>
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Any notice or other correspondence addressed by the Bank to the customer may be addressed to the first holder above at the address given by the Customer or to such address as the bank may be aware. If according to the Customer there is any discrepancy in the particulars or details of any transaction or account of statement then the Customer shall be obliged to intimate the same to the Bank in writing in 10 days of the first holder receiving notice thereof, failing which such transaction, statement or account (as the case may be) shall be deemed to be correct and accepted by the Customer and he/she shall not be entitled to question the correctness or accuracy thereof." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXII GOVERNING LAWS"
+            android:textAllCaps="true"/>
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. All disputes and differences arising out of, under or in connection with these terms and conditions or anything done hereunder shall be within the exclusive jurisdiction only to the courts of Mumbai. Further these terms and conditions are subject to and shall be construed in accordance with the laws prevalent in India." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="XXIII APPLICABILITY OF FUTURE ACCOUNTS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda and the Customer agree that if the Customer opens further Accounts with/subscribes to any of the products/services of Bank Of Baroda or any of the Affiliates, and Bank Of Baroda extends the access to the Bank Of Baroda WMS platform/ Services to such Accounts or products or services and the Customer opts for use thereof, then the Terms shall automatically apply to such further use access by the Customer." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXIV GENERAL"
+            android:textAllCaps="true"/>
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The clause headings herein are for convenience only and do not affect the meaning of the relative clause.
+Bank Of Baroda may sub-contract and employ agents to carry out any of its obligations under this contract. The Customer would have to ensure that the equipment used for availing of Services / accessing the Bank Of Baroda WMS platform meets the criteria as may be specified by Bank Of Baroda from time to time. All costs incurred by the Customer including telecommunication costs to access the Bank Of Baroda WMS platform / avail Service/s would be borne by the Customer.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•ii. As a tool to correct misunderstandings and for internal training purpose, the Customer understands, agrees and authorizes Bank Of Baroda, at its discretion, and without further prior notice to the Customer, to monitor and record any or all telephone conversations or electronic communications between the Customer and Bank Of Baroda and any of its employees or agents." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. These Terms along with Risk Profiler Terms and Order Confirmation Terms contain Bank Of Baroda's entire arrangement (except as otherwise expressly provided herein) and supersede and replace any previously made proposals, representations, understandings and agreements, express or implied, either oral or in writing between the Customer and Bank Of Baroda. No third party will have any rights or claims under these Terms." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXV ASSIGNMENT" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda shall be entitled to sell, assign, securitize or transfer Bank Of Baroda's right and obligations under these Terms and any security being in favour of Bank Of Baroda (including all guarantee/s) to any person of Bank Of Baroda's choice in whole or in part and in such manner and on such terms and conditions as Bank Of Baroda may decide. Any such sale, assignment securitization or transfer shall conclusively bind the Customer and all other persons. The Customer, his legal heirs, legal representatives, executors, administrators and successors are bound by the Terms. Bank Of Baroda may sub-contract and employ agents to carry out any of its obligations under this contract. However, the Customer shall not be entitled to transfer or assign any of his rights and obligations hereunder." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXVI RIGHT OF LIEN AND SET OFF" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda will have charge and right of Lien and set off on the Customer’s securities /units in its possession or custody and all monies standing to his/her credit with or in any account in any branch of the bank (whether in the Customer’s sole name or jointly with any other or others) for all sums due or payable by the Customer to the Bank hereunder. In the event of default on part of the Customer in discharging his/her obligations to the Bank hereunder, the Bank shall be entitled to enforce the charge by sale of such units/securities and to appropriate the net proceeds or any credit balance aforesaid in Liquidations of the Customer’s liabilities to the Bank." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXVII STATEMENT OF ACCOUNT" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. The Customer shall agree and acknowledge that the Asset Management Company (Mutual Fund) shall regularly send to him/her (only to first holder) communications like Account Statements, fund updates etc." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXVIII THIRD PARTY RISK" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda shall not be liable for any loss or damage caused by reason of failure or delay of mutual fund to deliver any units purchased even though payment have been made for the same or failure or delay in making payment in respect of any sold though they may have been Delivered and the Customer shall save Bank Of Baroda harmless and free from any claim in respect thereof. Bank Of Baroda shall also not be liable for any delay, failure or refusal of the mutual fund/any company/corporation or other body in registering or transferring units to the Customer’s names of for any interest, dividend or other loss caused to the Customer arising therefrom." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXVII PROPRIETARY RIGHTS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda shall make reasonable efforts to advise from time to time about the internet related software such as browser and/or operating systems, which are required for availing of Service(s) and/or accessing the Bank Of Baroda WMS platform. There will be no obligation on Bank Of Baroda to support all or any versions of Internet software and may be required for offering Service(s)/ providing access to the platform. The Customer acknowledges that the underlying software and other internet related software which are required for accessing Bank Of Baroda WMS / availing services is the legal properties of the respective vendors. The permission given by Bank Of Baroda to access Bank Of Baroda WMS/ avail services will not convey any proprietary or ownership rights in such software. The Customer shall not attempt to modify, translate, disassemble, decompile or reverse engineer the underlying software or create any derivative product based on the software." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. “Bank Of Baroda” and “Bank Of Baroda WMS” logo are trademarks and property of Bank Of Baroda Limited. Infringement of any intellectual property is strictly prohibited." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXVIII COMMUNICATION THROUGH ELECTRONIC MEANS" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Documents sent by electronic delivery will contain all the information as it appears in the printed hard copy version as prepared and distributed by the originator, with the possible exception of graphic insertions such as photographs or logotypes. Electronic delivery may be in the form of an electronic mail, an attachment to the electronic mail, or in the form of an available download from Website or the Bank Of Baroda WMS platform. Bank Of Baroda would be deemed to have fulfilled its legal obligation to deliver to the Customer any document if such document is sent via electronic means of communication. Failure to advise Bank Of Baroda of any difficulty in opening a document so delivered within twenty-four (24) hours
+after delivery shall serve as an affirmation regarding the acceptance of the document.
+" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXIX APPLICABLE NET ASSET VALUE (NAV)" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. For purchase transactions initiated prior to 12 noon, units would be allotted on the basis of the previous day’s NAV." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. For redemptions and switch out transactions initiated prior to 12 noon, units would be redeemed/switched on the basis of the same day NAV." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. Non-liquid Fund Schemes" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. For purchase transactions initiated prior to 1: 30 pm, units would be allotted on the basis of the same day’s NAV." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. For redemptions and switch out transactions initiated prior to 1: 30 pm, units would be redeemed/switched on the basis of the same day NAV." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXX DISCLAIMER" />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Bank Of Baroda may, at its sole discretion, utilize the services of external service provider/s or agent/s and on such terms as required or necessary, in relation to its products/services." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ii. The Customer shall acknowledge that Bank Of Baroda Limited has disclosed to him/her all the commissions (in the form of trail commission or any other mode), payable to them for the different competing Schemes of various Mutual Funds from amongst which the Scheme is being recommended to him/her." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iii. In terms of SEBI circular no. SEBI/IMD/CIR No.4/ 168230/09 dated June 30, 2009, no entry load will be charged by the Scheme to the investor effective August 1, 2009. Upfront commission shall be paid directly by the investor to the AMFI registered Distributors based on the investors’ assessment of various factors including the service rendered by the distributor." />
+        <TextView
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:padding="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iv. MF Investment Service Fee is “NIL” and no transaction fee will be charged from the customer*.
+Please check this box to confirm acceptance of the above terms and conditions. By checking this box and clicking on PROCEED button below, the account holder signifies consent to the above terms and conditions, which shall be applicable to Online Instructions entered by the account holder from time to time.
+" />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_20sdp">
+
+
+            <TextView
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_inner_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"/>
+
+
+            <TextView
+                android:id="@+id/txtNext"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_inner_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"/>
+
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

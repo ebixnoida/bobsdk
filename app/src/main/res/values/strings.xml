@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">BOBApp</string>
+    <string name="investment_cart">Investment Cart</string>
+    <string name="risk_profile">Risk Profile</string>
+    <string name="buy">Buy</string>
+    <string name="sip">SIP</string>
+    <string name="sip_">SIP -</string>
+    <string name="redeem">Redeem</string>
+    <string name="redeem_">Redeem -</string>
+    <string name="switch_">Switch</string>
+    <string name="switchs">Switch -</string>
+    <string name="swp">SWP</string>
+    <string name="swp_">SWP -</string>
+    <string name="stp">STP</string>
+    <string name="stp_">STP -</string>
+    <string name="buy_">Buy -</string>
+    <string name="investment_account">Investment Account</string>
+    <string name="bank_account">Bank Account</string>
+    <string name="execute_transaction">Execute Transaction</string>
+    <string name="save">Save</string>
+    <string name="pan_no">Pan No.* </string>
+    <string name="name">Name * </string>
+    <string name="dob">Date Of Birth * </string>
+    <string name="father_husband">Father\'s or Husband\'s Name * </string>
+    <string name="mother_maiden">Mother\'s Maiden Name * </string>
+    <string name="nationality">Nationality * </string>
+    <string name="gender">Gender * </string>
+    <string name="maritel_status">Marital Status * </string>
+    <string name="email">Email * </string>
+    <string name="mobile">Mobile * </string>
+    <string name="address_type">Address Type * </string>
+    <string name="address_line_1">Address Line 1 * </string>
+    <string name="address_line_2">Address Line 2 * </string>
+    <string name="address_line_3">Address Line 3 * </string>
+    <string name="city">City * </string>
+    <string name="state">State * </string>
+    <string name="pin">Pin * </string>
+    <string name="country">Country * </string>
+    <string name="birth_country">Birth Country * </string>
+    <string name="fatca_declaration">Fatca Declaration </string>
+    <string name="birth_place">Birth Place * </string>
+    <string name="occupation">Occuptaion * </string>
+    <string name="politically_exposed">Politically Exposed * </string>
+    <string name="gross_income">Gross Annual Income * </string>
+    <string name="wealth_source">Wealth Source * </string>
+    <string name="current_net">Current Net Worth(INR) * </string>
+    <string name="add_nominee">Add Nominee * </string>
+    <string name="enter_pan_no">please enter pan number</string>
+    <string name="enter_name">please enter name</string>
+    <string name="enter_dob">please enter date of birth</string>
+    <string name="enter_husband">please enter father\'s or husband\'s name</string>
+    <string name="enter_mother">please enter mother\'s maiden name</string>
+    <string name="enter_email">please enter email id</string>
+    <string name="enter_mobile">please enter mobile number</string>
+    <string name="enter_address">please enter address</string>
+    <string name="enter_pin_code">please enter pin code</string>
+    <string name="enter_birth_place">please enter birth place</string>
+    <string name="enter_inr">please enter current net worth</string>
+    <string name="tell_us">Tell us About Yourself</string>
+    <string name="help_us">It will help us personalize your portfolio recommendations.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
