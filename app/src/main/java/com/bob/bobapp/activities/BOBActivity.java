@@ -109,20 +109,31 @@ public class BOBActivity extends BaseActivity {
 
         context = this;
 
+        util = new Util(context);
+
         getId();
 
         initialization();
 
+        handleListeners();
+
+        setIcons(util);
+
         authenticateUser();
     }
 
-    @Override
-    public void setIcon(Util util) {
+    public void setIcons(Util util) {
 
         FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
         FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
         FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
         FontManager.markAsIconContainer(tvMenu, util.iconFont);
+    }
+
+    @Override
+    public void setIcon(Util util) {
+
+
     }
 
     public void getId() {
@@ -139,13 +150,17 @@ public class BOBActivity extends BaseActivity {
         drawerMenuView = (LinearLayout) findViewById(R.id.drawerMenuLLayout);
     }
 
-    @Override
-    public void handleListener() {
+    public void handleListeners() {
         llMenu.setOnClickListener(this);
         tvUsername.setOnClickListener(this);
         tvUserHeader.setOnClickListener(this);
         tvCartHeader.setOnClickListener(this);
         tvBellHeader.setOnClickListener(this);
+    }
+
+    @Override
+    public void handleListener() {
+
     }
 
     public void initialization() {
