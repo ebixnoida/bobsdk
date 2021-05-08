@@ -160,6 +160,18 @@ public class BOBActivity extends BaseActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 
+    @Override
+    public void initializations() {
+
+
+    }
+
+    @Override
+    public void getIds() {
+
+
+    }
+
 
     private void setAdapter() {
 
