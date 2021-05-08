@@ -76,15 +76,10 @@ public class ExploreMoreListAdapter extends RecyclerView.Adapter<ExploreMoreList
         @Override
         public void onClick(View view) {
 
-            switch (view.getId()){
+            if (view.getId() == R.id.item) {
+                Intent intent = new Intent(context, DiscoverFundsActivity.class);
 
-                case R.id.item:
-
-                    Intent intent= new Intent(context, DiscoverFundsActivity.class);
-
-                    context.startActivity(intent);
-
-                    break;
+                context.startActivity(intent);
             }
         }
     }

@@ -304,58 +304,35 @@ public class DashboardFragment extends BaseFragment {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        int id = view.getId();
+        if (id == R.id.existingPortfolio) {
+            ((BOBActivity) getActivity()).setTransactTab();
+        } else if (id == R.id.llAmount) {
+            Intent intent = new Intent(getActivity(), HoldingsActivity.class);
 
-            case R.id.existingPortfolio:
+            startActivity(intent);
+        } else if (id == R.id.startNow || id == R.id.cvNewFund) {
+            Intent intentDiscoverFunds = new Intent(getActivity(), DiscoverFundsActivity.class);
 
-                ((BOBActivity) getActivity()).setTransactTab();
+            startActivity(intentDiscoverFunds);
+        } else if (id == R.id.img_right_arrow) {
+            currentIndex = currentIndex + 1;
 
-                break;
+            if (currentIndex < clientHoldingObjectArrayList.size() - 1) {
 
-            case R.id.llAmount:
+                setData(currentIndex);
 
-                Intent intent = new Intent(getActivity(), HoldingsActivity.class);
+            } else {
 
-                startActivity(intent);
+                currentIndex = 0;
 
-                break;
+                setData(currentIndex);
+            }
+        } else if (id == R.id.btn_re_access_risk_profile) {
+            callRMDetailAPI();
 
-            case R.id.startNow:
-
-            case R.id.cvNewFund:
-
-                Intent intentDiscoverFunds = new Intent(getActivity(), DiscoverFundsActivity.class);
-
-                startActivity(intentDiscoverFunds);
-
-                break;
-
-            case R.id.img_right_arrow:
-
-                currentIndex = currentIndex + 1;
-
-                if(currentIndex < clientHoldingObjectArrayList.size() - 1) {
-
-                    setData(currentIndex);
-
-                }else{
-
-                    currentIndex = 0;
-
-                    setData(currentIndex);
-                }
-
-                break;
-
-            case R.id.btn_re_access_risk_profile:
-
-                callRMDetailAPI();
-
-                Intent intents=new Intent(getContext(), RiskProfileActivity.class);
-                startActivity(intents);
-
-                break;
-
+            Intent intents = new Intent(getContext(), RiskProfileActivity.class);
+            startActivity(intents);
         }
     }
 

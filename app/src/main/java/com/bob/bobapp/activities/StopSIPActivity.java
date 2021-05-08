@@ -170,31 +170,21 @@ public class StopSIPActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
-
-
-            case R.id.llBuy:
-
-                buy.setTextColor(getResources().getColor(R.color.black));
-                swp.setTextColor(getResources().getColor(R.color.colorGray));
-                viewBuy.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                viewSWP.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                adapter.updateList(sipArrayList);
-
-                break;
-
-
-            case R.id.llSWP:
-
-                buy.setTextColor(getResources().getColor(R.color.colorGray));
-                swp.setTextColor(getResources().getColor(R.color.black));
-                viewBuy.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                viewSWP.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                adapter.updateList(stpArrayList);
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.llBuy) {
+            buy.setTextColor(getResources().getColor(R.color.black));
+            swp.setTextColor(getResources().getColor(R.color.colorGray));
+            viewBuy.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            viewSWP.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            adapter.updateList(sipArrayList);
+        } else if (id == R.id.llSWP) {
+            buy.setTextColor(getResources().getColor(R.color.colorGray));
+            swp.setTextColor(getResources().getColor(R.color.black));
+            viewBuy.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            viewSWP.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            adapter.updateList(stpArrayList);
         }
 
     }

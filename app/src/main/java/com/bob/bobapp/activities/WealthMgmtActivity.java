@@ -570,33 +570,22 @@ public class WealthMgmtActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.menu: {
-                onBackPressed();
-                break;
+        int id = v.getId();
+        if (id == R.id.menu) {
+            onBackPressed();
+        } else if (id == R.id.txtCancel) {
+            onBackPressed();
+        } else if (id == R.id.txtNext) {
+            String result = validationForm();
+            if (result.equalsIgnoreCase("success")) {
+                CallClientCreationActivationApi();
+            } else {
+                Toast.makeText(WealthMgmtActivity.this, result, Toast.LENGTH_SHORT).show();
             }
-            case R.id.txtCancel: {
-                onBackPressed();
-                break;
-            }
-            case R.id.txtNext: {
-
-                String result = validationForm();
-                if (result.equalsIgnoreCase("success")) {
-                    CallClientCreationActivationApi();
-                } else {
-                    Toast.makeText(WealthMgmtActivity.this, result, Toast.LENGTH_SHORT).show();
-                }
-                break;
-            }
-            case R.id.edtDateOfBirth: {
-                onDateCalendar();
-                break;
-            }
-            case R.id.edtNomineeDob: {
-                onDateCalendar1();
-                break;
-            }
+        } else if (id == R.id.edtDateOfBirth) {
+            onDateCalendar();
+        } else if (id == R.id.edtNomineeDob) {
+            onDateCalendar1();
         }
     }
 

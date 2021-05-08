@@ -166,124 +166,106 @@ public class InvestmentCartActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.linearSIP: {
-                txtTranCount.setText(investmentCartCountResponseArrayList.get(1).getTranCount() + " " + "Funds");
+        int id = v.getId();
+        if (id == R.id.linearSIP) {
+            txtTranCount.setText(investmentCartCountResponseArrayList.get(1).getTranCount() + " " + "Funds");
 
-                txtInvestmentTab.setText(R.string.sip_);
-                viewSip.setBackgroundColor(Color.parseColor("#f57222"));
-                viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            txtInvestmentTab.setText(R.string.sip_);
+            viewSip.setBackgroundColor(Color.parseColor("#f57222"));
+            viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
 
-                recyclerBuy.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.GONE);
-                recyclerSIP.setVisibility(View.VISIBLE);
-                linearBankDetail.setVisibility(View.VISIBLE);
-                recyclerSWP.setVisibility(View.GONE);
-                recyclerSTP.setVisibility(View.GONE);
-                break;
-            }
-            case R.id.linearBuy: {
-                txtTranCount.setText(investmentCartCountResponseArrayList.get(0).getTranCount() + " " + "Funds");
-                txtInvestmentTab.setText(R.string.buy_);
-                viewBuy.setBackgroundColor(Color.parseColor("#f57222"));
-                viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            recyclerBuy.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.GONE);
+            recyclerSIP.setVisibility(View.VISIBLE);
+            linearBankDetail.setVisibility(View.VISIBLE);
+            recyclerSWP.setVisibility(View.GONE);
+            recyclerSTP.setVisibility(View.GONE);
+        } else if (id == R.id.linearBuy) {
+            txtTranCount.setText(investmentCartCountResponseArrayList.get(0).getTranCount() + " " + "Funds");
+            txtInvestmentTab.setText(R.string.buy_);
+            viewBuy.setBackgroundColor(Color.parseColor("#f57222"));
+            viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
 
-                recyclerBuy.setVisibility(View.VISIBLE);
-                recyclerSIP.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.GONE);
-                linearBankDetail.setVisibility(View.VISIBLE);
-                recyclerSWP.setVisibility(View.GONE);
-                recyclerSTP.setVisibility(View.GONE);
+            recyclerBuy.setVisibility(View.VISIBLE);
+            recyclerSIP.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.GONE);
+            linearBankDetail.setVisibility(View.VISIBLE);
+            recyclerSWP.setVisibility(View.GONE);
+            recyclerSTP.setVisibility(View.GONE);
+        } else if (id == R.id.linearRedeem) {
+            txtInvestmentTab.setText(R.string.redeem_);
+            viewRedeem.setBackgroundColor(Color.parseColor("#f57222"));
+            viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            linearBankDetail.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.VISIBLE);
+            recyclerBuy.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.GONE);
+            recyclerSIP.setVisibility(View.GONE);
+            recyclerSWP.setVisibility(View.GONE);
+            recyclerSTP.setVisibility(View.GONE);
+        } else if (id == R.id.linearSwitch) {
+            txtInvestmentTab.setText(R.string.switchs);
+            viewSwitch.setBackgroundColor(Color.parseColor("#f57222"));
+            viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            linearBankDetail.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.GONE);
+            recyclerBuy.setVisibility(View.GONE);
+            recyclerSIP.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.VISIBLE);
+            recyclerSWP.setVisibility(View.GONE);
+            recyclerSTP.setVisibility(View.GONE);
+        } else if (id == R.id.linearSWP) {
+            txtInvestmentTab.setText(R.string.swp_);
+            viewSWP.setBackgroundColor(Color.parseColor("#f57222"));
+            viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
 
-                break;
-            }
-            case R.id.linearRedeem: {
-                txtInvestmentTab.setText(R.string.redeem_);
-                viewRedeem.setBackgroundColor(Color.parseColor("#f57222"));
-                viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                linearBankDetail.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.VISIBLE);
-                recyclerBuy.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.GONE);
-                recyclerSIP.setVisibility(View.GONE);
-                recyclerSWP.setVisibility(View.GONE);
-                recyclerSTP.setVisibility(View.GONE);
-                break;
-            }
-            case R.id.linearSwitch: {
-                txtInvestmentTab.setText(R.string.switchs);
-                viewSwitch.setBackgroundColor(Color.parseColor("#f57222"));
-                viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                linearBankDetail.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.GONE);
-                recyclerBuy.setVisibility(View.GONE);
-                recyclerSIP.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.VISIBLE);
-                recyclerSWP.setVisibility(View.GONE);
-                recyclerSTP.setVisibility(View.GONE);
-                break;
-            }
-            case R.id.linearSWP: {
-                txtInvestmentTab.setText(R.string.swp_);
-                viewSWP.setBackgroundColor(Color.parseColor("#f57222"));
-                viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSTP.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            linearBankDetail.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.GONE);
+            recyclerBuy.setVisibility(View.GONE);
+            recyclerSIP.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.GONE);
+            recyclerSWP.setVisibility(View.VISIBLE);
+            recyclerSTP.setVisibility(View.GONE);
+        } else if (id == R.id.linearSTP) {
+            txtInvestmentTab.setText(R.string.stp_);
+            viewSTP.setBackgroundColor(Color.parseColor("#f57222"));
+            viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
+            viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
 
-                linearBankDetail.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.GONE);
-                recyclerBuy.setVisibility(View.GONE);
-                recyclerSIP.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.GONE);
-                recyclerSWP.setVisibility(View.VISIBLE);
-                recyclerSTP.setVisibility(View.GONE);
-                break;
-            }
-            case R.id.linearSTP:
-            {
-                txtInvestmentTab.setText(R.string.stp_);
-                viewSTP.setBackgroundColor(Color.parseColor("#f57222"));
-                viewSip.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewBuy.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewRedeem.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSwitch.setBackgroundColor(Color.parseColor("#D1D1D1"));
-                viewSWP.setBackgroundColor(Color.parseColor("#D1D1D1"));
-
-                linearBankDetail.setVisibility(View.GONE);
-                recyclerRedeem.setVisibility(View.GONE);
-                recyclerBuy.setVisibility(View.GONE);
-                recyclerSIP.setVisibility(View.GONE);
-                recyclerSwitch.setVisibility(View.GONE);
-                recyclerSWP.setVisibility(View.GONE);
-                recyclerSTP.setVisibility(View.VISIBLE);
-                break;
-            }
-
-            case R.id.menu:
-
-                finish();
-
-                break;
+            linearBankDetail.setVisibility(View.GONE);
+            recyclerRedeem.setVisibility(View.GONE);
+            recyclerBuy.setVisibility(View.GONE);
+            recyclerSIP.setVisibility(View.GONE);
+            recyclerSwitch.setVisibility(View.GONE);
+            recyclerSWP.setVisibility(View.GONE);
+            recyclerSTP.setVisibility(View.VISIBLE);
+        } else if (id == R.id.menu) {
+            finish();
         }
     }
 

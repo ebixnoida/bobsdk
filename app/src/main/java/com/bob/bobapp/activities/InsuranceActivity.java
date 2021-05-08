@@ -221,32 +221,23 @@ public class InsuranceActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
-
-            case R.id.llLifeInsurance:
-
-                lifeInsurance.setTextColor(getResources().getColor(R.color.black));
-                generalInsurance.setTextColor(getResources().getColor(R.color.colorGray));
-                viewLifeInsurance.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                viewGeneralInsurance.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                rv.setAdapter(null);
-                setAdapter(lifeInsuranceArrayList);
-
-                break;
-
-            case R.id.llGeneralInsurance:
-
-                lifeInsurance.setTextColor(getResources().getColor(R.color.colorGray));
-                generalInsurance.setTextColor(getResources().getColor(R.color.black));
-                viewLifeInsurance.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                viewGeneralInsurance.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                rv.setAdapter(null);
-                setAdapterGeneralInsurance(generalInsuranceArrayList);
-
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.llLifeInsurance) {
+            lifeInsurance.setTextColor(getResources().getColor(R.color.black));
+            generalInsurance.setTextColor(getResources().getColor(R.color.colorGray));
+            viewLifeInsurance.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            viewGeneralInsurance.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            rv.setAdapter(null);
+            setAdapter(lifeInsuranceArrayList);
+        } else if (id == R.id.llGeneralInsurance) {
+            lifeInsurance.setTextColor(getResources().getColor(R.color.colorGray));
+            generalInsurance.setTextColor(getResources().getColor(R.color.black));
+            viewLifeInsurance.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            viewGeneralInsurance.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            rv.setAdapter(null);
+            setAdapterGeneralInsurance(generalInsuranceArrayList);
         }
 
     }

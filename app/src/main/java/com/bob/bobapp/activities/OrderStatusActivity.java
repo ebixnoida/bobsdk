@@ -167,49 +167,39 @@ public class OrderStatusActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.llBuy) {
+            buyText.setTextColor(getResources().getColor(R.color.black));
+            sipText.setTextColor(getResources().getColor(R.color.colorGray));
+            switchText.setTextColor(getResources().getColor(R.color.colorGray));
 
-            case R.id.llBuy:
+            buyView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            sipView.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            switchView.setBackgroundColor(getResources().getColor(R.color.colorGray));
 
-                buyText.setTextColor(getResources().getColor(R.color.black));
-                sipText.setTextColor(getResources().getColor(R.color.colorGray));
-                switchText.setTextColor(getResources().getColor(R.color.colorGray));
+            adapter.updateList(buyArrayList);
+        } else if (id == R.id.llSip) {
+            buyText.setTextColor(getResources().getColor(R.color.colorGray));
+            sipText.setTextColor(getResources().getColor(R.color.black));
+            switchText.setTextColor(getResources().getColor(R.color.colorGray));
 
-                buyView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                sipView.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                switchView.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            buyView.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            sipView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
+            switchView.setBackgroundColor(getResources().getColor(R.color.colorGray));
 
-                adapter.updateList(buyArrayList);
-                break;
+            adapter.updateList(sipArrayList);
+        } else if (id == R.id.llSwitch) {
+            buyText.setTextColor(getResources().getColor(R.color.colorGray));
+            sipText.setTextColor(getResources().getColor(R.color.colorGray));
+            switchText.setTextColor(getResources().getColor(R.color.black));
 
-            case R.id.llSip:
+            buyView.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            sipView.setBackgroundColor(getResources().getColor(R.color.colorGray));
+            switchView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
 
-                buyText.setTextColor(getResources().getColor(R.color.colorGray));
-                sipText.setTextColor(getResources().getColor(R.color.black));
-                switchText.setTextColor(getResources().getColor(R.color.colorGray));
-
-                buyView.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                sipView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-                switchView.setBackgroundColor(getResources().getColor(R.color.colorGray));
-
-                adapter.updateList(sipArrayList);
-                break;
-
-            case R.id.llSwitch:
-
-                buyText.setTextColor(getResources().getColor(R.color.colorGray));
-                sipText.setTextColor(getResources().getColor(R.color.colorGray));
-                switchText.setTextColor(getResources().getColor(R.color.black));
-
-                buyView.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                sipView.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                switchView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
-
-                adapter.updateList(switchArrayList);
-                break;
+            adapter.updateList(switchArrayList);
         }
 
     }
