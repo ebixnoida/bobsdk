@@ -109,6 +109,10 @@ public class BOBActivity extends BaseActivity {
 
         context = this;
 
+        getId();
+
+        initialization();
+
         authenticateUser();
     }
 
@@ -121,8 +125,7 @@ public class BOBActivity extends BaseActivity {
         FontManager.markAsIconContainer(tvMenu, util.iconFont);
     }
 
-    @Override
-    public void getIds() {
+    public void getId() {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         title = (TextView) findViewById(R.id.title);
@@ -145,8 +148,7 @@ public class BOBActivity extends BaseActivity {
         tvBellHeader.setOnClickListener(this);
     }
 
-    @Override
-    public void initializations() {
+    public void initialization() {
 
         manageLeftSideDrawer();
 
