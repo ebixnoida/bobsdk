@@ -18,30 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--<include layout="@layout/activity_main"/>-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/cv_title"
-                    android:layout_above="@+id/tabLayout"/>
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/color_light_orange"
-                    app:tabIndicatorColor="@color/white"
-                    app:tabSelectedTextColor="@color/white"
-                    app:tabTextAppearance="@style/MineCustomTabText"
-                    app:tabTextColor="@color/light_gray" />
-
-            </RelativeLayout>
+            <include layout="@layout/activity_main"/>
 
         </FrameLayout>
 
