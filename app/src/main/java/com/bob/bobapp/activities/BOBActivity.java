@@ -101,8 +101,6 @@ public class BOBActivity extends BaseActivity {
 
     private View viewPopup;
 
-    private FrameLayout frameLayout;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,9 +138,9 @@ public class BOBActivity extends BaseActivity {
     }
 
     public void getId() {
-        frameLayout = (FrameLayout) findViewById(R.id.frame_container);
-        tabLayout = (TabLayout) frameLayout.findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) frameLayout.findViewById(R.id.viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         title = (TextView) findViewById(R.id.title);
         tvUsername = (TextView) findViewById(R.id.txt_username);
