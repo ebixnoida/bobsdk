@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">6sp</item>
     </style>
