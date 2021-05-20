@@ -932,7 +932,7 @@ public class BOBActivity extends BaseActivity {
 
             //WebService.action(context, Constants.ACTION_CART_COUNT);
 
-            setAdapter();
+            //setAdapter();
 
         } else {
 
