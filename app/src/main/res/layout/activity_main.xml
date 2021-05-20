@@ -13,7 +13,7 @@
         android:layout_below="@+id/cv_title"
         android:layout_above="@+id/tabLayout"/>
 
-    <!--<com.google.android.material.tabs.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +22,6 @@
         app:tabIndicatorColor="@color/white"
         app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/MineCustomTabText"
-        app:tabTextColor="@color/light_gray" />-->
+        app:tabTextColor="@color/light_gray" />
 
 </RelativeLayout>

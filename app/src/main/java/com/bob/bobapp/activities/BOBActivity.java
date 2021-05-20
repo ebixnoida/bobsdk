@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -100,6 +101,8 @@ public class BOBActivity extends BaseActivity {
 
     private View viewPopup;
 
+    private FrameLayout frameLayout;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,8 +140,10 @@ public class BOBActivity extends BaseActivity {
     }
 
     public void getId() {
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        frameLayout = (FrameLayout) findViewById(R.id.frame_container);
+        tabLayout = (TabLayout) frameLayout.findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) frameLayout.findViewById(R.id.viewPager);
+
         title = (TextView) findViewById(R.id.title);
         tvUsername = (TextView) findViewById(R.id.txt_username);
         tvUserHeader = (TextView) findViewById(R.id.tvUserHeader);
@@ -167,12 +172,12 @@ public class BOBActivity extends BaseActivity {
 
         manageLeftSideDrawer();
 
-        /*tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home).setText("Dashboard"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home).setText("Dashboard"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.report_unselected).setText("Report"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.add_unselected).setText("Transact"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.transaction_unselected).setText("Quick Transact"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.setting_unselected).setText("Setup"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);*/
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 
     @Override
@@ -932,7 +937,7 @@ public class BOBActivity extends BaseActivity {
 
             //WebService.action(context, Constants.ACTION_CART_COUNT);
 
-            //setAdapter();
+            setAdapter();
 
         } else {
 
