@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kotak Balanced Advantage Fund Reg-G"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:id="@+id/tv_scheme_name"/>
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Equity Mid cap"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:id="@+id/tv_category"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAV: "
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAV value "
+                android:textColor="@color/color_light_orange"
+                android:textSize="15sp"
+                android:id="@+id/tv_nav"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="SIP"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_inner_orange"
+                android:gravity="center_horizontal"
+                android:id="@+id/btn_sip"/>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Buy"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_inner_orange"
+                android:gravity="center_horizontal"
+                android:id="@+id/btn_buy"
+                android:layout_marginLeft="10dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
