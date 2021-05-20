@@ -98,6 +98,7 @@ public class BOBActivity extends BaseActivity {
     private Util util;
 
     private Context context;
+
     private ArrayList<ClientHoldingObject> holdingArrayList;
 
     private View viewPopup;
@@ -105,8 +106,6 @@ public class BOBActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main_container);
 
