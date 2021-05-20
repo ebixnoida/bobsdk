@@ -15,12 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.RiskProfileActivity"></activity>
-        <activity android:name=".activities.TermsAndConditionActivity" />
 
-        <service
-            android:name=".api.WebService"
-            android:exported="false" />
+        <service android:name=".api.WebService" android:exported="false" />
 
         <activity android:name=".activities.PortfolioAnalytics" />
         <activity android:name=".activities.WealthMgmtActivity" />
@@ -39,6 +35,8 @@
         <activity android:name=".activities.HoldingDetailActivity" />
         <activity android:name=".activities.BuySIPRedeemSwitchActivity" />
         <activity android:name=".activities.InsuranceDetailActivity" />
+        <activity android:name=".activities.RiskProfileActivity"/>
+        <activity android:name=".activities.TermsAndConditionActivity"/>
 
         <activity android:name=".activities.BOBActivity">
             <!--<intent-filter>

@@ -1,0 +1,542 @@
+[
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_asset_allocation_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\asset_allocation_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_profile_selected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\profile_selected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_discover_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\discover_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_maturity_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_maturity_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_dropdown_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_product_item_name.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\product_item_name.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_year_on_year_performance.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_year_on_year_performance.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_stp_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_stp_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_s_i_p_s_w_p_s_t_p_due.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_s_i_p_s_w_p_s_t_p_due.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_progress_bar_equity.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\progress_bar_equity.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_second_layout.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_second_layout.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_orange_circle.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\orange_circle.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_text_color_selector_rm_details.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\text_color_selector_rm_details.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_fact_sheet.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_fact_sheet.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bag_selected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\bag_selected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_menu.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\menu.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_demat_holding.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_demat_holding.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_transaction_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\transaction_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_risk_profile.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_risk_profile.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_account_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_account_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_text_color_selector_account.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\text_color_selector_account.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_transact.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\dialog_transact.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_account_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\account_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_setting_unselected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\setting_unselected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_transaction_unselected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\transaction_unselected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dropdown.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\dropdown.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pink_out_line.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\pink_out_line.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_dashboard_transaction_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\dashboard_transaction_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_inner_orange.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\rounded_inner_orange.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_cart_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_cart_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_report_unselected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\report_unselected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_set_up.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fragment_set_up.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_adapter_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_adapter_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_add_transact_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\add_transact_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_newfund.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\newfund.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_realized_gain_loss.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_realized_gain_loss.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_inner_green.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\rounded_inner_green.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_report.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\report.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_progress_bar_cash.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\progress_bar_cash.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_holdins_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\holdins_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_header.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_header.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_answer_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\answer_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_add_unselected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\add_unselected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_insurance_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\insurance_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_progress_bar_debt.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\progress_bar_debt.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_insurance_detail.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_insurance_detail.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_stock_allocation.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_stock_allocation.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_homeunselectesgray.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\homeunselectesgray.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fact_sheet_top_holding_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fact_sheet_top_holding_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_home_selected.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\home_selected.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_wealth_mgmt.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_wealth_mgmt.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_header_layout.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\header_layout.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fact_sheet_risk_analysis_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fact_sheet_risk_analysis_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_inner_white_ourte_gray.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\rounded_inner_white_ourte_gray.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_holdings.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_holdings.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_rounded_inner_white_ourte_gray.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\rounded_inner_white_ourte_gray.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_sip_swp_stp_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\sip_swp_stp_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_report.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fragment_report.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_question_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\question_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_transactions.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_transactions.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_asset_item_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\asset_item_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_right_arrow.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\right_arrow.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_top_layout.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_top_layout.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_insurance.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_insurance.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_sector_allocation.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_sector_allocation.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_set_up_info_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\set_up_info_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_progress_dialog.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\custom_progress_dialog.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_discover_funds.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_discover_funds.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_quick_transaction.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_quick_transaction.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_realized_gain_loss_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\realized_gain_loss_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_rounded_inner_dark_gray.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\rounded_inner_dark_gray.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_buy_sip_redeem_switch.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\buy_sip_redeem_switch.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main_container.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_main_container.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_status.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_order_status.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_home.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\home.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_setting.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\setting.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_stop_sip_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\stop_sip_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_add.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\add.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_small_progress_bar.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\small_progress_bar.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_bar_chart.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\bar_chart.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_left_side_drawer_layout.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\left_side_drawer_layout.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_account_details.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\layout_account_details.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_unselected_home.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\unselected_home.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_scheme_performance.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_scheme_performance.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\search.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edittext_rect.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\edittext_rect.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_switch_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_switch_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gray_rectangular.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\gray_rectangular.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_quick_transaction.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fragment_quick_transaction.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_explore_more_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\explore_more_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_stop_s_i_p.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_stop_s_i_p.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_sector_weight_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\sector_weight_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_terms_and_condition.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_terms_and_condition.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_spinner_rectangular.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\spinner_rectangular.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_close.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\close.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_swp_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_swp_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_transaction.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\transaction.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_transaction.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fragment_add_transaction.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_factsheet_investment_strategy.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\factsheet_investment_strategy.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toggle_widget_background.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\toggle_widget_background.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_details.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\notification_details.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_investment_maturity.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_investment_maturity.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_report_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\report_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_portfolio_analytics.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_portfolio_analytics.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_order_status_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\order_status_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bob.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable-v24\\bob.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_redeem_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_redeem_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\notification_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_demat_holding_item.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\demat_holding_item.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_holding_detail.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\holding_detail.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_dashboard.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_investment_sip_adapter.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\investment_sip_adapter.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\drawable_progress_bar_background.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\drawable\\progress_bar_background.xml"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Application\\bob_android_github\\bobsdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_investment_cart.xml.flat",
+        "source": "D:\\Application\\bob_android_github\\bobsdk\\app\\src\\main\\res\\layout\\activity_investment_cart.xml"
+    }
+]

@@ -167,12 +167,12 @@ public class BOBActivity extends BaseActivity {
 
         manageLeftSideDrawer();
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home).setText("Dashboard"));
+        /*tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home).setText("Dashboard"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.report_unselected).setText("Report"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.add_unselected).setText("Transact"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.transaction_unselected).setText("Quick Transact"));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.setting_unselected).setText("Setup"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);*/
     }
 
     @Override

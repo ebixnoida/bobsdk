@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bob.bobapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name="com.bob.bobapp.BOBApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <service
+            android:name="com.bob.bobapp.api.WebService"
+            android:exported="false" />
+
+        <activity android:name="com.bob.bobapp.activities.PortfolioAnalytics" />
+        <activity android:name="com.bob.bobapp.activities.WealthMgmtActivity" />
+        <activity android:name="com.bob.bobapp.activities.InvestmentCartActivity" />
+        <activity android:name="com.bob.bobapp.activities.InvestmentMaturityActivity" />
+        <activity android:name="com.bob.bobapp.activities.SIPSWPSTPDueActivity" />
+        <activity android:name="com.bob.bobapp.activities.StopSIPActivity" />
+        <activity android:name="com.bob.bobapp.activities.DematHoldingActivity" />
+        <activity android:name="com.bob.bobapp.activities.OrderStatusActivity" />
+        <activity android:name="com.bob.bobapp.activities.DiscoverFundsActivity" />
+        <activity android:name="com.bob.bobapp.activities.HoldingsActivity" />
+        <activity android:name="com.bob.bobapp.activities.TransactionActivity" />
+        <activity android:name="com.bob.bobapp.activities.RealizedGainLossActivity" />
+        <activity android:name="com.bob.bobapp.activities.InsuranceActivity" />
+        <activity android:name="com.bob.bobapp.activities.FactSheetActivity" />
+        <activity android:name="com.bob.bobapp.activities.HoldingDetailActivity" />
+        <activity android:name="com.bob.bobapp.activities.BuySIPRedeemSwitchActivity" />
+        <activity android:name="com.bob.bobapp.activities.InsuranceDetailActivity" />
+        <activity android:name="com.bob.bobapp.activities.RiskProfileActivity" />
+        <activity android:name="com.bob.bobapp.activities.TermsAndConditionActivity" />
+        <activity android:name="com.bob.bobapp.activities.BOBActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.bob.bobapp.com.squareup.picasso"
+            android:exported="false" />
+    </application>
+
+</manifest>
