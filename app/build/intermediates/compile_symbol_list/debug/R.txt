@@ -3016,6 +3016,7 @@ int style Animation_AppCompat_DropDownUp 0x0
 int style Animation_AppCompat_Tooltip 0x0
 int style Animation_Design_BottomSheetDialog 0x0
 int style AppTheme 0x0
+int style AppTheme_NoActionBar 0x0
 int style Base_AlertDialog_AppCompat 0x0
 int style Base_AlertDialog_AppCompat_Light 0x0
 int style Base_Animation_AppCompat_Dialog 0x0

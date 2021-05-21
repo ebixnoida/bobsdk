@@ -4,6 +4,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style><style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
     </style><style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">6sp</item>
     </style><style name="CircularProgress" parent="android:Theme.Holo.Dialog">

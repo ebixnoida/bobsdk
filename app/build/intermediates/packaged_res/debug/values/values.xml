@@ -123,6 +123,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="CircularProgress" parent="android:Theme.Holo.Dialog">
         <!-- <item name="colorAccent">@color/sign_text_color</item>-->
 

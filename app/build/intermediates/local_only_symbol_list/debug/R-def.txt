@@ -525,6 +525,7 @@ string swp_
 string tell_us
 string wealth_source
 style AppTheme
+style AppTheme.NoActionBar
 style CircularProgress
 style CustomAlertDialogStyle
 style EdittextStyle
