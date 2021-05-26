@@ -14,7 +14,8 @@ public class Constants {
 
     public static String SOURCE = "BOBWealth";
 
-    public static final String BASE_URL = "https://wmsuat.bankofbaroda.co.in/Rest/";
+    //public static final String BASE_URL = "https://wmsuat.bankofbaroda.co.in/Rest/";
+    public static final String BASE_URL = "https://wealth.bobibanking.com/Rest/";
 
     public static String ACTION_ACCOUNT = "ACTION_ACCOUNT";
 
