@@ -153,25 +153,13 @@ public class FactSheetActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-
-            case R.id.menu:
-
-                finish();
-
-                break;
-
-            case R.id.btn_sip:
-
-                finish();
-
-                break;
-
-            case R.id.btn_buy:
-
-                finish();
-
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.btn_sip) {
+            finish();
+        } else if (id == R.id.btn_buy) {
+            finish();
         }
     }
 

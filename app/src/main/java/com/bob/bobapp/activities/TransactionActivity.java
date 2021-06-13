@@ -184,35 +184,24 @@ public class TransactionActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.layout_date) {
+            openCalender(tvSelectedDate);
+        } else if (id == R.id.tv_go) {
+            String selectedDate = strDateForRequest;
 
-            case R.id.layout_date:
-                openCalender(tvSelectedDate);
-                break;
+            if (!selectedDate.equals("")) {
 
-            case R.id.tv_go:
+                filter(selectedDate);
+            }
+        } else if (id == R.id.tv_clear) {
+            strDateForRequest = "";
 
-                String selectedDate = strDateForRequest;
+            tvSelectedDate.setText("Select Date");
 
-                if(!selectedDate.equals("")) {
-
-                    filter(selectedDate);
-                }
-
-                break;
-
-            case R.id.tv_clear:
-
-                strDateForRequest = "";
-
-                tvSelectedDate.setText("Select Date");
-
-                adapter.updateList(arrayList);
-
-                break;
+            adapter.updateList(arrayList);
         }
     }
 

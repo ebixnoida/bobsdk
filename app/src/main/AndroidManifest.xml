@@ -56,11 +56,11 @@
         <activity android:name=".activities.InsuranceDetailActivity" />
 
         <activity android:name=".activities.BOBActivity">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
     </application>

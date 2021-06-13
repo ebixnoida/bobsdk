@@ -200,14 +200,11 @@ public class BuySIPRedeemSwitchActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
-
-            case R.id.addToCart:
-                addToCartResponse();
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.addToCart) {
+            addToCartResponse();
         }
     }
 

@@ -265,64 +265,34 @@ public class BOBActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        int id = view.getId();
+        if (id == R.id.llMenu) {
+            menuButton();
+        } else if (id == R.id.txt_username || id == R.id.tvUserHeader) {
+            viewPopup = view;
 
-            case R.id.llMenu:
+            callAccountDetailAPI();
+        } else if (id == R.id.tvBellHeader) {
+            viewPopup = view;
 
-                menuButton();
+            callNotificationAPI();
+        } else if (id == R.id.txt_popup_account) {
+            tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.color_rad)));
 
-                break;
+            tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.black)));
 
-            case R.id.txt_username:
+            setPopupData(view);
+        } else if (id == R.id.txt_popup_rm_details) {
+            tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.black)));
 
-            case R.id.tvUserHeader:
+            tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.color_light_orange)));
 
-                viewPopup = view;
+            setPopupData(view);
+        } else if (id == R.id.btn_submit) {
+        } else if (id == R.id.tvCartHeader) {
+            Intent intent = new Intent(BOBActivity.this, InvestmentCartActivity.class);
 
-                callAccountDetailAPI();
-
-                break;
-
-            case R.id.tvBellHeader:
-
-                viewPopup = view;
-
-                callNotificationAPI();
-
-                break;
-
-            case R.id.txt_popup_account:
-
-                tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.color_rad)));
-
-                tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.black)));
-
-                setPopupData(view);
-
-                break;
-
-            case R.id.txt_popup_rm_details:
-
-                tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.black)));
-
-                tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.color_light_orange)));
-
-                setPopupData(view);
-
-                break;
-
-            case R.id.btn_submit:
-
-                break;
-
-            case R.id.tvCartHeader:
-
-                Intent intent = new Intent(BOBActivity.this, InvestmentCartActivity.class);
-
-                startActivity(intent);
-
-                break;
-
+            startActivity(intent);
         }
     }
 

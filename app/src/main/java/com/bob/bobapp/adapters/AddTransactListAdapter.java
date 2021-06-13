@@ -146,12 +146,9 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
         @Override
         public void onClick(View view) {
 
-            switch (view.getId()) {
-
-                case R.id.imgDetails:
-                    Intent intent = new Intent(context, FactSheetActivity.class);
-                    context.startActivity(intent);
-                    break;
+            if (view.getId() == R.id.imgDetails) {
+                Intent intent = new Intent(context, FactSheetActivity.class);
+                context.startActivity(intent);
             }
         }
     }

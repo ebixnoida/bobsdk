@@ -170,27 +170,20 @@ public class RealizedGainLossActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.menu:
-                finish();
-                break;
-
-            case R.id.layout_date:
-                openCalender(tvSelectedDate);
-                break;
-
-            case R.id.tv_go:
-                String selectedDate = strDateForRequest;
-                if(!selectedDate.equals("")) {
-                    filter(selectedDate);
-                }
-                break;
-
-            case R.id.tv_clear:
-                strDateForRequest = "";
-                tvSelectedDate.setText("Select Date");
-                adapter.updateList(arrayList);
-                break;
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.layout_date) {
+            openCalender(tvSelectedDate);
+        } else if (id == R.id.tv_go) {
+            String selectedDate = strDateForRequest;
+            if (!selectedDate.equals("")) {
+                filter(selectedDate);
+            }
+        } else if (id == R.id.tv_clear) {
+            strDateForRequest = "";
+            tvSelectedDate.setText("Select Date");
+            adapter.updateList(arrayList);
         }
     }
 

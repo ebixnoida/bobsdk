@@ -95,38 +95,28 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
+        int id = v.getId();
+        if (id == R.id.menu) {
+            onBackPressed();
+        } else if (id == R.id.btnNext) {
+            String text = btnNext.getText().toString();
 
-            case R.id.menu: {
+            if (text.equalsIgnoreCase("Submit")) {
 
-                onBackPressed();
+                callSubmitAPI();
 
-                break;
-            }
+            } else {
 
-            case R.id.btnNext: {
+                count = count + 1;
 
-                String text = btnNext.getText().toString();
+                if (riskProfileQuestionCollectionArrayList.size() - 1 >= count) {
 
-                if(text.equalsIgnoreCase("Submit")){
+                    setQuestionAdapter();
 
-                    callSubmitAPI();
+                } else {
 
-                }else {
-
-                    count = count + 1;
-
-                    if (riskProfileQuestionCollectionArrayList.size() - 1 >= count) {
-
-                        setQuestionAdapter();
-
-                    } else {
-
-                        btnNext.setText("Submit");
-                    }
+                    btnNext.setText("Submit");
                 }
-
-                break;
             }
         }
     }

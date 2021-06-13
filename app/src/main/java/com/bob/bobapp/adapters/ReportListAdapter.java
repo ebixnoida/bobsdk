@@ -72,45 +72,42 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
         @Override
         public void onClick(View view) {
 
-            switch (view.getId()) {
-                case R.id.img:
-                case R.id.btn:
+            int id = view.getId();
+            if (id == R.id.img || id == R.id.btn) {
+                switch (getAdapterPosition()) {
+                    case 0:
+                        Intent intentHolding = new Intent(context, HoldingsActivity.class);
+                        context.startActivity(intentHolding);
+                        break;
+                    case 1:
+                        Intent intentTransaction = new Intent(context, TransactionActivity.class);
+                        intentTransaction.putExtra("WhichActivity", "TransactionActivity");
+                        context.startActivity(intentTransaction);
+                        break;
+                    case 2:
+                        Intent intentDue = new Intent(context, SIPSWPSTPDueActivity.class);
+                        context.startActivity(intentDue);
+                        break;
+                    case 3:
+                        Intent intentMaturity = new Intent(context, InvestmentMaturityActivity.class);
+                        context.startActivity(intentMaturity);
+                        break;
+                    case 4:
+                        Intent intentGainLoss = new Intent(context, RealizedGainLossActivity.class);
+                        context.startActivity(intentGainLoss);
+                        break;
+                    case 5:
+                        Intent intentCorporateAction = new Intent(context, TransactionActivity.class);
+                        intentCorporateAction.putExtra("WhichActivity", "CorporateActionActivity");
+                        context.startActivity(intentCorporateAction);
 
-                    switch (getAdapterPosition()) {
-                        case 0:
-                            Intent intentHolding = new Intent(context, HoldingsActivity.class);
-                            context.startActivity(intentHolding);
-                            break;
-                        case 1:
-                            Intent intentTransaction = new Intent(context, TransactionActivity.class);
-                            intentTransaction.putExtra("WhichActivity","TransactionActivity");
-                            context.startActivity(intentTransaction);
-                            break;
-                        case 2:
-                            Intent intentDue = new Intent(context, SIPSWPSTPDueActivity.class);
-                            context.startActivity(intentDue);
-                            break;
-                        case 3:
-                            Intent intentMaturity = new Intent(context, InvestmentMaturityActivity.class);
-                            context.startActivity(intentMaturity);
-                            break;
-                        case 4:
-                            Intent intentGainLoss = new Intent(context, RealizedGainLossActivity.class);
-                            context.startActivity(intentGainLoss);
-                            break;
-                        case 5:
-                            Intent intentCorporateAction = new Intent(context, TransactionActivity.class);
-                            intentCorporateAction.putExtra("WhichActivity","CorporateActionActivity");
-                            context.startActivity(intentCorporateAction);
+                        break;
+                    case 6:
+                        Intent intentInsurance = new Intent(context, InsuranceActivity.class);
+                        context.startActivity(intentInsurance);
+                        break;
 
-                            break;
-                        case 6:
-                            Intent intentInsurance = new Intent(context, InsuranceActivity.class);
-                            context.startActivity(intentInsurance);
-                            break;
-
-                    }
-                    break;
+                }
             }
         }
     }

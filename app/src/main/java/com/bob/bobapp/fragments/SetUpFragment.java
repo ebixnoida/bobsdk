@@ -54,12 +54,9 @@ public class SetUpFragment extends BaseFragment {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.txtNext: {
-                Intent intent = new Intent(getContext(), WealthMgmtActivity.class);
-                startActivity(intent);
-                break;
-            }
+        if (view.getId() == R.id.txtNext) {
+            Intent intent = new Intent(getContext(), WealthMgmtActivity.class);
+            startActivity(intent);
         }
     }
 }

@@ -306,45 +306,25 @@ public class DashboardFragment extends BaseFragment {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        int id = view.getId();
+        if (id == R.id.existingPortfolio) {
+            ((BOBActivity) getActivity()).setTransactTab();
+        } else if (id == R.id.llAmount) {
+            Intent intent = new Intent(getActivity(), HoldingsActivity.class);
 
-            case R.id.existingPortfolio:
+            startActivity(intent);
+        } else if (id == R.id.startNow || id == R.id.cvNewFund) {
+            Intent intentDiscoverFunds = new Intent(getActivity(), DiscoverFundsActivity.class);
 
-                ((BOBActivity) getActivity()).setTransactTab();
+            startActivity(intentDiscoverFunds);
+        } else if (id == R.id.btn_Details) {
+            Intent intentsss = new Intent(getActivity(), HoldingsActivity.class);
 
-                break;
+            startActivity(intentsss);
+        } else if (id == R.id.img_right_arrow) {
+            Intent intentss = new Intent(getActivity(), HoldingsActivity.class);
 
-            case R.id.llAmount:
-
-                Intent intent = new Intent(getActivity(), HoldingsActivity.class);
-
-                startActivity(intent);
-
-                break;
-
-            case R.id.startNow:
-
-            case R.id.cvNewFund:
-
-                Intent intentDiscoverFunds = new Intent(getActivity(), DiscoverFundsActivity.class);
-
-                startActivity(intentDiscoverFunds);
-
-                break;
-
-                case R.id.btn_Details:
-
-                    Intent intentsss = new Intent(getActivity(), HoldingsActivity.class);
-
-                    startActivity(intentsss);
-
-
-                    break;
-
-            case R.id.img_right_arrow:
-                Intent intentss = new Intent(getActivity(), HoldingsActivity.class);
-
-                startActivity(intentss);
+            startActivity(intentss);
 
 //                currentIndex = currentIndex + 1;
 //
@@ -358,18 +338,11 @@ public class DashboardFragment extends BaseFragment {
 //
 //                    setData(currentIndex);
 //                }
+        } else if (id == R.id.btn_re_access_risk_profile) {
+            callRMDetailAPI();
 
-                break;
-
-            case R.id.btn_re_access_risk_profile:
-
-                callRMDetailAPI();
-
-                Intent intents = new Intent(getContext(), RiskProfileActivity.class);
-                startActivity(intents);
-
-                break;
-
+            Intent intents = new Intent(getContext(), RiskProfileActivity.class);
+            startActivity(intents);
         }
     }
 

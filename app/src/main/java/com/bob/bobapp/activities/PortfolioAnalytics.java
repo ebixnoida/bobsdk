@@ -180,28 +180,17 @@ public class PortfolioAnalytics extends BaseActivity {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        int id = view.getId();
+        if (id == R.id.menu) {
+            finish();
+        } else if (id == R.id.btn_view_holding) {
+            Intent intent = new Intent(getApplicationContext(), HoldingsActivity.class);
 
-            case R.id.menu:
+            startActivity(intent);
+        } else if (id == R.id.img_right_arrow) {
+            Intent intents = new Intent(getApplicationContext(), HoldingsActivity.class);
 
-                finish();
-
-                break;
-
-            case R.id.btn_view_holding:
-
-                Intent intent = new Intent(getApplicationContext(), HoldingsActivity.class);
-
-                startActivity(intent);
-
-                break;
-
-            case R.id.img_right_arrow:
-                Intent intents = new Intent(getApplicationContext(), HoldingsActivity.class);
-
-                startActivity(intents);
-
-                break;
+            startActivity(intents);
         }
     }
 
