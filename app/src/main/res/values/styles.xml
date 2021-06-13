@@ -1,0 +1,57 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">6sp</item>
+    </style>
+
+    <style name="CircularProgress" parent="android:Theme.Holo.Dialog">
+        <!-- <item name="colorAccent">@color/sign_text_color</item>-->
+
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">@color/transparent</item>
+        <item name="android:bottomDark">@color/transparent</item>
+        <item name="android:bottomMedium">@color/transparent</item>
+        <item name="android:centerBright">@color/transparent</item>
+        <item name="android:centerDark">@color/transparent</item>
+        <item name="android:centerMedium">@color/transparent</item>
+        <item name="android:fullBright">@color/transparent</item>
+        <item name="android:fullDark">@color/transparent</item>
+        <item name="android:topBright">@color/transparent</item>
+        <item name="android:topDark">@color/transparent</item>
+    </style>
+
+    <style name="EdittextStyle">
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/wealth_text_color</item>
+        <item name="android:background">@drawable/edittext_rect</item>
+    </style>
+
+    <style name="MyProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressBackgroundTint">#E6E6E6</item>
+    </style>
+
+    <color name="transparent">#00000000</color>
+    <color name="progressBackgroundTintColor">#E6E6E6</color>
+    <color name="progressTint">#b71c1c</color>
+    <color name="progressTintEquity">#F26522</color>
+    <color name="progressTintDebt">#152B75</color>
+    <color name="progressTintCash">#ED1323</color>
+</resources>

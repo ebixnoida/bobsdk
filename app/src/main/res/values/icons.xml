@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fa_icon_user">&#xf007;</string>
+
+    <string name="fa_icon_home">&#xf015;</string>
+
+    <string name="fa_icon_approve">&#xf164;</string>
+
+    <string name="fa_icon_add_money">&#xf055;</string>
+
+    <string name="fa_icon_category">&#xf291;</string>
+
+    <string name="fa_icon_about">&#xf05a;</string>
+
+    <string name="fa_icon_contact">&#xf095;</string>
+
+    <string name="fa_icon_refer">&#xf14d;</string>
+
+    <string name="fa_icon_rate">&#xf005;</string>
+
+    <string name="fa_icon_cart">&#xf290;</string>
+
+    <string name="fa_icon_menu">&#xf0c9;</string>
+
+    <string name="fa_icon_bag">&#xf290;</string>f290
+
+    <string name="fa_icon_pdf">&#xf1c1;</string>
+
+    <string name="fa_icon_upload">&#xf093;</string>
+
+    <string name="fa_icon_left">&#xf104;</string>
+
+    <string name="fa_icon_logout">&#xf08b;</string>
+
+    <string name="fa_icon_rupee">&#xf156;</string>
+
+    <string name="fa_icon_available">&#xf274;</string>
+
+    <string name="fa_icon_help">&#xf059;</string>
+
+    <string name="fa_icon_images">&#xf03e;</string>
+
+    <string name="fa_icon_facebook">&#xf03e;</string>
+
+    <string name="fa_icon_bell">&#xf0f3;</string>
+
+    <string name="fa_icon_back">&#xf177;</string>
+
+    <string name="fa_icon_calender">&#xf133;</string>
+
+    <string name="fa_icon_right_arrow">&#xf054;</string>
+
+
+
+</resources>

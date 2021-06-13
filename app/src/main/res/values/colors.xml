@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorGray">#696969</color>
+
+    <color name="color_pink">#c51c6f</color>
+    <color name="color_purple">#7f38ba</color>
+    <color name="color_purple_light">#307f38ba</color>
+    <color name="color_light_orange">#f57222</color>
+    <color name="color_rad">#f44444</color>
+    <color name="color_sky">#4778f8</color>
+
+    <color name="light_gray">#D1D1D1</color>
+    <color name="light_gray_half">#50D3D3D3</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#211E0E</color>
+    <color name="dark_black">#000000</color>
+    <color name="text_background">#5fdad5</color>
+    <color name="dark_green">#56c29b</color>
+    <color name="light_green">#63ac2c</color>
+
+    <color name="status">#9bc375</color>
+
+    <color name="background_green">#3BB397</color>
+
+    <color name="text_background_trans">#903BB397</color>
+
+    <color name="plus_minus_background">#f0f1f6</color>
+    <color name="blue">#00008B</color>
+    <color name="header_text_color">#666161</color>
+    <color name="wealth_text_color">#828282</color>
+
+</resources>

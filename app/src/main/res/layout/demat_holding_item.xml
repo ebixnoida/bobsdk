@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:text="Dr Reddy Lebs "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Qty" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_marginTop="5dp"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="1000" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Price" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_marginTop="5dp"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="52000" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_height="wrap_content"
+                android:text="Market Value" />
+
+            <TextView
+                android:id="@+id/marketValue"
+                android:layout_marginTop="5dp"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="52,000,00" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/light_gray"/>
+
+</LinearLayout>
