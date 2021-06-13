@@ -131,6 +131,7 @@ public class BOBActivity extends BaseActivity {
 
     @Override
     public void getIds() {
+
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         title = (TextView) findViewById(R.id.title);
