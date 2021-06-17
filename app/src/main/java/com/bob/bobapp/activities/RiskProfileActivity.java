@@ -1,5 +1,7 @@
 package com.bob.bobapp.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.QuestionAdapter;
 import com.bob.bobapp.api.APIInterface;
@@ -26,6 +31,8 @@ import com.bob.bobapp.api.response_object.AuthenticateResponse;
 import com.bob.bobapp.api.response_object.RiskProfileQuestionCollection;
 import com.bob.bobapp.api.response_object.RiskProfileResponse;
 import com.bob.bobapp.api.response_object.RiskProfileSubmitResponse;
+import com.bob.bobapp.fragments.BaseFragment;
+import com.bob.bobapp.fragments.DashboardFragment;
 import com.bob.bobapp.listener.onAnswerItemListener;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
@@ -39,8 +46,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RiskProfileActivity extends AppCompatActivity implements View.OnClickListener, onAnswerItemListener {
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, txtAboutUs;
+public class RiskProfileActivity extends BaseFragment implements View.OnClickListener, onAnswerItemListener {
+    private TextView txtAboutUs;
     private Util util;
     private AppCompatButton btnNext;
     private int count = 0;
@@ -53,41 +60,58 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
     private Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_risk_profile);
-        context = this;
-        findView();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_risk_profile, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+
+        findView(view);
+
         setIcon(util);
+
         RiskProfileQuestionnaireAPiCall();
     }
 
+    @Override
+    protected void getIds(View view) {
+
+    }
+
+    @Override
+    protected void handleListener() {
+
+        BOBActivity.imgBack.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Risk Profile");
+    }
+
     // initialize object here..
-    private void findView() {
-        apiInterface = BOBApp.getApi(getApplicationContext(), Constants.ACTION_RiskProfileQuestionnaire);
-        util = new Util(this);
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        txtAboutUs = findViewById(R.id.txtAboutUs);
-        recyclerQuestion = findViewById(R.id.recyclerQuestion);
-        btnNext = findViewById(R.id.btnNext);
+    private void findView(View view) {
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_RiskProfileQuestionnaire);
+        util = new Util(context);
 
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText(getString(R.string.risk_profile));
+        txtAboutUs = view.findViewById(R.id.txtAboutUs);
+        recyclerQuestion = view.findViewById(R.id.recyclerQuestion);
+        btnNext = view.findViewById(R.id.btnNext);
 
-        tvMenu.setOnClickListener(this);
         btnNext.setOnClickListener(this);
     }
 
     // icon set
-    void setIcon(Util util) {
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
+    public void setIcon(Util util) {
         FontManager.markAsIconContainer(txtAboutUs, util.iconFont);
     }
 
@@ -97,7 +121,7 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
 
         int id = v.getId();
         if (id == R.id.menu) {
-            onBackPressed();
+            getActivity().onBackPressed();
         } else if (id == R.id.btnNext) {
             String text = btnNext.getText().toString();
 
@@ -118,12 +142,14 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
                     btnNext.setText("Submit");
                 }
             }
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
     }
 
     private void callSubmitAPI(){
 
-        apiInterface = BOBApp.getApi(getApplicationContext(), Constants.ACTION_RISK_PROFILE_SUBMIT);
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_RISK_PROFILE_SUBMIT);
 
         GlobalRequestObject globalRequestObject = new GlobalRequestObject();
 
@@ -153,14 +179,14 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
 
         RiskProfileRequestObject.createGlobalRequestObject(globalRequestObject);
 
-        util.showProgressDialog(RiskProfileActivity.this, true);
+        util.showProgressDialog(context, true);
 
         apiInterface.RiskProfileSubmitResponse(RiskProfileRequestObject.getGlobalRequestObject()).enqueue(new Callback<RiskProfileSubmitResponse>() {
 
             @Override
             public void onResponse(Call<RiskProfileSubmitResponse> call, Response<RiskProfileSubmitResponse> response) {
 
-                util.showProgressDialog(RiskProfileActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
 
@@ -168,33 +194,31 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
 
                     if(riskProfileSubmitResponse != null) {
 
-                        Toast.makeText(getApplicationContext(), "Answers submitted successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Answers submitted successfully!", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(context, BOBActivity.class);
-
-                        startActivity(intent);
+                        ((BaseContainerFragment)getParentFragment()).clearBackStackExceptFragment(new DashboardFragment());
                     }
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RiskProfileSubmitResponse> call, Throwable t) {
 
-                util.showProgressDialog(getApplicationContext(), false);
+                util.showProgressDialog(context, false);
 
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     // question adapter
     private void setQuestionAdapter() {
-        questionAdapter = new QuestionAdapter(getApplicationContext(), riskProfileQuestionCollectionArrayList, count, this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        questionAdapter = new QuestionAdapter(context, riskProfileQuestionCollectionArrayList, count, this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         recyclerQuestion.setLayoutManager(linearLayoutManager);
         recyclerQuestion.setAdapter(questionAdapter);
     }
@@ -211,7 +235,7 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
 
     // api calling
     private void RiskProfileQuestionnaireAPiCall() {
-        util.showProgressDialog(RiskProfileActivity.this, true);
+        util.showProgressDialog(context, true);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
         FundTypesRequestBody requestBody = new FundTypesRequestBody();
@@ -224,14 +248,14 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(getApplicationContext(), uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
         apiInterface.RiskProfileQuestionnaire(model).enqueue(new Callback<RiskProfileResponse>() {
             @Override
             public void onResponse(Call<RiskProfileResponse> call, Response<RiskProfileResponse> response) {
-                util.showProgressDialog(RiskProfileActivity.this, false);
+                util.showProgressDialog(context, false);
                 if (response.isSuccessful()) {
                     riskProfileResponse = response.body();
                     riskProfileQuestionCollectionArrayList = response.body().getRiskProfileQuestionCollection();
@@ -239,14 +263,14 @@ public class RiskProfileActivity extends AppCompatActivity implements View.OnCli
                     tempArrayList = riskProfileQuestionCollectionArrayList;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RiskProfileResponse> call, Throwable t) {
-                util.showProgressDialog(getApplicationContext(), false);
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 

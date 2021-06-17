@@ -1,5 +1,6 @@
 package com.bob.bobapp.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.activities.BOBActivity;
 import com.bob.bobapp.adapters.AccountListAdapter;
@@ -37,54 +39,93 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends BaseFragment {
+
     private TextView tv_rm_username_name, tv_rm_name, tv_rm_email, tv_rm_mobile_number;
+
     private RecyclerView accountDetailsRecyclerView;
+
     private APIInterface apiInterface;
+
     private Util util;
+
     private ArrayList<RMDetailResponseObject> rmDetailResponseObjectArrayList = new ArrayList<>();
+
     private ArrayList<AccountResponseObject> accountResponseObjectArrayList = new ArrayList<>();
+
     private AccountResponseObject accountResponseObject;
+
     private int selectedPosition;
 
+    private Context context;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
+
+        apiInterface = BOBApp.getApi(getContext(), Constants.ACTION_RM_DETAIL);
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        callRMDetailAPI();
     }
 
     @Override
-    void getIds(View view) {
+    protected void getIds(View view) {
+
         tv_rm_username_name = view.findViewById(R.id.tv_rm_username_name);
+
         tv_rm_name = view.findViewById(R.id.tv_rm_name);
+
         tv_rm_email = view.findViewById(R.id.tv_rm_email);
+
         tv_rm_mobile_number = view.findViewById(R.id.tv_rm_mobile_number);
+
         tv_rm_username_name = view.findViewById(R.id.tv_rm_username_name);
+
         accountDetailsRecyclerView = view.findViewById(R.id.rvAccounts);
     }
 
     @Override
-    void handleListener() {
+    protected void handleListener() {
 
+        BOBActivity.imgBack.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
-        apiInterface = BOBApp.getApi(getContext(), Constants.ACTION_RM_DETAIL);
-        util = new Util(getContext());
-        callRMDetailAPI();
+    protected void initializations() {
+
+        BOBActivity.llMenu.setVisibility(View.GONE);
+
+        BOBActivity.title.setText("Profile");
+    }
+
+    @Override
+    protected void setIcon(Util util) {
+
     }
 
     @Override
     public void onClick(View v) {
 
+        int id = v.getId();
+
+        if (id == R.id.imgBack) {
+
+            getActivity().onBackPressed();
+        }
     }
 
     private void callRMDetailAPI() {
+
         util.showProgressDialog(getContext(), true);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
@@ -123,6 +164,7 @@ public class ProfileFragment extends BaseFragment {
         RMDetailRequestObject.createGlobalRequestObject(globalRequestObject);
 
         apiInterface.getRMDetailResponse(RMDetailRequestObject.getGlobalRequestObject()).enqueue(new Callback<ArrayList<RMDetailResponseObject>>() {
+
             @Override
             public void onResponse(Call<ArrayList<RMDetailResponseObject>> call, Response<ArrayList<RMDetailResponseObject>> response) {
 
@@ -132,16 +174,19 @@ public class ProfileFragment extends BaseFragment {
                     rmDetailResponseObjectArrayList = response.body();
 
                     tv_rm_username_name.setText(rmDetailResponseObjectArrayList.get(0).getClientName());
+
                     tv_rm_name.setText(rmDetailResponseObjectArrayList.get(0).getPrimaryRMName());
+
                     tv_rm_email.setText(rmDetailResponseObjectArrayList.get(0).getPrimaryRMEmail());
+
                     tv_rm_mobile_number.setText(rmDetailResponseObjectArrayList.get(0).getPrimaryRMContactNo());
 
                     callAccountDetailAPI();
 
                 } else {
+
                     Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
@@ -155,6 +200,7 @@ public class ProfileFragment extends BaseFragment {
     }
 
     private void callAccountDetailAPI() {
+
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 
         RequestBodyObject requestBodyObject = new RequestBodyObject();
@@ -183,10 +229,13 @@ public class ProfileFragment extends BaseFragment {
                 util.showProgressDialog(getContext(), false);
 
                 if (response.isSuccessful()) {
+
                     accountResponseObjectArrayList = response.body();
+
                     setPopupData(accountResponseObjectArrayList);
 
                 } else {
+
                     Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
 

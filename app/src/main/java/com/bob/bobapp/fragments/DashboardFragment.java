@@ -7,26 +7,36 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.os.Handler;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.DematHoldingActivity;
 import com.bob.bobapp.activities.DiscoverFundsActivity;
 import com.bob.bobapp.activities.HoldingsActivity;
 import com.bob.bobapp.activities.BOBActivity;
+import com.bob.bobapp.activities.OrderStatusActivity;
 import com.bob.bobapp.activities.RiskProfileActivity;
+import com.bob.bobapp.activities.StopSIPActivity;
 import com.bob.bobapp.adapters.DashboardTransactionListAdapter;
 import com.bob.bobapp.adapters.ExploreMoreListAdapter;
 import com.bob.bobapp.api.APIInterface;
@@ -47,11 +57,19 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import static android.content.Context.WINDOW_SERVICE;
+
 public class DashboardFragment extends BaseFragment {
+
+    private LinearLayout llMenu;
 
     private RecyclerView rvTransaction, rvExploreMore;
 
@@ -76,10 +94,7 @@ public class DashboardFragment extends BaseFragment {
 
     private PieChart riskProfilePieChart;
 
-    public DashboardFragment(ArrayList<ClientHoldingObject> clientHoldingObjectArrayList) {
-
-        this.clientHoldingObjectArrayList = clientHoldingObjectArrayList;
-    }
+    private ImageView imgDashbaord;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -95,10 +110,23 @@ public class DashboardFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+
+        String response = SettingPreferences.getHoldingResponse(getActivity());
+
+        Type listType = new TypeToken<List<ClientHoldingObject>>(){}.getType();
+
+        clientHoldingObjectArrayList = new Gson().fromJson(response, listType);
     }
 
     @Override
-    void getIds(View view) {
+    protected void setIcon(Util util) {
+
+    }
+
+    @Override
+    protected void getIds(View view) {
+
+        llMenu = (LinearLayout) view.findViewById(R.id.llMenu);
 
         rvTransaction = view.findViewById(R.id.rvTransaction);
 
@@ -133,7 +161,14 @@ public class DashboardFragment extends BaseFragment {
         btnReAccessRiskProfile = view.findViewById(R.id.btn_re_access_risk_profile);
 
         riskProfilePieChart = view.findViewById(R.id.risk_profile_view);
+
         btn_Details = view.findViewById(R.id.btn_Details);
+
+        imgDashbaord = view.findViewById(R.id.imgDashbaord);
+
+        drawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+
+        drawerMenuView = (LinearLayout) view.findViewById(R.id.drawerMenuLLayout);
 
         callRMDetailAPI();
 
@@ -255,7 +290,7 @@ public class DashboardFragment extends BaseFragment {
     }
 
     @Override
-    void handleListener() {
+    protected void handleListener() {
 
         existingPortfolio.setOnClickListener(this);
 
@@ -268,11 +303,20 @@ public class DashboardFragment extends BaseFragment {
         imageViewRightArrow.setOnClickListener(this);
 
         btnReAccessRiskProfile.setOnClickListener(this);
+
         btn_Details.setOnClickListener(this);
+
+        BOBActivity.imgBack.setOnClickListener(this);
+
+        //imgDashbaord.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
+    protected void initializations() {
+
+        BOBActivity.title.setText("Dashboard");
+
+        manageLeftSideDrawer();
 
         rvTransaction.setNestedScrollingEnabled(false);
 
@@ -291,7 +335,14 @@ public class DashboardFragment extends BaseFragment {
 
         exploreMoreArrayList.add("Tax Saving");
 
-        ExploreMoreListAdapter adapter = new ExploreMoreListAdapter(getActivity(), exploreMoreArrayList);
+        ExploreMoreListAdapter adapter = new ExploreMoreListAdapter(getActivity(), exploreMoreArrayList) {
+
+            @Override
+            public void getDetail(Fragment fragment) {
+
+                replaceFragment(fragment);
+            }
+        };
 
         rvExploreMore.setAdapter(adapter);
     }
@@ -307,42 +358,40 @@ public class DashboardFragment extends BaseFragment {
     public void onClick(View view) {
 
         int id = view.getId();
-        if (id == R.id.existingPortfolio) {
+
+        if (id == R.id.llMenu) {
+
+            menuButton();
+
+        }else if (id == R.id.existingPortfolio) {
+
             ((BOBActivity) getActivity()).setTransactTab();
+
         } else if (id == R.id.llAmount) {
-            Intent intent = new Intent(getActivity(), HoldingsActivity.class);
 
-            startActivity(intent);
+            replaceFragment(new HoldingsActivity());
+
         } else if (id == R.id.startNow || id == R.id.cvNewFund) {
-            Intent intentDiscoverFunds = new Intent(getActivity(), DiscoverFundsActivity.class);
 
-            startActivity(intentDiscoverFunds);
+            replaceFragment(new DiscoverFundsActivity());
+
         } else if (id == R.id.btn_Details) {
-            Intent intentsss = new Intent(getActivity(), HoldingsActivity.class);
 
-            startActivity(intentsss);
+            replaceFragment(new HoldingsActivity());
+
         } else if (id == R.id.img_right_arrow) {
-            Intent intentss = new Intent(getActivity(), HoldingsActivity.class);
 
-            startActivity(intentss);
+            replaceFragment(new HoldingsActivity());
 
-//                currentIndex = currentIndex + 1;
-//
-//                if(currentIndex < clientHoldingObjectArrayList.size() - 1) {
-//
-//                    setData(currentIndex);
-//
-//                }else{
-//
-//                    currentIndex = 0;
-//
-//                    setData(currentIndex);
-//                }
         } else if (id == R.id.btn_re_access_risk_profile) {
+
             callRMDetailAPI();
 
-            Intent intents = new Intent(getContext(), RiskProfileActivity.class);
-            startActivity(intents);
+            replaceFragment(new RiskProfileActivity());
+
+        }else if (id == R.id.imgBack) {
+
+            getActivity().onBackPressed();
         }
     }
 
@@ -494,5 +543,280 @@ public class DashboardFragment extends BaseFragment {
                 Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private DrawerLayout drawerLayout;
+
+    private LinearLayout drawerMenuView;
+
+    private int screenWidth = 0, screenHeight = 0;
+
+    int DRAWER_ITEMS_OPEN_TIME = 200;
+
+    public void manageLeftSideDrawer() {
+
+        WindowManager manager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+
+        manager.getDefaultDisplay().getMetrics(metrics);
+
+        screenWidth = metrics.widthPixels;
+
+        screenHeight = metrics.heightPixels;
+
+        View leftSideDrawerView = LayoutInflater.from(context).inflate(R.layout.left_side_drawer_layout, null);
+
+        leftSideDrawerView.setLayoutParams(new LinearLayout.LayoutParams((int) (screenWidth * 0.8f), LinearLayout.LayoutParams.MATCH_PARENT));
+
+        ImageView close = (ImageView) leftSideDrawerView.findViewById(R.id.close);
+
+        ImageView imgIcon = (ImageView) leftSideDrawerView.findViewById(R.id.imgIcon);
+
+        TextView dashboard = leftSideDrawerView.findViewById(R.id.dashboard);
+
+        TextView portFolio = leftSideDrawerView.findViewById(R.id.portFolio);
+
+        TextView report = leftSideDrawerView.findViewById(R.id.report);
+
+        TextView transact = leftSideDrawerView.findViewById(R.id.transact);
+
+        TextView orderStatus = leftSideDrawerView.findViewById(R.id.orderStatus);
+
+        TextView dematHolding = leftSideDrawerView.findViewById(R.id.dematHolding);
+
+        TextView stopSIP = leftSideDrawerView.findViewById(R.id.stopSIP);
+
+        TextView setup = leftSideDrawerView.findViewById(R.id.setup);
+
+//        close.setVisibility(View.GONE);
+
+        imgIcon.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(0);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(0);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        dashboard.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(0);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        /*imgDashbaord.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(0);
+
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });*/
+
+        portFolio.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(1);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        report.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        //viewPager.setCurrentItem(1);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        transact.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        BOBActivity.mTabHost.setCurrentTab(2);
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        orderStatus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        replaceFragment(new OrderStatusActivity());
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        dematHolding.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        replaceFragment(new DematHoldingActivity());
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        stopSIP.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        replaceFragment(new StopSIPActivity());
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        setup.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.closeDrawer(Gravity.LEFT);
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                    }
+
+                }, DRAWER_ITEMS_OPEN_TIME);
+            }
+        });
+
+        drawerMenuView.addView(leftSideDrawerView);
+    }
+
+    public void menuButton() {
+
+        if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+
+            drawerLayout.closeDrawer(Gravity.LEFT);
+
+        } else {
+
+            drawerLayout.openDrawer(Gravity.LEFT);
+        }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 }

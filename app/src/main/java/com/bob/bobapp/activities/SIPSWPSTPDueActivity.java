@@ -1,17 +1,22 @@
 package com.bob.bobapp.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.SIPSWPSTPDueListAdapter;
 import com.bob.bobapp.adapters.TransactionListAdapter;
@@ -20,6 +25,7 @@ import com.bob.bobapp.api.request_object.SIPSWPSTPRequestBodyModel;
 import com.bob.bobapp.api.request_object.SIPSWPSTPRequestModel;
 import com.bob.bobapp.api.response_object.SIPDueReportResponse;
 import com.bob.bobapp.api.response_object.TransactionResponseModel;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -36,9 +42,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SIPSWPSTPDueActivity extends BaseActivity {
+public class SIPSWPSTPDueActivity extends BaseFragment {
 
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, calender,tvSelectedDate, tvGo, tvClear;
+    private TextView calender,tvSelectedDate, tvGo, tvClear;
     private RecyclerView rv;
     private APIInterface apiInterface;
     private Util util;
@@ -49,31 +55,39 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
     private SIPSWPSTPDueListAdapter adapter;
     private ArrayList<SIPDueReportResponse> arrayList;
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_s_i_p_s_w_p_s_t_p_due);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_s_i_p_s_w_p_s_t_p_due, container, false);
     }
 
     @Override
-    public void getIds() {
-        calender = findViewById(R.id.calender);
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        rv = findViewById(R.id.rv);
-        tvSelectedDate = findViewById(R.id.tv_selected_date);
-        layoutDate = findViewById(R.id.layout_date);
-        tvGo = findViewById(R.id.tv_go);
-        tvClear = findViewById(R.id.tv_clear);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void getIds(View view) {
+        calender = view.findViewById(R.id.calender);
+
+        rv = view.findViewById(R.id.rv);
+        tvSelectedDate = view.findViewById(R.id.tv_selected_date);
+        layoutDate = view.findViewById(R.id.layout_date);
+        tvGo = view.findViewById(R.id.tv_go);
+        tvClear = view.findViewById(R.id.tv_clear);
 
     }
 
     @Override
     public void handleListener() {
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         layoutDate.setOnClickListener(this);
         tvGo.setOnClickListener(this);
         tvClear.setOnClickListener(this);
@@ -82,16 +96,16 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
 
     @Override
     public void initializations() {
-        tvTitle.setText("SIP SWP STP Due");
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_SIP_SWP_STP_DUE);
-        util = new Util(this);
+        BOBActivity.title.setText("SIP SWP STP Due");
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_SIP_SWP_STP_DUE);
+        util = new Util(context);
         getSIPSWRSTPApiCall();
     }
 
     private void getSIPSWRSTPApiCall() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         SIPSWPSTPRequestBodyModel requestBodyModel = new SIPSWPSTPRequestBodyModel();
 
@@ -110,7 +124,7 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
         model.setSource(Constants.SOURCE);
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
@@ -118,20 +132,20 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
             @Override
             public void onResponse(Call<ArrayList<SIPDueReportResponse>> call, Response<ArrayList<SIPDueReportResponse>> response) {
 
-                util.showProgressDialog(SIPSWPSTPDueActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
                     arrayList = response.body();
                     setAdapter(arrayList);
                 } else {
-                    Toast.makeText(SIPSWPSTPDueActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<SIPDueReportResponse>> call, Throwable t) {
-                util.showProgressDialog(SIPSWPSTPDueActivity.this, false);
-                Toast.makeText(SIPSWPSTPDueActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -140,22 +154,18 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
     private void setAdapter(ArrayList<SIPDueReportResponse> arrayList) {
 
         if (arrayList != null && arrayList.size() > 0) {
-            adapter = new SIPSWPSTPDueListAdapter(this, arrayList);
+            adapter = new SIPSWPSTPDueListAdapter(context, arrayList);
             rv.setAdapter(adapter);
         } else {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No data found", Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
     @Override
-    void setIcon(Util util) {
+    public void setIcon(Util util) {
 
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
         FontManager.markAsIconContainer(calender, util.iconFont);
 
     }
@@ -167,7 +177,7 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
 
         int id = view.getId();
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.layout_date) {
             openCalender(tvSelectedDate);
         } else if (id == R.id.tv_go) {
@@ -179,6 +189,8 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
             strDateForRequest = "";
             tvSelectedDate.setText("Select Date");
             adapter.updateList(arrayList);
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
     }
 
@@ -202,7 +214,7 @@ public class SIPSWPSTPDueActivity extends BaseActivity {
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

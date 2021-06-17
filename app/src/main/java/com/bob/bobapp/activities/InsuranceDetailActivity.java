@@ -1,53 +1,67 @@
 package com.bob.bobapp.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.api.response_object.LifeInsuranceResponse;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.Util;
+import com.google.gson.Gson;
 
-public class InsuranceDetailActivity extends BaseActivity {
+public class InsuranceDetailActivity extends BaseFragment {
 
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, name, amount, insuranceCompany, policy, policyName, policyType, fundValue, sumAssured, policyStartDate, maturityDate, premiumAmount, frequency, annualPremium, nextDueDate;
-
+    private TextView name, amount, insuranceCompany, policy, policyName, policyType, fundValue, sumAssured, policyStartDate, maturityDate, premiumAmount, frequency, annualPremium, nextDueDate;
 
     private LifeInsuranceResponse model;
 
+    private Context context;
+
+    private Util util;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insurance_detail);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_insurance_detail, container, false);
     }
 
     @Override
-    public void getIds() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
+        super.onViewCreated(view, savedInstanceState);
+    }
 
+    @Override
+    public void getIds(View view) {
 
-        name = findViewById(R.id.name);
-        amount = findViewById(R.id.value);
-        insuranceCompany = findViewById(R.id.insuranceCompany);
-        policy = findViewById(R.id.policy);
-        policyName = findViewById(R.id.policyName);
-        policyType = findViewById(R.id.policyType);
-        fundValue = findViewById(R.id.fundValue);
-        sumAssured = findViewById(R.id.sumAssured);
-        policyStartDate = findViewById(R.id.policyStartDate);
-        maturityDate = findViewById(R.id.maturityDate);
-        premiumAmount = findViewById(R.id.premiumAmount);
-        frequency = findViewById(R.id.frequency);
-        annualPremium = findViewById(R.id.annualPremium);
-        nextDueDate = findViewById(R.id.nextDueDate);
+        name = view.findViewById(R.id.name);
+        amount = view.findViewById(R.id.value);
+        insuranceCompany = view.findViewById(R.id.insuranceCompany);
+        policy = view.findViewById(R.id.policy);
+        policyName = view.findViewById(R.id.policyName);
+        policyType = view.findViewById(R.id.policyType);
+        fundValue = view.findViewById(R.id.fundValue);
+        sumAssured = view.findViewById(R.id.sumAssured);
+        policyStartDate = view.findViewById(R.id.policyStartDate);
+        maturityDate = view.findViewById(R.id.maturityDate);
+        premiumAmount = view.findViewById(R.id.premiumAmount);
+        frequency = view.findViewById(R.id.frequency);
+        annualPremium = view.findViewById(R.id.annualPremium);
+        nextDueDate = view.findViewById(R.id.nextDueDate);
 
 
     }
@@ -55,16 +69,21 @@ public class InsuranceDetailActivity extends BaseActivity {
     @Override
     public void handleListener() {
 
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
 
     }
 
     @Override
-    void initializations() {
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Detail");
+    public void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Detail");
 
-        model = getIntent().getParcelableExtra("item");
+        if(getArguments() != null) {
+
+            String response = getArguments().getString("item");
+
+            model = new Gson().fromJson(response, LifeInsuranceResponse.class);
+        }
 
         name.setText(model.getPolicyName()+"");
         amount.setText(model.getAmount() + "");
@@ -84,13 +103,7 @@ public class InsuranceDetailActivity extends BaseActivity {
     }
 
     @Override
-    void setIcon(Util util) {
-
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
-
+    public void setIcon(Util util) {
 
     }
 
@@ -98,7 +111,9 @@ public class InsuranceDetailActivity extends BaseActivity {
     public void onClick(View view) {
 
         if (view.getId() == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
+        }else if (view.getId() == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
 
     }

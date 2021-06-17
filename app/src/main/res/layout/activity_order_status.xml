@@ -8,9 +8,6 @@
     android:background="@color/white"
     tools:context=".fragments.DashboardFragment">
 
-    <include layout="@layout/header_layout"/>
-
-
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"

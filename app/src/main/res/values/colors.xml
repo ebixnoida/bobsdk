@@ -36,4 +36,7 @@
     <color name="header_text_color">#666161</color>
     <color name="wealth_text_color">#828282</color>
 
+    <color name="tabSelectedColor">#FFFFFF</color>
+    <color name="tabUnselectedColor">#606060</color>
+
 </resources>

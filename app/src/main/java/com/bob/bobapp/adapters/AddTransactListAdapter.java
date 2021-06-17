@@ -3,6 +3,7 @@ package com.bob.bobapp.adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.activities.BuySIPRedeemSwitchActivity;
 import com.bob.bobapp.activities.FactSheetActivity;
@@ -25,7 +28,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactListAdapter.ViewHolder> {
+public abstract class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactListAdapter.ViewHolder> {
 
     private Context context;
 
@@ -147,11 +150,12 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
         public void onClick(View view) {
 
             if (view.getId() == R.id.imgDetails) {
-                Intent intent = new Intent(context, FactSheetActivity.class);
-                context.startActivity(intent);
+                getDetail(new FactSheetActivity());
             }
         }
     }
+
+    public abstract void getDetail(Fragment fragment);
 
     private void showDialog(int id, ClientHoldingObject holdingObjectSelected) {
 
@@ -201,10 +205,15 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"buy");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle bundle = new Bundle();
+
+                bundle.putString(IntentKey.TRANSACTION_TYPE_KEY, "buy");
+
+                BuySIPRedeemSwitchActivity fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(bundle);
+
+                //((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
             }
         });
 
@@ -212,10 +221,17 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"sip");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle args = new Bundle();
+
+                args.putString(IntentKey.TRANSACTION_TYPE_KEY, "sip");
+
+                args.putString(IntentKey.RESPONSE_KEY, response);
+
+                Fragment fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(args);
+
+                getDetail(fragment);
             }
         });
 
@@ -223,10 +239,17 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"redeem");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle args = new Bundle();
+
+                args.putString(IntentKey.TRANSACTION_TYPE_KEY, "redeem");
+
+                args.putString(IntentKey.RESPONSE_KEY, response);
+
+                Fragment fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(args);
+
+                getDetail(fragment);
             }
         });
 
@@ -234,10 +257,17 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"switch");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle args = new Bundle();
+
+                args.putString(IntentKey.TRANSACTION_TYPE_KEY, "switch");
+
+                args.putString(IntentKey.RESPONSE_KEY, response);
+
+                Fragment fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(args);
+
+                getDetail(fragment);
             }
         });
 
@@ -245,10 +275,17 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"swp");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle args = new Bundle();
+
+                args.putString(IntentKey.TRANSACTION_TYPE_KEY, "swp");
+
+                args.putString(IntentKey.RESPONSE_KEY, response);
+
+                Fragment fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(args);
+
+                getDetail(fragment);
             }
         });
 
@@ -256,10 +293,17 @@ public class AddTransactListAdapter extends RecyclerView.Adapter<AddTransactList
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, BuySIPRedeemSwitchActivity.class);
-                intent.putExtra(IntentKey.TRANSACTION_TYPE_KEY,"stp");
-                intent.putExtra(IntentKey.RESPONSE_KEY,response);
-                context.startActivity(intent);
+                Bundle args = new Bundle();
+
+                args.putString(IntentKey.TRANSACTION_TYPE_KEY, "stp");
+
+                args.putString(IntentKey.RESPONSE_KEY, response);
+
+                Fragment fragment = new BuySIPRedeemSwitchActivity();
+
+                fragment.setArguments(args);
+
+                getDetail(fragment);
             }
         });
 

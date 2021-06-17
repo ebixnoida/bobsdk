@@ -3,6 +3,7 @@ package com.bob.bobapp.adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,21 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.BuySIPRedeemSwitchActivity;
 import com.bob.bobapp.activities.HoldingDetailActivity;
 import com.bob.bobapp.activities.InsuranceDetailActivity;
 import com.bob.bobapp.api.bean.ClientHoldingObject;
+import com.bob.bobapp.utility.IntentKey;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HoldingListAdapter extends RecyclerView.Adapter<HoldingListAdapter.ViewHolder> {
+public abstract class HoldingListAdapter extends RecyclerView.Adapter<HoldingListAdapter.ViewHolder> {
 
     private Context context;
     private List<ClientHoldingObject> arrayList;
@@ -87,14 +91,20 @@ public class HoldingListAdapter extends RecyclerView.Adapter<HoldingListAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, HoldingDetailActivity.class);
-                    intent.putExtra("item", arrayList.get(getAdapterPosition()));
-                    context.startActivity(intent);
+
+                    Bundle args = new Bundle();
+
+                    args.putString("item", String.valueOf(arrayList.get(getAdapterPosition())));
+
+                    Fragment fragment = new HoldingDetailActivity();
+
+                    fragment.setArguments(args);
+
+                    getDetail(fragment);
                 }
             });
-
-
         }
-
     }
+
+    public abstract void getDetail(Fragment fragment);
 }

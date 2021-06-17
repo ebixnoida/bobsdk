@@ -1,10 +1,13 @@
 package com.bob.bobapp.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -12,10 +15,13 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.AddressTypeAdapter;
 import com.bob.bobapp.adapters.CityAdapter;
@@ -49,6 +55,7 @@ import com.bob.bobapp.api.response_object.Occupation;
 import com.bob.bobapp.api.response_object.PoliticalFigure;
 import com.bob.bobapp.api.response_object.SourceOFWealth;
 import com.bob.bobapp.api.response_object.State;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -58,12 +65,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
+import androidx.fragment.app.Fragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WealthMgmtActivity extends BaseActivity {
-    private TextView txtMenu, txtCancel, txtNext;
+public class WealthMgmtActivity extends BaseFragment {
+    private TextView txtCancel, txtNext;
     private AppCompatEditText edtPanNumber, edtName, edtDateOfBirth, edtFatherOrHusbandName, edtMotherMaidenName,
             edtEmail, edtMobile, edtAddress1, edtAddress2, edtAddress3, edtPin, edtBirthPalce, edtINR,
             edtNomineeName, edtNomineeDob, edtRelationship, edtNomineeShare, edtNomineeAddress, edtGurdianName;
@@ -105,54 +113,65 @@ public class WealthMgmtActivity extends BaseActivity {
     int year, month, dayOfMonth;
     private DatePickerDialog datePickerDialog;
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wealth_mgmt);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_wealth_mgmt, container, false);
     }
 
     @Override
-    public void getIds() {
-        txtMenu = findViewById(R.id.menu);
-        txtCancel = findViewById(R.id.txtCancel);
-        txtNext = findViewById(R.id.txtNext);
-        edtPanNumber = findViewById(R.id.edtPanNumber);
-        edtName = findViewById(R.id.edtName);
-        edtDateOfBirth = findViewById(R.id.edtDateOfBirth);
-        edtFatherOrHusbandName = findViewById(R.id.edtFatherOrHusbandName);
-        edtMotherMaidenName = findViewById(R.id.edtMotherMaidenName);
-        edtEmail = findViewById(R.id.edtEmail);
-        edtMobile = findViewById(R.id.edtMobile);
-        edtAddress1 = findViewById(R.id.edtAddress1);
-        edtAddress2 = findViewById(R.id.edtAddress2);
-        edtAddress3 = findViewById(R.id.edtAddress3);
-        edtPin = findViewById(R.id.edtPin);
-        edtBirthPalce = findViewById(R.id.edtBirthPalce);
-        edtINR = findViewById(R.id.edtINR);
-        edtNomineeName = findViewById(R.id.edtNomineeName);
-        edtNomineeDob = findViewById(R.id.edtNomineeDob);
-        edtRelationship = findViewById(R.id.edtRelationship);
-        edtNomineeShare = findViewById(R.id.edtNomineeShare);
-        edtNomineeAddress = findViewById(R.id.edtNomineeAddress);
-        edtGurdianName = findViewById(R.id.edtGurdianName);
-        radioMinorYes = findViewById(R.id.radioMinorYes);
-        radioMinorNo = findViewById(R.id.radioMinorNo);
-        radioNimineeYes = findViewById(R.id.radioNimineeYes);
-        radioNimineeNo = findViewById(R.id.radioNimineeNo);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void getIds(View view) {
+        txtCancel = view.findViewById(R.id.txtCancel);
+        txtNext = view.findViewById(R.id.txtNext);
+        edtPanNumber = view.findViewById(R.id.edtPanNumber);
+        edtName = view.findViewById(R.id.edtName);
+        edtDateOfBirth = view.findViewById(R.id.edtDateOfBirth);
+        edtFatherOrHusbandName = view.findViewById(R.id.edtFatherOrHusbandName);
+        edtMotherMaidenName = view.findViewById(R.id.edtMotherMaidenName);
+        edtEmail = view.findViewById(R.id.edtEmail);
+        edtMobile = view.findViewById(R.id.edtMobile);
+        edtAddress1 = view.findViewById(R.id.edtAddress1);
+        edtAddress2 = view.findViewById(R.id.edtAddress2);
+        edtAddress3 = view.findViewById(R.id.edtAddress3);
+        edtPin = view.findViewById(R.id.edtPin);
+        edtBirthPalce = view.findViewById(R.id.edtBirthPalce);
+        edtINR = view.findViewById(R.id.edtINR);
+        edtNomineeName = view.findViewById(R.id.edtNomineeName);
+        edtNomineeDob = view.findViewById(R.id.edtNomineeDob);
+        edtRelationship = view.findViewById(R.id.edtRelationship);
+        edtNomineeShare = view.findViewById(R.id.edtNomineeShare);
+        edtNomineeAddress = view.findViewById(R.id.edtNomineeAddress);
+        edtGurdianName = view.findViewById(R.id.edtGurdianName);
+        radioMinorYes = view.findViewById(R.id.radioMinorYes);
+        radioMinorNo = view.findViewById(R.id.radioMinorNo);
+        radioNimineeYes = view.findViewById(R.id.radioNimineeYes);
+        radioNimineeNo = view.findViewById(R.id.radioNimineeNo);
 
 
-        spinnerGender = findViewById(R.id.spinnerGender);
-        spinnerMaritalStatus = findViewById(R.id.spinnerMaritalStatus);
-        spineerCity = findViewById(R.id.spineerCity);
-        spineerState = findViewById(R.id.spineerState);
-        spineerCountry = findViewById(R.id.spineerCountry);
-        spineerAddressType = findViewById(R.id.spineerAddressType);
-        spineerOccuptaion = findViewById(R.id.spineerOccuptaion);
-        spineerPoliticalExposed = findViewById(R.id.spineerPoliticalExposed);
-        spineerGrossIncome = findViewById(R.id.spineerGrossIncome);
-        spineerWealthSource = findViewById(R.id.spineerWealthSource);
-        spineerNationality = findViewById(R.id.spineerNationality);
-        spineerBirthCountry = findViewById(R.id.spineerBirthCountry);
+        spinnerGender = view.findViewById(R.id.spinnerGender);
+        spinnerMaritalStatus = view.findViewById(R.id.spinnerMaritalStatus);
+        spineerCity = view.findViewById(R.id.spineerCity);
+        spineerState = view.findViewById(R.id.spineerState);
+        spineerCountry = view.findViewById(R.id.spineerCountry);
+        spineerAddressType = view.findViewById(R.id.spineerAddressType);
+        spineerOccuptaion = view.findViewById(R.id.spineerOccuptaion);
+        spineerPoliticalExposed = view.findViewById(R.id.spineerPoliticalExposed);
+        spineerGrossIncome = view.findViewById(R.id.spineerGrossIncome);
+        spineerWealthSource = view.findViewById(R.id.spineerWealthSource);
+        spineerNationality = view.findViewById(R.id.spineerNationality);
+        spineerBirthCountry = view.findViewById(R.id.spineerBirthCountry);
 
         radioMinorYes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -204,7 +223,7 @@ public class WealthMgmtActivity extends BaseActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        datePickerDialog = new DatePickerDialog(WealthMgmtActivity.this,
+        datePickerDialog = new DatePickerDialog(context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -221,7 +240,7 @@ public class WealthMgmtActivity extends BaseActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        datePickerDialog = new DatePickerDialog(WealthMgmtActivity.this,
+        datePickerDialog = new DatePickerDialog(context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -235,7 +254,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     @Override
     public void handleListener() {
-        txtMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         txtCancel.setOnClickListener(this);
         txtNext.setOnClickListener(this);
         edtDateOfBirth.setOnClickListener(this);
@@ -243,23 +262,24 @@ public class WealthMgmtActivity extends BaseActivity {
     }
 
     @Override
-    void initializations() {
-        util = new Util(this);
-        txtMenu.setText(getResources().getString(R.string.fa_icon_back));
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_GET_DROPDOWN);
+    public void initializations() {
+        util = new Util(context);
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Wealth Management");
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_GET_DROPDOWN);
         // getDropDownApiCall();
 
         GetFinacleClientDetailsApi();
     }
 
     @Override
-    void setIcon(Util util) {
-        FontManager.markAsIconContainer(txtMenu, util.iconFont);
+    public void setIcon(Util util) {
+
     }
 
     // gender adapter
     private void setGenderAdapter() {
-        genderAdapter = new GenderAdapter(getApplicationContext(), genderArrayList);
+        genderAdapter = new GenderAdapter(context, genderArrayList);
         spinnerGender.setAdapter(genderAdapter);
         for (int i = 0; i < genderArrayList.size(); i++) {
             if (genderArrayList.get(i).getName().equalsIgnoreCase(gender)) {
@@ -284,7 +304,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // marital status adapter
     private void setMaritalStatusAdapter() {
-        maritalStatusAdapter = new MaritalStatusAdapter(getApplicationContext(), maritalStatusArrayList);
+        maritalStatusAdapter = new MaritalStatusAdapter(context, maritalStatusArrayList);
         spinnerMaritalStatus.setAdapter(maritalStatusAdapter);
         for (int i = 0; i < maritalStatusArrayList.size(); i++) {
             if (maritalStatusArrayList.get(i).getName().equalsIgnoreCase(maritalStatus)) {
@@ -310,7 +330,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // city  adapter
     private void setCityAdapter() {
-        cityAdapter = new CityAdapter(getApplicationContext(), cityArrayList);
+        cityAdapter = new CityAdapter(context, cityArrayList);
         spineerCity.setAdapter(cityAdapter);
         for (int i = 0; i < cityArrayList.size(); i++) {
             if (cityArrayList.get(i).getName().equalsIgnoreCase(city)) {
@@ -336,7 +356,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // state  adapter
     private void setStateAdapter() {
-        stateAdapter = new StateAdapter(getApplicationContext(), stateArrayList);
+        stateAdapter = new StateAdapter(context, stateArrayList);
         spineerState.setAdapter(stateAdapter);
         for (int i = 0; i < stateArrayList.size(); i++) {
             if (stateArrayList.get(i).getName().equalsIgnoreCase(state)) {
@@ -362,7 +382,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // country  adapter
     private void setCountryAdapter() {
-        countryAdapter = new CountryAdapter(getApplicationContext(), countryArrayList);
+        countryAdapter = new CountryAdapter(context, countryArrayList);
         spineerCountry.setAdapter(countryAdapter);
         for (int i = 0; i < countryArrayList.size(); i++) {
             if (countryArrayList.get(i).getName().equalsIgnoreCase(country)) {
@@ -388,7 +408,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // birth country  adapter
     private void setBirthCountryAdapter() {
-        countryAdapter = new CountryAdapter(getApplicationContext(), countryArrayList);
+        countryAdapter = new CountryAdapter(context, countryArrayList);
         spineerBirthCountry.setAdapter(countryAdapter);
         for (int i = 0; i < countryArrayList.size(); i++) {
             if (countryArrayList.get(i).getName().equalsIgnoreCase(birthCountry)) {
@@ -413,7 +433,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // address type  adapter
     private void seAddressTypeAdapter() {
-        addressTypeAdapter = new AddressTypeAdapter(getApplicationContext(), addressTypeArrayList);
+        addressTypeAdapter = new AddressTypeAdapter(context, addressTypeArrayList);
         spineerAddressType.setAdapter(addressTypeAdapter);
 
         for (int i = 0; i < addressTypeArrayList.size(); i++) {
@@ -440,7 +460,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // occupation  adapter
     private void setOccupationAdapter() {
-        occupationAdapter = new OccupationAdapter(getApplicationContext(), occupationArrayList);
+        occupationAdapter = new OccupationAdapter(context, occupationArrayList);
         spineerOccuptaion.setAdapter(occupationAdapter);
 
         for (int i = 0; i < occupationArrayList.size(); i++) {
@@ -465,7 +485,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // political exposed  adapter
     private void setPoliticalExposedAdapter() {
-        politicalExposedAdapter = new PoliticalExposedAdapter(getApplicationContext(), politicalFigureArrayList);
+        politicalExposedAdapter = new PoliticalExposedAdapter(context, politicalFigureArrayList);
         spineerPoliticalExposed.setAdapter(politicalExposedAdapter);
 
         for (int i = 0; i < politicalFigureArrayList.size(); i++) {
@@ -491,7 +511,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // gross income  adapter
     private void setGrossIncomeAdapter() {
-        grossIncomeAdapter = new GrossIncomeAdapter(getApplicationContext(), grossAnnIncomeArrayList);
+        grossIncomeAdapter = new GrossIncomeAdapter(context, grossAnnIncomeArrayList);
         spineerGrossIncome.setAdapter(grossIncomeAdapter);
 
         for (int i = 0; i < grossAnnIncomeArrayList.size(); i++) {
@@ -517,7 +537,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // wealth source adapter
     private void setWealthSourceAdapter() {
-        wealthSourceAdapter = new WealthSourceAdapter(getApplicationContext(), sourceOFWealthArrayList);
+        wealthSourceAdapter = new WealthSourceAdapter(context, sourceOFWealthArrayList);
         spineerWealthSource.setAdapter(wealthSourceAdapter);
 
         for (int i = 0; i < sourceOFWealthArrayList.size(); i++) {
@@ -543,7 +563,7 @@ public class WealthMgmtActivity extends BaseActivity {
 
     // nationality adapter
     private void setNationalityAdapter() {
-        nationalityAdapter = new NationalityAdapter(getApplicationContext(), nationalitiesResponseArrayList);
+        nationalityAdapter = new NationalityAdapter(context, nationalitiesResponseArrayList);
         spineerNationality.setAdapter(nationalityAdapter);
         for (int i = 0; i < nationalitiesResponseArrayList.size(); i++) {
             if (nationalitiesResponseArrayList.get(i).getCountryName().equalsIgnoreCase(nationality)) {
@@ -572,20 +592,22 @@ public class WealthMgmtActivity extends BaseActivity {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.menu) {
-            onBackPressed();
+            getActivity().onBackPressed();
         } else if (id == R.id.txtCancel) {
-            onBackPressed();
+            getActivity().onBackPressed();
         } else if (id == R.id.txtNext) {
             String result = validationForm();
             if (result.equalsIgnoreCase("success")) {
                 CallClientCreationActivationApi();
             } else {
-                Toast.makeText(WealthMgmtActivity.this, result, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.edtDateOfBirth) {
             onDateCalendar();
         } else if (id == R.id.edtNomineeDob) {
             onDateCalendar1();
+        }if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
     }
 
@@ -674,7 +696,7 @@ public class WealthMgmtActivity extends BaseActivity {
     // api call
     private void GetFinacleClientDetailsApi() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 
@@ -689,7 +711,7 @@ public class WealthMgmtActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
@@ -728,14 +750,14 @@ public class WealthMgmtActivity extends BaseActivity {
                     getDropDownApiCall();
 
                 } else {
-                    Toast.makeText(WealthMgmtActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<FinacleClientDetailsResponse> call, Throwable t) {
-                util.showProgressDialog(WealthMgmtActivity.this, false);
-                Toast.makeText(WealthMgmtActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -752,7 +774,7 @@ public class WealthMgmtActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
@@ -808,14 +830,14 @@ public class WealthMgmtActivity extends BaseActivity {
                     getNationalityDropDownApiCall();
 
                 } else {
-                    Toast.makeText(WealthMgmtActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<GetDropDownDatasForKYCRegisteredResponse> call, Throwable t) {
-                util.showProgressDialog(WealthMgmtActivity.this, false);
-                Toast.makeText(WealthMgmtActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -831,7 +853,7 @@ public class WealthMgmtActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
@@ -839,20 +861,20 @@ public class WealthMgmtActivity extends BaseActivity {
             @Override
             public void onResponse(Call<ArrayList<NationalitiesResponse>> call, Response<ArrayList<NationalitiesResponse>> response) {
 
-                util.showProgressDialog(WealthMgmtActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
                     nationalitiesResponseArrayList = response.body();
                     setNationalityAdapter();
 
                 } else {
-                    Toast.makeText(WealthMgmtActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<NationalitiesResponse>> call, Throwable t) {
-                util.showProgressDialog(WealthMgmtActivity.this, false);
+                util.showProgressDialog(context, false);
 //                       Toast.makeText(WealthMgmtActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
@@ -863,7 +885,7 @@ public class WealthMgmtActivity extends BaseActivity {
     // CallClientCreationActivation api call
     private void CallClientCreationActivationApi() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
@@ -947,7 +969,7 @@ public class WealthMgmtActivity extends BaseActivity {
         model.setSource(Constants.SOURCE);
 
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
 
@@ -955,27 +977,31 @@ public class WealthMgmtActivity extends BaseActivity {
             @Override
             public void onResponse(Call<CallClientCreationActivationResponse> call, Response<CallClientCreationActivationResponse> response) {
 
-                util.showProgressDialog(WealthMgmtActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
-                    Intent intent = new Intent(getApplicationContext(), TermsAndConditionActivity.class);
-                    startActivity(intent);
+                    replaceFragment(new TermsAndConditionActivity());
 //                    if (response.body().getClientCode().equalsIgnoreCase("1")) {
 //
 //                    }
 
                 } else {
-                    Toast.makeText(WealthMgmtActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<CallClientCreationActivationResponse> call, Throwable t) {
-                util.showProgressDialog(WealthMgmtActivity.this, false);
-                Toast.makeText(WealthMgmtActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 
 

@@ -1,14 +1,21 @@
 package com.bob.bobapp.activities;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.GeneralInsuranceListAdapter;
 import com.bob.bobapp.adapters.HoldingListAdapter;
@@ -25,6 +32,7 @@ import com.bob.bobapp.api.request_object.RealizedGainLossRequestBodyModel;
 import com.bob.bobapp.api.response_object.GeneralInsuranceResponse;
 import com.bob.bobapp.api.response_object.LifeInsuranceResponse;
 import com.bob.bobapp.api.response_object.RealizedGainLoss;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -37,9 +45,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class InsuranceActivity extends BaseActivity {
+public class InsuranceActivity extends BaseFragment {
 
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, lifeInsurance, generalInsurance;
+    private TextView lifeInsurance, generalInsurance;
     private RecyclerView rv;
     private APIInterface apiInterface;
     private Util util;
@@ -47,52 +55,59 @@ public class InsuranceActivity extends BaseActivity {
     private ArrayList<GeneralInsuranceResponse> generalInsuranceArrayList;
     private ArrayList<LifeInsuranceResponse> lifeInsuranceArrayList;
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insurance);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_insurance, container, false);
     }
 
     @Override
-    public void getIds() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        rv = findViewById(R.id.rv);
+        super.onViewCreated(view, savedInstanceState);
+    }
 
-        llLifeInsurance = findViewById(R.id.llLifeInsurance);
-        llGeneralInsurance = findViewById(R.id.llGeneralInsurance);
-        lifeInsurance = findViewById(R.id.lifeInsurance);
-        generalInsurance = findViewById(R.id.generalInsurance);
-        viewLifeInsurance = findViewById(R.id.viewLifeInsurance);
-        viewGeneralInsurance = findViewById(R.id.viewGeneralInsurance);
+    @Override
+    public void getIds(View view) {
+
+        rv = view.findViewById(R.id.rv);
+
+        llLifeInsurance = view.findViewById(R.id.llLifeInsurance);
+        llGeneralInsurance = view.findViewById(R.id.llGeneralInsurance);
+        lifeInsurance = view.findViewById(R.id.lifeInsurance);
+        generalInsurance = view.findViewById(R.id.generalInsurance);
+        viewLifeInsurance = view.findViewById(R.id.viewLifeInsurance);
+        viewGeneralInsurance = view.findViewById(R.id.viewGeneralInsurance);
 
     }
 
     @Override
     public void handleListener() {
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         llGeneralInsurance.setOnClickListener(this);
         llLifeInsurance.setOnClickListener(this);
 
     }
 
     @Override
-    void initializations() {
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Order Status");
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_INSURANCE);
-        util = new Util(this);
+    public void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Order Status");
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_INSURANCE);
+        util = new Util(context);
         getLifeInsuranceApiCall();
         getGeneralInsuranceApiCall();
 
     }
 
     private void getLifeInsuranceApiCall() {
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
         LifeInsuranceRequestBody requestBody = new LifeInsuranceRequestBody();
         requestBody.setClientcode(0);
         requestBody.setHeadclientCode("32");
@@ -106,14 +121,14 @@ public class InsuranceActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
         apiInterface.getLifeInsuranceApiCall(model).enqueue(new Callback<ArrayList<LifeInsuranceResponse>>() {
             @Override
             public void onResponse(Call<ArrayList<LifeInsuranceResponse>> call, Response<ArrayList<LifeInsuranceResponse>> response) {
 
-                util.showProgressDialog(InsuranceActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
 
@@ -121,14 +136,14 @@ public class InsuranceActivity extends BaseActivity {
 
                     setAdapter(lifeInsuranceArrayList);
                 } else {
-                    Toast.makeText(InsuranceActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<LifeInsuranceResponse>> call, Throwable t) {
-                util.showProgressDialog(InsuranceActivity.this, false);
-                Toast.makeText(InsuranceActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -136,18 +151,29 @@ public class InsuranceActivity extends BaseActivity {
 
     private void setAdapter(ArrayList<LifeInsuranceResponse> arrayList) {
         if (arrayList != null && arrayList.size() > 0) {
-            InsuranceListAdapter adapter = new InsuranceListAdapter(this, arrayList);
+            InsuranceListAdapter adapter = new InsuranceListAdapter(context, arrayList) {
+                @Override
+                public void getDetail(Fragment fragment) {
+
+                    replaceFragment(fragment);
+                }
+            };
             rv.setAdapter(adapter);
         } else {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No data found", Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
+    }
+
 
     private void getGeneralInsuranceApiCall() {
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         final GeneralInsuranceRequestBody requestBody = new GeneralInsuranceRequestBody();
         requestBody.setRmcode(0);
@@ -168,14 +194,14 @@ public class InsuranceActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
         apiInterface.getGeneralInsuranceApiCall(model).enqueue(new Callback<ArrayList<GeneralInsuranceResponse>>() {
             @Override
             public void onResponse(Call<ArrayList<GeneralInsuranceResponse>> call, Response<ArrayList<GeneralInsuranceResponse>> response) {
 
-                util.showProgressDialog(InsuranceActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
 
@@ -183,14 +209,14 @@ public class InsuranceActivity extends BaseActivity {
 
                     setAdapterGeneralInsurance(generalInsuranceArrayList);
                 } else {
-                    Toast.makeText(InsuranceActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<GeneralInsuranceResponse>> call, Throwable t) {
-                util.showProgressDialog(InsuranceActivity.this, false);
-                Toast.makeText(InsuranceActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -199,22 +225,17 @@ public class InsuranceActivity extends BaseActivity {
     private void setAdapterGeneralInsurance(ArrayList<GeneralInsuranceResponse> arrayList) {
 
         if (arrayList != null && arrayList.size() > 0) {
-            GeneralInsuranceListAdapter adapter = new GeneralInsuranceListAdapter(this, arrayList);
+            GeneralInsuranceListAdapter adapter = new GeneralInsuranceListAdapter(context, arrayList);
             rv.setAdapter(adapter);
         } else {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No data found", Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
     @Override
-    void setIcon(Util util) {
-
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
+    public void setIcon(Util util) {
 
     }
 
@@ -223,7 +244,7 @@ public class InsuranceActivity extends BaseActivity {
 
         int id = view.getId();
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.llLifeInsurance) {
             lifeInsurance.setTextColor(getResources().getColor(R.color.black));
             generalInsurance.setTextColor(getResources().getColor(R.color.colorGray));
@@ -238,6 +259,8 @@ public class InsuranceActivity extends BaseActivity {
             viewGeneralInsurance.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
             rv.setAdapter(null);
             setAdapterGeneralInsurance(generalInsuranceArrayList);
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
 
     }

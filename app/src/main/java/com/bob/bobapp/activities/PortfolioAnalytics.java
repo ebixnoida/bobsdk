@@ -3,12 +3,15 @@ package com.bob.bobapp.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.AssetAllocationAdpter;
 import com.bob.bobapp.adapters.ProductNameAdapter;
@@ -26,6 +29,7 @@ import com.bob.bobapp.api.response_object.AssetAllocationPerformanceResponseObje
 import com.bob.bobapp.api.response_object.AssetAllocationResponseObject;
 import com.bob.bobapp.api.response_object.AuthenticateResponse;
 import com.bob.bobapp.api.response_object.PortfolioPerformanceResponseObject;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -49,13 +53,15 @@ import java.util.Map;
 import java.util.UUID;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PortfolioAnalytics extends BaseActivity {
+public class PortfolioAnalytics extends BaseFragment {
 
     private ArrayList<ClientHoldingObject> clientHoldingObjectArrayList;
 
@@ -64,7 +70,6 @@ public class PortfolioAnalytics extends BaseActivity {
             tvNetGainPercent;
 
     private ImageView img_right_arrow;
-
 
     private Util util;
 
@@ -79,124 +84,130 @@ public class PortfolioAnalytics extends BaseActivity {
     private HorizontalBarChart barChartMutualFundAMCExposure;
 
     private APIInterface apiInterface;
+
     private ArrayList<ClientHoldingObject> holdingArrayList = new ArrayList<>();
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
+        context = getActivity();
 
-        setContentView(R.layout.activity_portfolio_analytics);
+        util = new Util(context);
 
-        context = this;
+        return inflater.inflate(R.layout.activity_portfolio_analytics, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_CLIENT_HOLDING);
 
         getHoldingApiCall();
     }
 
     @Override
-    void setIcon(Util util) {
+    protected void getIds(View view) {
 
-        this.util = util;
+        btn_view_holding = view.findViewById(R.id.btn_view_holding);
 
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
+        img_right_arrow = view.findViewById(R.id.img_right_arrow);
 
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
+        tvCurrentValue = view.findViewById(R.id.tv_current_value);
 
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
+        tvInvestedAmount = view.findViewById(R.id.tv_invested_amount_value);
 
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
-    }
+        tvGainLoss = view.findViewById(R.id.tv_utilized_gain_or_loss_value);
 
-    @Override
-    public void getIds() {
-        btn_view_holding = findViewById(R.id.btn_view_holding);
+        tvDevidendInterest = view.findViewById(R.id.tv_utilized_devidend_or_interest_value);
 
-        img_right_arrow = findViewById(R.id.img_right_arrow);
+        tvNetGain = view.findViewById(R.id.tv_utilized_net_gain_value);
 
-        tvCurrentValue = findViewById(R.id.tv_current_value);
+        tvIRR = view.findViewById(R.id.tv_irr_value);
 
-        tvInvestedAmount = findViewById(R.id.tv_invested_amount_value);
+        tvNetGainPercent = view.findViewById(R.id.tv_utilized_net_gain_percent_value);
 
-        tvGainLoss = findViewById(R.id.tv_utilized_gain_or_loss_value);
+        rvAssetAllocation = view.findViewById(R.id.rv_asset_allocation);
 
-        tvDevidendInterest = findViewById(R.id.tv_utilized_devidend_or_interest_value);
+        rvProductName = view.findViewById(R.id.rv_product_allocation);
 
-        tvNetGain = findViewById(R.id.tv_utilized_net_gain_value);
+        rvMutulFundSchemeCategory = view.findViewById(R.id.rv_mutual_fund_scheme_category);
 
-        tvIRR = findViewById(R.id.tv_irr_value);
+        pieChartProductAllocation = view.findViewById(R.id.pie_chart_product_allocation);
 
-        tvNetGainPercent = findViewById(R.id.tv_utilized_net_gain_percent_value);
+        pieChartMutualFundSchemeCategory = view.findViewById(R.id.pie_chart_mutual_fund_scheme_category);
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
+        barChart = view.findViewById(R.id.bar_chart);
 
-        tvBellHeader = findViewById(R.id.tvBellHeader);
+        portfolioBarChart = view.findViewById(R.id.bar_chart_portfolio_performance);
 
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-
-        tvMenu = findViewById(R.id.menu);
-
-        tvTitle = findViewById(R.id.title);
-
-        rvAssetAllocation = findViewById(R.id.rv_asset_allocation);
-
-        rvProductName = findViewById(R.id.rv_product_allocation);
-
-        rvMutulFundSchemeCategory = findViewById(R.id.rv_mutual_fund_scheme_category);
-
-        pieChartProductAllocation = findViewById(R.id.pie_chart_product_allocation);
-
-        pieChartMutualFundSchemeCategory = findViewById(R.id.pie_chart_mutual_fund_scheme_category);
-
-        barChart = findViewById(R.id.bar_chart);
-
-        portfolioBarChart = findViewById(R.id.bar_chart_portfolio_performance);
-
-        barChartMutualFundAMCExposure = findViewById(R.id.bar_chart_mutual_fund_amc_exposure);
-
+        barChartMutualFundAMCExposure = view.findViewById(R.id.bar_chart_mutual_fund_amc_exposure);
     }
 
     @Override
     public void handleListener() {
-        tvUserHeader.setOnClickListener(this);
-
-        tvMenu.setOnClickListener(this);
 
         btn_view_holding.setOnClickListener(this);
 
         img_right_arrow.setOnClickListener(this);
+
+        BOBActivity.imgBack.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
+    protected void initializations() {
 
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
+        BOBActivity.tvMenu.setText(getResources().getString(R.string.fa_icon_back));
 
-        tvTitle.setText("My Investments");
+        BOBActivity.title.setText("My Investments");
 
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_CLIENT_HOLDING);
+        BOBActivity.llMenu.setVisibility(View.GONE);
+    }
 
+    @Override
+    protected void setIcon(Util util) {
+
+        this.util = util;
+
+        FontManager.markAsIconContainer(BOBActivity.tvUserHeader, util.iconFont);
+
+        FontManager.markAsIconContainer(BOBActivity.tvBellHeader, util.iconFont);
+
+        FontManager.markAsIconContainer(BOBActivity.tvCartHeader, util.iconFont);
+
+        FontManager.markAsIconContainer(BOBActivity.tvMenu, util.iconFont);
     }
 
     @Override
     public void onClick(View view) {
 
         int id = view.getId();
+
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.btn_view_holding) {
-            Intent intent = new Intent(getApplicationContext(), HoldingsActivity.class);
 
-            startActivity(intent);
+            replaceFragment(new HoldingsActivity());
+
         } else if (id == R.id.img_right_arrow) {
-            Intent intents = new Intent(getApplicationContext(), HoldingsActivity.class);
 
-            startActivity(intents);
+            replaceFragment(new HoldingsActivity());
+
+        }else if (id == R.id.imgBack) {
+
+            getActivity().onBackPressed();
         }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 
     private void getHoldingApiCall() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
         RequestBodyObject requestBodyObject = new RequestBodyObject();
@@ -209,14 +220,15 @@ public class PortfolioAnalytics extends BaseActivity {
         requestBodyObject.setAccountLevel("0"); //For client
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         ClientHoldingRequest.createClientHoldingRequestObject(uniqueIdentifier, Constants.SOURCE, requestBodyObject);
 
         apiInterface.getHoldingResponse(ClientHoldingRequest.getClientHoldingRequestObject()).enqueue(new Callback<ArrayList<ClientHoldingObject>>() {
+
             @Override
             public void onResponse(Call<ArrayList<ClientHoldingObject>> call, Response<ArrayList<ClientHoldingObject>> response) {
 
-                util.showProgressDialog(PortfolioAnalytics.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
                     holdingArrayList = response.body();
@@ -248,7 +260,7 @@ public class PortfolioAnalytics extends BaseActivity {
                     callAssetAllocationAPI();
 
                 } else {
-                    Toast.makeText(PortfolioAnalytics.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -257,8 +269,8 @@ public class PortfolioAnalytics extends BaseActivity {
             @Override
             public void onFailure(Call<ArrayList<ClientHoldingObject>> call, Throwable t) {
 
-                util.showProgressDialog(PortfolioAnalytics.this, false);
-                Toast.makeText(PortfolioAnalytics.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -270,7 +282,7 @@ public class PortfolioAnalytics extends BaseActivity {
 
         //   util.showProgressDialog(context, true);
 
-        APIInterface apiInterface = BOBApp.getApi(this, Constants.ACTION_ASSET_ALLOCATION);
+        APIInterface apiInterface = BOBApp.getApi(context, Constants.ACTION_ASSET_ALLOCATION);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 
@@ -340,7 +352,7 @@ public class PortfolioAnalytics extends BaseActivity {
 
     private void getProductAllocationAPIResponse() {
 
-        APIInterface apiInterface = BOBApp.getApi(this, Constants.ACTION_CLIENT_HOLDING);
+        APIInterface apiInterface = BOBApp.getApi(context, Constants.ACTION_CLIENT_HOLDING);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 
@@ -518,7 +530,7 @@ public class PortfolioAnalytics extends BaseActivity {
 
     private void getAssetAllocationPerformanceAPIResponse() {
 
-        APIInterface apiInterface = BOBApp.getApi(this, Constants.ACTION_ASSET_PERFORMANCE);
+        APIInterface apiInterface = BOBApp.getApi(context, Constants.ACTION_ASSET_PERFORMANCE);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 
@@ -648,7 +660,7 @@ public class PortfolioAnalytics extends BaseActivity {
 
     private void getPortfolioPerformanceAPIResponse() {
 
-        APIInterface apiInterface = BOBApp.getApi(this, Constants.ACTION_PORTFOLIO_PERFORMANCE);
+        APIInterface apiInterface = BOBApp.getApi(context, Constants.ACTION_PORTFOLIO_PERFORMANCE);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 

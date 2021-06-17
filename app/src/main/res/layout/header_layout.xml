@@ -67,7 +67,8 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:src="@drawable/back"/>
+                    android:src="@drawable/back"
+                    android:id="@+id/imgBack"/>
 
                 <TextView
                     android:id="@+id/txt_username"

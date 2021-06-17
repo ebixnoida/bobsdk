@@ -8,10 +8,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.BOBActivity;
 import com.bob.bobapp.adapters.ReportListAdapter;
+import com.bob.bobapp.utility.Util;
 
 
 public class ReportFragment extends BaseFragment {
@@ -36,31 +40,58 @@ public class ReportFragment extends BaseFragment {
     }
 
     @Override
-    void getIds(View view) {
+    public void getIds(View view) {
 
         report=view.findViewById(R.id.rvReport);
 
     }
 
     @Override
-    void handleListener() {
+    protected void handleListener() {
 
+        BOBActivity.imgBack.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
+    protected void initializations() {
+
+        BOBActivity.llMenu.setVisibility(View.GONE);
+
+        BOBActivity.title.setText("Reports");
 
         setAdapter();
 
     }
 
+    @Override
+    protected void setIcon(Util util) {
+
+    }
+
     private void setAdapter() {
-        ReportListAdapter adapter=new ReportListAdapter(getActivity(),arrayTitle,arrayImage);
+        ReportListAdapter adapter= new ReportListAdapter(getActivity(), arrayTitle, arrayImage) {
+
+            @Override
+            public void getDetail(Fragment fragment) {
+
+                replaceFragment(fragment);
+            }
+        };
         report.setAdapter(adapter);
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 
     @Override
     public void onClick(View view) {
+        int id = view.getId();
 
+        if (id == R.id.imgBack) {
+
+            getActivity().onBackPressed();
+        }
     }
 }

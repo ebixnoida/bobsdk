@@ -1,15 +1,22 @@
 package com.bob.bobapp.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.OrderStatusListAdapter;
 import com.bob.bobapp.api.APIInterface;
@@ -17,6 +24,7 @@ import com.bob.bobapp.api.request_object.OrderStatusRequest;
 import com.bob.bobapp.api.request_object.OrderStatusRequestBody;
 import com.bob.bobapp.api.response_object.AuthenticateResponse;
 import com.bob.bobapp.api.response_object.OrderStatusResponse;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -29,9 +37,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OrderStatusActivity extends BaseActivity {
+public class OrderStatusActivity extends BaseFragment {
 
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, buyText, sipText, switchText, txtInvestmentCart;
+    private TextView buyText, sipText, switchText, txtInvestmentCart;
     private RecyclerView rv;
     private LinearLayout llBuy, llSip, llSwitch, buyView, sipView, switchView;
     private APIInterface apiInterface;
@@ -41,40 +49,47 @@ public class OrderStatusActivity extends BaseActivity {
     private ArrayList<OrderStatusResponse> switchArrayList = new ArrayList<>();
     private OrderStatusListAdapter adapter;
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_status);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_order_status, container, false);
     }
 
     @Override
-    public void getIds() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        rv = findViewById(R.id.rv);
+        super.onViewCreated(view, savedInstanceState);
+    }
 
-        llBuy = findViewById(R.id.llBuy);
-        llSip = findViewById(R.id.llSip);
-        llSwitch = findViewById(R.id.llSwitch);
+    @Override
+    public void getIds(View view) {
 
-        buyText = findViewById(R.id.buyText);
-        sipText = findViewById(R.id.sipText);
-        switchText = findViewById(R.id.switchText);
+        rv = view.findViewById(R.id.rv);
 
-        buyView = findViewById(R.id.buyView);
-        sipView = findViewById(R.id.sipView);
-        switchView = findViewById(R.id.switchView);
-        txtInvestmentCart = findViewById(R.id.txtInvestmentCart);
+        llBuy = view.findViewById(R.id.llBuy);
+        llSip = view.findViewById(R.id.llSip);
+        llSwitch = view.findViewById(R.id.llSwitch);
+
+        buyText = view.findViewById(R.id.buyText);
+        sipText = view.findViewById(R.id.sipText);
+        switchText = view.findViewById(R.id.switchText);
+
+        buyView = view.findViewById(R.id.buyView);
+        sipView = view.findViewById(R.id.sipView);
+        switchView = view.findViewById(R.id.switchView);
+        txtInvestmentCart = view.findViewById(R.id.txtInvestmentCart);
 
     }
 
     @Override
     public void handleListener() {
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         llBuy.setOnClickListener(this);
         llSip.setOnClickListener(this);
         llSwitch.setOnClickListener(this);
@@ -83,17 +98,17 @@ public class OrderStatusActivity extends BaseActivity {
     }
 
     @Override
-    void initializations() {
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Order Status");
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_SIP_SWP_STP_DUE);
-        util = new Util(this);
+    public void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Order Status");
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_SIP_SWP_STP_DUE);
+        util = new Util(context);
         getApiCall();
     }
 
     private void getApiCall() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
         OrderStatusRequestBody requestBodyModel = new OrderStatusRequestBody();
 
@@ -109,13 +124,13 @@ public class OrderStatusActivity extends BaseActivity {
         model.setSource(Constants.SOURCE);
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
         apiInterface.getOrderStatusApiCall(model).enqueue(new Callback<ArrayList<OrderStatusResponse>>() {
             @Override
             public void onResponse(Call<ArrayList<OrderStatusResponse>> call, Response<ArrayList<OrderStatusResponse>> response) {
-                util.showProgressDialog(OrderStatusActivity.this, true);
+                util.showProgressDialog(context, true);
 
                 if (response.isSuccessful()) {
 
@@ -132,15 +147,15 @@ public class OrderStatusActivity extends BaseActivity {
 
                     setAdapter(buyArrayList);
                 } else {
-                    Toast.makeText(OrderStatusActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<ArrayList<OrderStatusResponse>> call, Throwable t) {
-                util.showProgressDialog(OrderStatusActivity.this, true);
-                Toast.makeText(OrderStatusActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, true);
+                Toast.makeText(context, "Something Went Wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -149,21 +164,16 @@ public class OrderStatusActivity extends BaseActivity {
 
     private void setAdapter(ArrayList<OrderStatusResponse> arrayList) {
         if (arrayList != null && arrayList.size() > 0) {
-            adapter = new OrderStatusListAdapter(this, arrayList);
+            adapter = new OrderStatusListAdapter(context, arrayList);
             rv.setAdapter(adapter);
         } else {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No data found", Toast.LENGTH_SHORT).show();
         }
 
     }
 
     @Override
-    void setIcon(Util util) {
-
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
+    public void setIcon(Util util) {
 
     }
 
@@ -172,7 +182,7 @@ public class OrderStatusActivity extends BaseActivity {
 
         int id = view.getId();
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.llBuy) {
             buyText.setTextColor(getResources().getColor(R.color.black));
             sipText.setTextColor(getResources().getColor(R.color.colorGray));
@@ -203,11 +213,17 @@ public class OrderStatusActivity extends BaseActivity {
             switchView.setBackgroundColor(getResources().getColor(R.color.color_light_orange));
 
             adapter.updateList(switchArrayList);
+
         } else if (id == R.id.txtInvestmentCart) {
-            Intent intent = new Intent(getApplicationContext(), InvestmentCartActivity.class);
-            startActivity(intent);
+
+            replaceFragment(new InvestmentCartActivity());
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
+    }
 
+    public void replaceFragment(Fragment fragment) {
 
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, false);
     }
 }

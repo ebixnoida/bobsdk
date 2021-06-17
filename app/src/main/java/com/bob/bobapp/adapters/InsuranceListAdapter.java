@@ -2,21 +2,26 @@ package com.bob.bobapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.BuySIPRedeemSwitchActivity;
 import com.bob.bobapp.activities.InsuranceDetailActivity;
 import com.bob.bobapp.api.response_object.LifeInsuranceResponse;
+import com.bob.bobapp.utility.IntentKey;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-public class InsuranceListAdapter extends RecyclerView.Adapter<InsuranceListAdapter.ViewHolder> {
+public abstract class InsuranceListAdapter extends RecyclerView.Adapter<InsuranceListAdapter.ViewHolder> {
 
     private Context context;
     private ArrayList<LifeInsuranceResponse> arrayList;
@@ -69,13 +74,20 @@ public class InsuranceListAdapter extends RecyclerView.Adapter<InsuranceListAdap
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, InsuranceDetailActivity.class);
-                    intent.putExtra("item", arrayList.get(getAdapterPosition()));
-                    context.startActivity(intent);
+
+                    Bundle args = new Bundle();
+
+                    args.putString("item", new Gson().toJson(arrayList.get(getAdapterPosition())));
+
+                    Fragment fragment = new InsuranceDetailActivity();
+
+                    fragment.setArguments(args);
+
+                    getDetail(fragment);
                 }
             });
-
         }
-
     }
+
+    public abstract void getDetail(Fragment fragment);
 }

@@ -10,9 +10,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.util.Base64;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 
 import org.json.JSONObject;
@@ -33,6 +36,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import androidx.fragment.app.Fragment;
 
 import static android.graphics.Typeface.BOLD;
 
@@ -510,4 +515,19 @@ public class Util {
 
         return ddate;
     }
+
+    public void hideKeyboard(View view){
+
+        try {
+
+            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
+    }
+
 }

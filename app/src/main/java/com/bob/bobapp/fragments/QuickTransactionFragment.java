@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.activities.BOBActivity;
 import com.bob.bobapp.adapters.AssetAdapter;
@@ -67,27 +68,41 @@ public class  QuickTransactionFragment extends BaseFragment
     }
 
     @Override
-    void getIds(View view) {
+    public void getIds(View view) {
         recyclerAsset = view.findViewById(R.id.recyclerAsset);
         recyclerFundType = view.findViewById(R.id.recyclerFundType);
         recyclerFundHouse = view.findViewById(R.id.recyclerFundHouse);
     }
 
     @Override
-    void handleListener() {
+    protected void handleListener() {
 
+        BOBActivity.imgBack.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
+    protected void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+
+        BOBActivity.title.setText("Quick Transaction");
         apiInterface = BOBApp.getApi(getContext(), Constants.ASSEST_TYPE);
         util = new Util(getContext());
         AssetApiCall();
     }
 
     @Override
-    public void onClick(View view) {
+    protected void setIcon(Util util) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+
+        if (id == R.id.imgBack) {
+
+            getActivity().onBackPressed();
+        }
     }
 
 

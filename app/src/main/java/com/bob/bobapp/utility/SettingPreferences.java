@@ -70,4 +70,20 @@ public class SettingPreferences {
 
         return prefs.getString(Constants.PREF_RISK_PROFILE, "");
     }
+
+    public static void setHoldingResponse(Context context, String response) {
+
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFS_NAME,  Context.MODE_PRIVATE).edit();
+
+        editor.putString(Constants.PREF_HOLDING_RESPONSE, response);
+
+        editor.commit();
+    }
+
+    public static String getHoldingResponse(Context context) {
+
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        return prefs.getString(Constants.PREF_HOLDING_RESPONSE, "");
+    }
 }

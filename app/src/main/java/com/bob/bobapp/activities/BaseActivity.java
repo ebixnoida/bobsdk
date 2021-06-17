@@ -11,25 +11,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
- private Util util;
+    private Util util;
 
     private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
+
         super.setContentView(layoutResID);
+
         context = this;
 
         util = new Util(context);
+
         getIds();
+
         handleListener();
+
         initializations();
+
         setIcon(util);
     }
 

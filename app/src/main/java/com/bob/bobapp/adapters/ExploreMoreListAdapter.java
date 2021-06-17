@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.R;
@@ -16,7 +17,7 @@ import com.bob.bobapp.activities.DiscoverFundsActivity;
 
 import java.util.ArrayList;
 
-public class ExploreMoreListAdapter extends RecyclerView.Adapter<ExploreMoreListAdapter.ViewHolder> {
+public abstract class ExploreMoreListAdapter extends RecyclerView.Adapter<ExploreMoreListAdapter.ViewHolder> {
 
     private Context context;
 
@@ -77,10 +78,11 @@ public class ExploreMoreListAdapter extends RecyclerView.Adapter<ExploreMoreList
         public void onClick(View view) {
 
             if (view.getId() == R.id.item) {
-                Intent intent = new Intent(context, DiscoverFundsActivity.class);
 
-                context.startActivity(intent);
+                getDetail(new DiscoverFundsActivity());
             }
         }
     }
+
+    public abstract void getDetail(Fragment fragment);
 }

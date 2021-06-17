@@ -1,16 +1,23 @@
 package com.bob.bobapp.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.HoldingListAdapter;
 import com.bob.bobapp.api.APIInterface;
@@ -18,6 +25,7 @@ import com.bob.bobapp.api.bean.ClientHoldingObject;
 import com.bob.bobapp.api.request_object.ClientHoldingRequest;
 import com.bob.bobapp.api.request_object.RequestBodyObject;
 import com.bob.bobapp.api.response_object.AuthenticateResponse;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -30,9 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HoldingsActivity extends BaseActivity {
-
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu;
+public class HoldingsActivity extends BaseFragment {
     private RecyclerView rvHoldings;
     private ArrayList<ClientHoldingObject> holdingArrayList;
     private APIInterface apiInterface;
@@ -42,26 +48,33 @@ public class HoldingsActivity extends BaseActivity {
 
     private String searchKey = "";
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_holdings);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_holdings, container, false);
     }
 
     @Override
-    public void getIds() {
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        rvHoldings = findViewById(R.id.rvHoldings);
-        etSearch = findViewById(R.id.etSearch);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void getIds(View view) {
+        rvHoldings = view.findViewById(R.id.rvHoldings);
+        etSearch = view.findViewById(R.id.etSearch);
     }
 
     @Override
     public void handleListener() {
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -83,11 +96,11 @@ public class HoldingsActivity extends BaseActivity {
     }
 
     @Override
-    void initializations() {
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Holdings");
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_CLIENT_HOLDING);
-        util = new Util(this);
+    public void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Holdings");
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_CLIENT_HOLDING);
+        util = new Util(context);
         getHoldingApiCall();
 
 
@@ -95,7 +108,7 @@ public class HoldingsActivity extends BaseActivity {
 
     private void getHoldingApiCall() {
 
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
         RequestBodyObject requestBodyObject = new RequestBodyObject();
@@ -108,20 +121,20 @@ public class HoldingsActivity extends BaseActivity {
         requestBodyObject.setAccountLevel("0"); //For client
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         ClientHoldingRequest.createClientHoldingRequestObject(uniqueIdentifier, Constants.SOURCE, requestBodyObject);
 
         apiInterface.getHoldingResponse(ClientHoldingRequest.getClientHoldingRequestObject()).enqueue(new Callback<ArrayList<ClientHoldingObject>>() {
             @Override
             public void onResponse(Call<ArrayList<ClientHoldingObject>> call, Response<ArrayList<ClientHoldingObject>> response) {
 
-                util.showProgressDialog(HoldingsActivity.this, false);
+                util.showProgressDialog(context, false);
 
                 if (response.isSuccessful()) {
                     holdingArrayList = response.body();
                     setAdapter();
                 } else {
-                    Toast.makeText(HoldingsActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -130,8 +143,8 @@ public class HoldingsActivity extends BaseActivity {
             @Override
             public void onFailure(Call<ArrayList<ClientHoldingObject>> call, Throwable t) {
 
-                util.showProgressDialog(HoldingsActivity.this, false);
-                Toast.makeText(HoldingsActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -139,26 +152,34 @@ public class HoldingsActivity extends BaseActivity {
     }
 
     private void setAdapter() {
-        adapter = new HoldingListAdapter(this, holdingArrayList);
+        adapter = new HoldingListAdapter(context, holdingArrayList) {
+
+            @Override
+            public void getDetail(Fragment fragment) {
+
+                replaceFragment(fragment);
+            }
+        };
         rvHoldings.setAdapter(adapter);
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 
 
     @Override
-    void setIcon(Util util) {
-
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
-
+    public void setIcon(Util util) {
     }
 
     @Override
     public void onClick(View view) {
 
         if (view.getId() == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
+        }else if (view.getId() == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
 
     }

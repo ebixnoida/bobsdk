@@ -2,17 +2,17 @@ package com.bob.bobapp.activities;
 
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTabHost;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,15 +22,21 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.MyInvestmentContainerFragment;
+import com.bob.bobapp.Home.BaseContainerFragment;
+import com.bob.bobapp.Home.HomeContainerFragment;
+import com.bob.bobapp.Home.InvestNowContainerFragment;
+import com.bob.bobapp.Home.ProfileContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.AccountListAdapter;
-import com.bob.bobapp.adapters.HomeTabAdapter;
 import com.bob.bobapp.adapters.NotificationAdapter;
 import com.bob.bobapp.api.APIInterface;
 import com.bob.bobapp.api.WebService;
@@ -55,7 +61,7 @@ import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
 import com.bob.bobapp.utility.Util;
-import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 import com.skydoves.balloon.BalloonAnimation;
@@ -65,6 +71,8 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.UUID;
+
+import static android.graphics.Typeface.BOLD;
 
 public class BOBActivity extends BaseActivity {
 
@@ -81,33 +89,42 @@ public class BOBActivity extends BaseActivity {
     private int selectedPosition;
 
     private AuthenticateResponse authenticateResponse;
+
     public static AuthenticateResponse authResponse;
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private TextView title, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, tvUsername, tvPopupAccount, tvPopupRMDetails, btnPopupSubmit;
+    private TextView tvUsername, tvPopupAccount, tvPopupRMDetails, btnPopupSubmit;
+
     private RecyclerView accountDetailsRecyclerView, rvNotification;
-    private DrawerLayout drawerLayout;
-    private LinearLayout drawerMenuView, layoutAccountPopup, layoutRMDetailPopup, layoutHeaderPopup;
-    private int screenWidth = 0, screenHeight = 0;
-    int DRAWER_ITEMS_OPEN_TIME = 200;
+
+    private LinearLayout layoutAccountPopup, layoutRMDetailPopup, layoutHeaderPopup;
+
     private TextView imgMenu;
-    private LinearLayout llMenu;
+
+    public static LinearLayout llMenu;
 
     private TextView tvRMUsername, tvRMName, tvRMEmail, tvRMMobileNumber;
+
+    public static TextView tvBellHeader, tvCartHeader,title,tvUserHeader, tvMenu;
 
     private Util util;
 
     private Context context;
+
     private ArrayList<ClientHoldingObject> holdingArrayList;
 
     private View viewPopup;
 
-    private ImageView imgDashbaord;
+    public static ImageView imgDashbaord, imgBack;
+
+    public static FragmentTabHost mTabHost;
+
+    private View homeView = null, myInvestment = null, investNow = null, profileView = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main_container);
 
         EventBus.getDefault().register(this);
@@ -121,8 +138,11 @@ public class BOBActivity extends BaseActivity {
     public void setIcon(Util util) {
 
         FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
+
         FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
+
         FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
+
         FontManager.markAsIconContainer(tvMenu, util.iconFont);
 
     //    tvMenu.setBackgroundResource(R.mipmap.menu);
@@ -132,168 +152,219 @@ public class BOBActivity extends BaseActivity {
     @Override
     public void getIds() {
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+
+        mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+
         title = (TextView) findViewById(R.id.title);
+
         tvUsername = (TextView) findViewById(R.id.txt_username);
+
         tvUserHeader = (TextView) findViewById(R.id.tvUserHeader);
+
         tvBellHeader = (TextView) findViewById(R.id.tvBellHeader);
+
         tvCartHeader = (TextView) findViewById(R.id.tvCartHeader);
+
         llMenu = (LinearLayout) findViewById(R.id.llMenu);
+
         tvMenu = (TextView) findViewById(R.id.menu);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerMenuView = (LinearLayout) findViewById(R.id.drawerMenuLLayout);
+
         imgDashbaord = findViewById(R.id.imgDashbaord);
+
+        imgBack = findViewById(R.id.imgBack);
     }
 
     @Override
     public void handleListener() {
+
         llMenu.setOnClickListener(this);
+
         tvUsername.setOnClickListener(this);
+
         tvUserHeader.setOnClickListener(this);
+
         tvCartHeader.setOnClickListener(this);
+
         tvBellHeader.setOnClickListener(this);
+
+        imgBack.setOnClickListener(this);
+
         //imgDashbaord.setOnClickListener(this);
     }
 
     @Override
     public void initializations() {
 
-        manageLeftSideDrawer();
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home).setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.report_unselected).setText("My Investment"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.add_unselected).setText("Invest Now"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.transaction_unselected).setText("My Orders"));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.setting_unselected).setText("Setup"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.setting_unselected).setText("Profile"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 
+    public void setUpTabs() {
 
-    private void setAdapter() {
+        mTabHost.getTabWidget().setDividerDrawable(null);
 
-        HomeTabAdapter adapter = new HomeTabAdapter(this, getSupportFragmentManager(), tabLayout.getTabCount(), holdingArrayList);
 
-        viewPager.setAdapter(adapter);
+        homeView = LayoutInflater.from(context).inflate(R.layout.home, null);
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        mTabHost.addTab(mTabHost.newTabSpec("Home").setIndicator(homeView), HomeContainerFragment.class, null);
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+        myInvestment = LayoutInflater.from(context).inflate(R.layout.my_investment, null);
+
+        mTabHost.addTab(mTabHost.newTabSpec("My Investment").setIndicator(myInvestment), MyInvestmentContainerFragment.class, null);
+
+
+        investNow = LayoutInflater.from(context).inflate(R.layout.invest_now, null);
+
+        mTabHost.addTab(mTabHost.newTabSpec("Invest Now").setIndicator(investNow), InvestNowContainerFragment.class, null);
+
+
+        profileView = LayoutInflater.from(context).inflate(R.layout.profile, null);
+
+        mTabHost.addTab(mTabHost.newTabSpec("Profile").setIndicator(profileView), ProfileContainerFragment.class, null);
+
+
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                tabSelected(tab);
-            }
+            public void onTabChanged(String tabId) {
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                tabUnselected(tab);
-            }
+                hideKeyboard();
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                tabSelected(tab);
+                ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Home")).clearBackStack();
             }
         });
     }
 
+    @Override
+    public void onBackPressed() {
 
-    private void tabSelected(TabLayout.Tab tab) {
+        hideKeyboard();
 
-        switch (tab.getPosition()) {
-            case 0:
-                title.setText("Home");
-                tab.setIcon(R.drawable.home);
-                break;
-            case 1:
-                title.setText("My Investment");
-                tab.setIcon(R.drawable.report);
-                break;
-            case 2:
-                title.setText("Invest Now");
-                tab.setIcon(R.drawable.add);
-                break;
-            case 3:
-                title.setText("My Orders");
-                tab.setIcon(R.drawable.transaction);
-                break;
-            /*case 4:
-                title.setText("SetUp");
-                tab.setIcon(R.drawable.setting);
-                break;*/
-            case 4:
-                title.setText("Profile");
-                tab.setIcon(R.drawable.setting);
-                break;
+        onBackData();
+    }
 
+    private void hideKeyboard(){
+
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        imm.hideSoftInputFromWindow(mTabHost.getApplicationWindowToken(), 0);
+    }
+
+    public void onBackData() {
+
+        boolean isPopFragment = false;
+
+        String currentTabTag = mTabHost.getCurrentTabTag();
+
+        if (currentTabTag.equals("Home")) {
+
+            isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Home")).popFragment();
+
+        } else if (currentTabTag.equals("My Investment")) {
+
+            isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("My Investment")).popFragment();
+
+        } else if (currentTabTag.equals("Invest Now")) {
+
+            isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Invest Now")).popFragment();
+
+        } else if (currentTabTag.equals("Profile")) {
+
+            isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Profile")).popFragment();
+        }
+
+        if (!isPopFragment) {
+
+            alertboxExitFromApp("Alert!", "Are you sure? Do you want to exit from app?");
         }
     }
 
-    private void tabUnselected(TabLayout.Tab tab) {
-        switch (tab.getPosition()) {
-            case 0:
-                title.setText("Home");
-                tab.setIcon(R.drawable.homeunselectesgray);
-                break;
-            case 1:
-                title.setText("My Investment");
-                tab.setIcon(R.drawable.report_unselected);
-                break;
-            case 2:
-                title.setText("Invest Now");
-                tab.setIcon(R.drawable.add_unselected);
-                break;
-            case 3:
-                title.setText("My Orders");
-                tab.setIcon(R.drawable.transaction_unselected);
-                break;
-            /*case 4:
-                title.setText("SetUp");
-                tab.setIcon(R.drawable.setting_unselected);
-                break;*/
-            case 4:
-                title.setText("Profile");
-                tab.setIcon(R.drawable.setting_unselected);
-                break;
+    public void alertboxExitFromApp(String title, String mymessage) {
 
-        }
+        TextView textView = new TextView(context);
+
+        textView.setText(title);
+
+        textView.setPadding(70,20,10,10);
+
+        textView.setTypeface(null,BOLD);
+
+        textView.setTextSize(18);
+
+        new AlertDialog.Builder(context)
+
+                .setMessage(mymessage)
+
+                .setCustomTitle(textView)
+
+                .setCancelable(false)
+
+                .setPositiveButton("Yes",
+
+                        new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                Intent intent = new Intent(Intent.ACTION_MAIN);
+
+                                intent.addCategory(Intent.CATEGORY_HOME);
+
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                context.startActivity(intent);
+                            }
+                        })
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+
+                }).show();
     }
-
 
     @SuppressLint("ResourceType")
     @Override
     public void onClick(View view) {
 
         int id = view.getId();
-        if (id == R.id.llMenu) {
-            menuButton();
-        } else if (id == R.id.txt_username || id == R.id.tvUserHeader) {
+
+        if (id == R.id.txt_username || id == R.id.tvUserHeader) {
+
             viewPopup = view;
 
             callAccountDetailAPI();
+
         } else if (id == R.id.tvBellHeader) {
+
             viewPopup = view;
 
             callNotificationAPI();
+
         } else if (id == R.id.txt_popup_account) {
+
             tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.color_rad)));
 
             tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.black)));
 
             setPopupData(view);
+
         } else if (id == R.id.txt_popup_rm_details) {
+
             tvPopupAccount.setTextColor(Color.parseColor(getString(R.color.black)));
 
             tvPopupRMDetails.setTextColor(Color.parseColor(getString(R.color.color_light_orange)));
 
             setPopupData(view);
-        } else if (id == R.id.btn_submit) {
-        } else if (id == R.id.tvCartHeader) {
-            Intent intent = new Intent(BOBActivity.this, InvestmentCartActivity.class);
 
-            startActivity(intent);
+        } else if (id == R.id.btn_submit) {
+
+        }else if (id == R.id.imgBack) {
+
+            finish();
+
         }
     }
 
@@ -454,7 +525,6 @@ public class BOBActivity extends BaseActivity {
         rvNotification.setAdapter(adapter);
     }
 
-
     private void createShowAccountDetailPopup(View view) {
 
         Balloon balloon = new Balloon.Builder(context)
@@ -554,217 +624,9 @@ public class BOBActivity extends BaseActivity {
         }
     }
 
-
-    public void manageLeftSideDrawer() {
-
-        WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        DisplayMetrics metrics = new DisplayMetrics();
-        manager.getDefaultDisplay().getMetrics(metrics);
-        screenWidth = metrics.widthPixels;
-        screenHeight = metrics.heightPixels;
-        View leftSideDrawerView = LayoutInflater.from(this).inflate(R.layout.left_side_drawer_layout, null);
-        leftSideDrawerView.setLayoutParams(new LinearLayout.LayoutParams((int) (screenWidth * 0.8f), LinearLayout.LayoutParams.MATCH_PARENT));
-        ImageView close = (ImageView) leftSideDrawerView.findViewById(R.id.close);
-        ImageView imgIcon = (ImageView) leftSideDrawerView.findViewById(R.id.imgIcon);
-        TextView dashboard = leftSideDrawerView.findViewById(R.id.dashboard);
-        TextView portFolio = leftSideDrawerView.findViewById(R.id.portFolio);
-        TextView report = leftSideDrawerView.findViewById(R.id.report);
-        TextView transact = leftSideDrawerView.findViewById(R.id.transact);
-        TextView orderStatus = leftSideDrawerView.findViewById(R.id.orderStatus);
-        TextView dematHolding = leftSideDrawerView.findViewById(R.id.dematHolding);
-        TextView stopSIP = leftSideDrawerView.findViewById(R.id.stopSIP);
-        TextView setup = leftSideDrawerView.findViewById(R.id.setup);
-
-//        close.setVisibility(View.GONE);
-
-        imgIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(0);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(0);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(0);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        imgDashbaord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(0);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        portFolio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                drawerLayout.closeDrawer(Gravity.LEFT);
-
-                new Handler().postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-
-                        Intent intent = new Intent(context, PortfolioAnalytics.class);
-
-                        startActivity(intent);
-                    }
-
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        report.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        viewPager.setCurrentItem(1);
-                    }
-
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        transact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(2);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        orderStatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        Intent intent = new Intent(BOBActivity.this, OrderStatusActivity.class);
-                        startActivity(intent);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        dematHolding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(BOBActivity.this, DematHoldingActivity.class);
-                        startActivity(intent);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        stopSIP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        Intent intent = new Intent(BOBActivity.this, StopSIPActivity.class);
-                        startActivity(intent);
-
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        setup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(Gravity.LEFT);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(4);
-
-//                       FragmentManager fragmentManager = getSupportFragmentManager();
-//                   FragmentTransaction   ft = fragmentManager.beginTransaction();
-//                        setu home_fragment = new HomeFragment();
-//                        ft.replace(R.id.frame, home_fragment);
-//                        ft.addToBackStack(null);
-//                        ft.commit();
-                    }
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });
-
-        drawerMenuView.addView(leftSideDrawerView);
-
-    }
-
-
-    public void menuButton() {
-
-        if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-            drawerLayout.closeDrawer(Gravity.LEFT);
-        } else {
-            drawerLayout.openDrawer(Gravity.LEFT);
-        }
-    }
-
     public void setTransactTab() {
-        viewPager.setCurrentItem(2);
+
+        mTabHost.setCurrentTab(2);
     }
 
     private void callAccountDetailAPI() {
@@ -936,6 +798,10 @@ public class BOBActivity extends BaseActivity {
     @Subscribe
     public void getHoldingResponse(ArrayList<ClientHoldingObject> clientHoldingObjectArrayList) {
 
+        String response = new Gson().toJson(clientHoldingObjectArrayList);
+
+        SettingPreferences.setHoldingResponse(context, response);
+
         holdingArrayList = clientHoldingObjectArrayList;
 
         if (clientHoldingObjectArrayList != null && !clientHoldingObjectArrayList.isEmpty()) {
@@ -958,7 +824,7 @@ public class BOBActivity extends BaseActivity {
 
             //WebService.action(context, Constants.ACTION_CART_COUNT);
 
-            setAdapter();
+            setUpTabs();
 
         } else {
 
@@ -982,7 +848,6 @@ public class BOBActivity extends BaseActivity {
 
         //setAdapter();
     }
-
 
     public ArrayList<ClientHoldingObject> getHoldingList() {
 

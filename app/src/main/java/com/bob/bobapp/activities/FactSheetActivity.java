@@ -3,16 +3,21 @@ package com.bob.bobapp.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.FactsheetAdapter;
 import com.bob.bobapp.adapters.SectorWeightsChartListAdapter;
@@ -25,6 +30,7 @@ import com.bob.bobapp.api.request_object.GlobalRequestObject;
 import com.bob.bobapp.api.request_object.RequestBodyObject;
 import com.bob.bobapp.api.response_object.AuthenticateResponse;
 import com.bob.bobapp.api.response_object.FundDetailResponse;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -41,9 +47,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class FactSheetActivity extends BaseActivity {
-
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu;
+public class FactSheetActivity extends BaseFragment {
 
     private TextView tvSchemeName, tvSchemeCategory, tvNAV, btnSIP, btnBuy, tvLaunchDate, tvSchemeType, tvInvestmentStrategyObjective, tvFundManagerName;
 
@@ -58,63 +62,57 @@ public class FactSheetActivity extends BaseActivity {
     private HorizontalBarChart horizontalBarChartSectorAllocation;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_fact_sheet);
-
-        context = this;
+        context = getActivity();
 
         util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_fact_sheet, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
 
         callFactsheetAPI();
     }
 
     @Override
-    public void getIds() {
+    public void getIds(View view) {
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
+        tvSchemeName = view.findViewById(R.id.tv_scheme_name);
 
-        tvBellHeader = findViewById(R.id.tvBellHeader);
+        tvSchemeCategory = view.findViewById(R.id.tv_category);
 
-        tvCartHeader = findViewById(R.id.tvCartHeader);
+        tvNAV = view.findViewById(R.id.tv_nav);
 
-        tvMenu = findViewById(R.id.menu);
+        btnSIP = view.findViewById(R.id.btn_sip);
 
-        tvTitle = findViewById(R.id.title);
+        btnBuy = view.findViewById(R.id.btn_buy);
 
-        tvSchemeName = findViewById(R.id.tv_scheme_name);
+        tvLaunchDate = view.findViewById(R.id.tv_launch_date);
 
-        tvSchemeCategory = findViewById(R.id.tv_category);
+        tvSchemeType = view.findViewById(R.id.tv_scheme_type);
 
-        tvNAV = findViewById(R.id.tv_nav);
+        tvInvestmentStrategyObjective = view.findViewById(R.id.tv_investment_strategy_objective);
 
-        btnSIP = findViewById(R.id.btn_sip);
+        tvFundManagerName = view.findViewById(R.id.tv_fund_manager_name);
 
-        btnBuy = findViewById(R.id.btn_buy);
+        barChartYearOnYearPerformance = view.findViewById(R.id.bar_chart_year_on_year_performance);
 
-        tvLaunchDate = findViewById(R.id.tv_launch_date);
+        rvSchemePerformance = view.findViewById(R.id.rv_scheme_performance);
 
-        tvSchemeType = findViewById(R.id.tv_scheme_type);
+        horizontalBarChartSectorAllocation = view.findViewById(R.id.bar_chart_sector_allocation);
 
-        tvInvestmentStrategyObjective = findViewById(R.id.tv_investment_strategy_objective);
-
-        tvFundManagerName = findViewById(R.id.tv_fund_manager_name);
-
-        barChartYearOnYearPerformance = findViewById(R.id.bar_chart_year_on_year_performance);
-
-        rvSchemePerformance = findViewById(R.id.rv_scheme_performance);
-
-        horizontalBarChartSectorAllocation = findViewById(R.id.bar_chart_sector_allocation);
-
-        rvStockAllocation = findViewById(R.id.rv_stock_allocation);
+        rvStockAllocation = view.findViewById(R.id.rv_stock_allocation);
     }
 
     @Override
     public void handleListener() {
 
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
 
         btnSIP.setOnClickListener(this);
 
@@ -122,32 +120,25 @@ public class FactSheetActivity extends BaseActivity {
     }
 
     @Override
-    void initializations() {
+    public void initializations() {
 
-        tvBellHeader.setVisibility(View.GONE);
+        BOBActivity.llMenu.setVisibility(View.GONE);
 
-        tvUserHeader.setVisibility(View.GONE);
-
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-
-        tvTitle.setText("FactSheet");
+        BOBActivity.title.setText("FactSheet");
 
         setSectorWeightAdapter();
     }
 
     private void setSectorWeightAdapter() {
 
-        Display display = getWindowManager().getDefaultDisplay();
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
 
-        SectorWeightsChartListAdapter adpter=new SectorWeightsChartListAdapter(this,display);
+        SectorWeightsChartListAdapter adpter=new SectorWeightsChartListAdapter(context,display);
     }
 
     @Override
-    void setIcon(Util util) {
+    public void setIcon(Util util) {
 
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
     }
 
     @Override
@@ -155,11 +146,13 @@ public class FactSheetActivity extends BaseActivity {
 
         int id = view.getId();
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.btn_sip) {
-            finish();
+            ((BaseContainerFragment)getParentFragment()).clearBackStack();
         } else if (id == R.id.btn_buy) {
-            finish();
+            ((BaseContainerFragment)getParentFragment()).clearBackStack();
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
     }
 
@@ -167,7 +160,7 @@ public class FactSheetActivity extends BaseActivity {
 
         util.showProgressDialog(context, true);
 
-        APIInterface apiInterface = BOBApp.getApi(this, Constants.ACTION_FACTSHEET);
+        APIInterface apiInterface = BOBApp.getApi(context, Constants.ACTION_FACTSHEET);
 
         AuthenticateResponse authenticateResponse = BOBActivity.authResponse;
 

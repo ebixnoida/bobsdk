@@ -1,48 +1,64 @@
 package com.bob.bobapp.activities;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.api.bean.ClientHoldingObject;
 import com.bob.bobapp.api.response_object.LifeInsuranceResponse;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.Util;
+import com.google.gson.Gson;
 
 import java.text.DecimalFormat;
 
-public class HoldingDetailActivity extends BaseActivity {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, name, amount, gain, gainPercent, xirr, cost, marketValue, folioNo, unit;
+public class HoldingDetailActivity extends BaseFragment {
 
+    private TextView name, amount, gain, gainPercent, xirr, cost, marketValue, folioNo, unit;
 
     private ClientHoldingObject model;
 
+    private Context context;
+
+    private Util util;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.holding_detail);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.holding_detail, container, false);
     }
 
     @Override
-    public void getIds() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
+        super.onViewCreated(view, savedInstanceState);
+    }
 
-        name = findViewById(R.id.name);
-        amount = findViewById(R.id.amount);
-        gain = findViewById(R.id.gain);
-        gainPercent = findViewById(R.id.gainPercent);
-        xirr = findViewById(R.id.xirr);
-        cost = findViewById(R.id.cost);
-        marketValue = findViewById(R.id.marketValue);
-        folioNo = findViewById(R.id.folioNo);
-        unit = findViewById(R.id.unit);
+    @Override
+    public void getIds(View view) {
+
+        name = view.findViewById(R.id.name);
+        amount = view.findViewById(R.id.amount);
+        gain = view.findViewById(R.id.gain);
+        gainPercent = view.findViewById(R.id.gainPercent);
+        xirr = view.findViewById(R.id.xirr);
+        cost = view.findViewById(R.id.cost);
+        marketValue = view.findViewById(R.id.marketValue);
+        folioNo = view.findViewById(R.id.folioNo);
+        unit = view.findViewById(R.id.unit);
 
 
     }
@@ -50,17 +66,21 @@ public class HoldingDetailActivity extends BaseActivity {
     @Override
     public void handleListener() {
 
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
 
     }
 
     @Override
-    void initializations() {
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Detail");
+    public void initializations() {
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Detail");
 
-        model = getIntent().getParcelableExtra("item");
+        if(getArguments() != null) {
 
+            String response = getArguments().getString("item");
+
+            model = new Gson().fromJson(response, ClientHoldingObject.class);
+        }
 
         name.setText(model.getIssuer());
         amount.setText(model.getValueOfCost());
@@ -82,13 +102,7 @@ public class HoldingDetailActivity extends BaseActivity {
     }
 
     @Override
-    void setIcon(Util util) {
-
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
-
+    public void setIcon(Util util) {
 
     }
 
@@ -96,7 +110,9 @@ public class HoldingDetailActivity extends BaseActivity {
     public void onClick(View view) {
 
         if (view.getId() == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
+        }else if (view.getId() == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
 
     }

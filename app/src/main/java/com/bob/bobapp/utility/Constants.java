@@ -30,6 +30,9 @@ public class Constants {
 
     public static String PREF_RISK_PROFILE = "PREF_RISK_PROFILE";
 
+    public static String PREF_HOLDING_RESPONSE = "PREF_HOLDING_RESPONSE";
+
+
     public static String ACTION_CLIENT_TRANSACTION = "ACTION_CLIENT_TRANSACTION";
 
     public static String ACTION_SIP_SWP_STP_DUE = "ACTION_SIP_SWP_STP_DUE";
@@ -63,4 +66,6 @@ public class Constants {
     public static String ACTION_VALIDATION = "ACTION_VALIDATION";
 
     public static String ACTION_ADD_TO_CART = "ACTION_ADD_TO_CART";
+
+
 }

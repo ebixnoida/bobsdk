@@ -10,11 +10,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.BOBActivity;
 import com.bob.bobapp.activities.WealthMgmtActivity;
 import com.bob.bobapp.adapters.SetUpListAdapter;
+import com.bob.bobapp.utility.Util;
 
 
 public class SetUpFragment extends BaseFragment {
@@ -36,18 +40,28 @@ public class SetUpFragment extends BaseFragment {
     }
 
     @Override
-    void getIds(View view) {
+    public void getIds(View view) {
 
         txtNext = view.findViewById(R.id.txtNext);
     }
 
     @Override
-    void handleListener() {
+    protected void handleListener() {
+
         txtNext.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
     }
 
     @Override
-    void initializations() {
+    protected void initializations() {
+
+        BOBActivity.llMenu.setVisibility(View.GONE);
+
+        BOBActivity.title.setText("Setup");
+    }
+
+    @Override
+    protected void setIcon(Util util) {
 
     }
 
@@ -55,8 +69,15 @@ public class SetUpFragment extends BaseFragment {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.txtNext) {
-            Intent intent = new Intent(getContext(), WealthMgmtActivity.class);
-            startActivity(intent);
+            replaceFragment(new WealthMgmtActivity());
+        }else if (view.getId() == R.id.imgBack) {
+
+            getActivity().onBackPressed();
         }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, true);
     }
 }

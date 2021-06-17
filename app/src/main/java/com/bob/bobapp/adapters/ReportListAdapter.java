@@ -2,6 +2,7 @@ package com.bob.bobapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +10,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.R;
+import com.bob.bobapp.activities.BuySIPRedeemSwitchActivity;
 import com.bob.bobapp.activities.HoldingsActivity;
 import com.bob.bobapp.activities.InsuranceActivity;
 import com.bob.bobapp.activities.InvestmentMaturityActivity;
 import com.bob.bobapp.activities.RealizedGainLossActivity;
 import com.bob.bobapp.activities.SIPSWPSTPDueActivity;
 import com.bob.bobapp.activities.TransactionActivity;
+import com.bob.bobapp.utility.IntentKey;
 
-public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.ViewHolder> {
+public abstract class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.ViewHolder> {
 
     private Context context;
     private String[] arrayTitle;
@@ -76,39 +80,49 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
             if (id == R.id.img || id == R.id.btn) {
                 switch (getAdapterPosition()) {
                     case 0:
-                        Intent intentHolding = new Intent(context, HoldingsActivity.class);
-                        context.startActivity(intentHolding);
+                        getDetail(new HoldingsActivity());
                         break;
                     case 1:
-                        Intent intentTransaction = new Intent(context, TransactionActivity.class);
-                        intentTransaction.putExtra("WhichActivity", "TransactionActivity");
-                        context.startActivity(intentTransaction);
+                        Bundle args = new Bundle();
+
+                        args.putString("WhichActivity", "TransactionActivity");
+
+                        Fragment fragment = new TransactionActivity();
+
+                        fragment.setArguments(args);
+
+                        getDetail(fragment);
                         break;
                     case 2:
-                        Intent intentDue = new Intent(context, SIPSWPSTPDueActivity.class);
-                        context.startActivity(intentDue);
+                        getDetail(new SIPSWPSTPDueActivity());
                         break;
                     case 3:
-                        Intent intentMaturity = new Intent(context, InvestmentMaturityActivity.class);
-                        context.startActivity(intentMaturity);
+                        getDetail(new InvestmentMaturityActivity());
                         break;
                     case 4:
-                        Intent intentGainLoss = new Intent(context, RealizedGainLossActivity.class);
-                        context.startActivity(intentGainLoss);
+                        getDetail(new RealizedGainLossActivity());
                         break;
                     case 5:
-                        Intent intentCorporateAction = new Intent(context, TransactionActivity.class);
-                        intentCorporateAction.putExtra("WhichActivity", "CorporateActionActivity");
-                        context.startActivity(intentCorporateAction);
+
+                        Bundle argsNew = new Bundle();
+
+                        argsNew.putString("WhichActivity", "CorporateActionActivity");
+
+                        Fragment fragmentNew = new TransactionActivity();
+
+                        fragmentNew.setArguments(argsNew);
+
+                        getDetail(fragmentNew);
 
                         break;
                     case 6:
-                        Intent intentInsurance = new Intent(context, InsuranceActivity.class);
-                        context.startActivity(intentInsurance);
+                        getDetail(new InsuranceActivity());
                         break;
 
                 }
             }
         }
     }
+
+    public abstract void getDetail(Fragment fragment);
 }

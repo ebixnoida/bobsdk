@@ -1,17 +1,23 @@
 package com.bob.bobapp.activities;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bob.bobapp.BOBApp;
+import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.R;
 
 import com.bob.bobapp.adapters.CashAdapter;
@@ -26,6 +32,7 @@ import com.bob.bobapp.api.response_object.DiscoverFundResponse;
 import com.bob.bobapp.api.response_object.LstRecommandationDebt;
 import com.bob.bobapp.api.response_object.lstRecommandationCash;
 import com.bob.bobapp.api.response_object.lstRecommandationEquity;
+import com.bob.bobapp.fragments.BaseFragment;
 import com.bob.bobapp.utility.Constants;
 import com.bob.bobapp.utility.FontManager;
 import com.bob.bobapp.utility.SettingPreferences;
@@ -38,8 +45,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DiscoverFundsActivity extends BaseActivity {
-    private TextView tvTitle, tvUserHeader, tvBellHeader, tvCartHeader, tvMenu, txtDebt, txtEquity, txtCash;
+public class DiscoverFundsActivity extends BaseFragment {
+    private TextView txtDebt, txtEquity, txtCash;
     private View viewDebt, viewEquity, viewCash;
     private RecyclerView rv, recyclerEquity, recyclerCash;
     private EditText etSearch;
@@ -53,37 +60,46 @@ public class DiscoverFundsActivity extends BaseActivity {
     private EquityAdapter equityAdapter;
     private CashAdapter cashAdapter;
 
+    private Context context;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discover_funds);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        context = getActivity();
+
+        util = new Util(context);
+
+        return inflater.inflate(R.layout.activity_discover_funds, container, false);
     }
 
     @Override
-    public void getIds() {
-        tvUserHeader = findViewById(R.id.tvUserHeader);
-        tvBellHeader = findViewById(R.id.tvBellHeader);
-        tvCartHeader = findViewById(R.id.tvCartHeader);
-        etSearch = findViewById(R.id.etSearch);
-        tvMenu = findViewById(R.id.menu);
-        tvTitle = findViewById(R.id.title);
-        rv = findViewById(R.id.rv);
-        recyclerEquity = findViewById(R.id.recyclerEquity);
-        recyclerCash = findViewById(R.id.recyclerCash);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        txtDebt = findViewById(R.id.txtDebt);
-        viewDebt = findViewById(R.id.viewDebt);
+        super.onViewCreated(view, savedInstanceState);
+    }
 
-        txtEquity = findViewById(R.id.txtEquity);
-        viewEquity = findViewById(R.id.viewEquity);
+    @Override
+    public void getIds(View view) {
 
-        txtCash = findViewById(R.id.txtCash);
-        viewCash = findViewById(R.id.viewCash);
+        etSearch = view.findViewById(R.id.etSearch);
+
+        rv = view.findViewById(R.id.rv);
+        recyclerEquity = view.findViewById(R.id.recyclerEquity);
+        recyclerCash = view.findViewById(R.id.recyclerCash);
+
+        txtDebt = view.findViewById(R.id.txtDebt);
+        viewDebt = view.findViewById(R.id.viewDebt);
+
+        txtEquity = view.findViewById(R.id.txtEquity);
+        viewEquity = view.findViewById(R.id.viewEquity);
+
+        txtCash = view.findViewById(R.id.txtCash);
+        viewCash = view.findViewById(R.id.viewCash);
     }
 
     @Override
     public void handleListener() {
-        tvMenu.setOnClickListener(this);
+        BOBActivity.imgBack.setOnClickListener(this);
         txtEquity.setOnClickListener(this);
         txtDebt.setOnClickListener(this);
         txtCash.setOnClickListener(this);
@@ -115,20 +131,20 @@ public class DiscoverFundsActivity extends BaseActivity {
 
 
     @Override
-    void initializations() {
+    public void initializations() {
         rv.setNestedScrollingEnabled(false);
         recyclerEquity.setNestedScrollingEnabled(false);
         recyclerCash.setNestedScrollingEnabled(false);
-        tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-        tvTitle.setText("Discover Funds");
-        apiInterface = BOBApp.getApi(this, Constants.ACTION_SIP_SWP_STP_DUE);
-        util = new Util(this);
+        BOBActivity.llMenu.setVisibility(View.GONE);
+        BOBActivity.title.setText("Discover Funds");
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_SIP_SWP_STP_DUE);
+        util = new Util(context);
         getApiCall();
     }
 
     // api calling
     private void getApiCall() {
-        util.showProgressDialog(this, true);
+        util.showProgressDialog(context, true);
 
         DiscoverFundRequestBody discoverFundRequestBody = new DiscoverFundRequestBody();
         discoverFundRequestBody.setClientcode(32);
@@ -139,14 +155,14 @@ public class DiscoverFundsActivity extends BaseActivity {
         UUID uuid = UUID.randomUUID();
         String uniqueIdentifier = String.valueOf(uuid);
 
-        SettingPreferences.setRequestUniqueIdentifier(this, uniqueIdentifier);
+        SettingPreferences.setRequestUniqueIdentifier(context, uniqueIdentifier);
         model.setUniqueIdentifier(uniqueIdentifier);
 
         apiInterface.getDiscoverFundApiCall(model).enqueue(new Callback<DiscoverFundResponse>() {
             @Override
             public void onResponse(Call<DiscoverFundResponse> call, Response<DiscoverFundResponse> response) {
 
-                util.showProgressDialog(DiscoverFundsActivity.this, false);
+                util.showProgressDialog(context, false);
                 if (response.isSuccessful()) {
                     lstRecommandationDebtArrayList = response.body().getLstRecommandationDebt();
                     lstRecommandationEquityArrayList = response.body().getLstRecommandationEquity();
@@ -158,8 +174,8 @@ public class DiscoverFundsActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<DiscoverFundResponse> call, Throwable t) {
-                util.showProgressDialog(DiscoverFundsActivity.this, false);
-                Toast.makeText(DiscoverFundsActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                util.showProgressDialog(context, false);
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -169,28 +185,25 @@ public class DiscoverFundsActivity extends BaseActivity {
 
     // set debt adapter
     private void setAdapter() {
-        discoverFundListAdapter = new DiscoverFundListAdapter(this, lstRecommandationDebtArrayList);
+        discoverFundListAdapter = new DiscoverFundListAdapter(context, lstRecommandationDebtArrayList);
         rv.setAdapter(discoverFundListAdapter);
     }
 
     // set equity adapter
     private void setEquityAdapter() {
-        equityAdapter = new EquityAdapter(this, lstRecommandationEquityArrayList);
+        equityAdapter = new EquityAdapter(context, lstRecommandationEquityArrayList);
         recyclerEquity.setAdapter(equityAdapter);
     }
 
     // set cash adapter
     private void setCashAdapter() {
-        cashAdapter = new CashAdapter(this, lstRecommandationCashArrayList);
+        cashAdapter = new CashAdapter(context, lstRecommandationCashArrayList);
         recyclerCash.setAdapter(cashAdapter);
     }
 
     @Override
-    void setIcon(Util util) {
-        FontManager.markAsIconContainer(tvUserHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvBellHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvCartHeader, util.iconFont);
-        FontManager.markAsIconContainer(tvMenu, util.iconFont);
+    public void setIcon(Util util) {
+
     }
 
     @Override
@@ -198,7 +211,7 @@ public class DiscoverFundsActivity extends BaseActivity {
         int id = view.getId();
 
         if (id == R.id.menu) {
-            finish();
+            getActivity().onBackPressed();
         } else if (id == R.id.txtDebt) {
             status = "1";
             viewDebt.setBackgroundColor(Color.parseColor("#f57222"));
@@ -245,6 +258,8 @@ public class DiscoverFundsActivity extends BaseActivity {
             recyclerCash.setVisibility(View.VISIBLE);
 
             setCashAdapter();
+        }else if (id == R.id.imgBack) {
+            getActivity().onBackPressed();
         }
 
 

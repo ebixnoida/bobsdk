@@ -15,53 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.RiskProfileActivity"/>
-
-        <activity android:name=".activities.TermsAndConditionActivity"/>
-
-        <service android:name=".api.WebService" android:exported="false" />
-
-        <activity android:name=".activities.PortfolioAnalytics" />
-
-        <activity android:name=".activities.WealthMgmtActivity" />
-
-        <activity android:name=".activities.InvestmentCartActivity" />
-
-        <activity android:name=".activities.InvestmentMaturityActivity" />
-
-        <activity android:name=".activities.SIPSWPSTPDueActivity" />
-
-        <activity android:name=".activities.StopSIPActivity" />
-
-        <activity android:name=".activities.DematHoldingActivity" />
-
-        <activity android:name=".activities.OrderStatusActivity" />
-
-        <activity android:name=".activities.DiscoverFundsActivity" />
-
-        <activity android:name=".activities.HoldingsActivity" />
-
-        <activity android:name=".activities.TransactionActivity" />
-
-        <activity android:name=".activities.RealizedGainLossActivity" />
-
-        <activity android:name=".activities.InsuranceActivity" />
-
-        <activity android:name=".activities.FactSheetActivity" />
-
-        <activity android:name=".activities.HoldingDetailActivity" />
-
-        <activity android:name=".activities.BuySIPRedeemSwitchActivity" />
-
-        <activity android:name=".activities.InsuranceDetailActivity" />
-
         <activity android:name=".activities.BOBActivity">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
+
+        <service android:name=".api.WebService" android:exported="false" />
 
     </application>
 
