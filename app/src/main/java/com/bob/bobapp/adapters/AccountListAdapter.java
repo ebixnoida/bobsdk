@@ -22,6 +22,7 @@ public abstract class AccountListAdapter extends RecyclerView.Adapter<AccountLis
 
     private boolean isSamePosion = false;
 
+
     private ArrayList<String> selectedDataList;
 
     private Context context;
