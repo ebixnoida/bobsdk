@@ -25,6 +25,7 @@ public abstract class AccountListAdapter extends RecyclerView.Adapter<AccountLis
 
     private ArrayList<String> selectedDataList;
 
+
     private Context context;
     private List<AccountResponseObject> arrayList;
 
