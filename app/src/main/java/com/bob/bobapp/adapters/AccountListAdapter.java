@@ -1,5 +1,4 @@
 package com.bob.bobapp.adapters;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -113,7 +112,6 @@ public abstract class AccountListAdapter extends RecyclerView.Adapter<AccountLis
     TextView transact;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView name;
 
         RadioButton radioButton;
