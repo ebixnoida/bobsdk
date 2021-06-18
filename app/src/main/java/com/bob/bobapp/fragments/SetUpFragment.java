@@ -26,11 +26,12 @@ public class SetUpFragment extends BaseFragment {
     private TextView txtNext;
 
     public SetUpFragment() {
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_set_up, container, false);
     }
 
@@ -49,6 +50,7 @@ public class SetUpFragment extends BaseFragment {
     protected void handleListener() {
 
         txtNext.setOnClickListener(this);
+
         BOBActivity.imgBack.setOnClickListener(this);
     }
 
@@ -68,8 +70,11 @@ public class SetUpFragment extends BaseFragment {
 
     @Override
     public void onClick(View view) {
+
         if (view.getId() == R.id.txtNext) {
+
             replaceFragment(new WealthMgmtActivity());
+
         }else if (view.getId() == R.id.imgBack) {
 
             getActivity().onBackPressed();

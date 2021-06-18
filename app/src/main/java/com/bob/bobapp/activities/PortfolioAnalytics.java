@@ -158,8 +158,6 @@ public class PortfolioAnalytics extends BaseFragment {
     @Override
     protected void initializations() {
 
-        BOBActivity.tvMenu.setText(getResources().getString(R.string.fa_icon_back));
-
         BOBActivity.title.setText("My Investments");
 
         BOBActivity.llMenu.setVisibility(View.GONE);
@@ -175,8 +173,6 @@ public class PortfolioAnalytics extends BaseFragment {
         FontManager.markAsIconContainer(BOBActivity.tvBellHeader, util.iconFont);
 
         FontManager.markAsIconContainer(BOBActivity.tvCartHeader, util.iconFont);
-
-        FontManager.markAsIconContainer(BOBActivity.tvMenu, util.iconFont);
     }
 
     @Override

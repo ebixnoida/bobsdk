@@ -126,8 +126,6 @@ public class DashboardFragment extends BaseFragment {
     @Override
     protected void getIds(View view) {
 
-        llMenu = (LinearLayout) view.findViewById(R.id.llMenu);
-
         rvTransaction = view.findViewById(R.id.rvTransaction);
 
         rvExploreMore = view.findViewById(R.id.rvExploreMore);
@@ -307,6 +305,10 @@ public class DashboardFragment extends BaseFragment {
         btn_Details.setOnClickListener(this);
 
         BOBActivity.imgBack.setOnClickListener(this);
+
+        BOBActivity.llMenu.setVisibility(View.VISIBLE);
+
+        BOBActivity.llMenu.setOnClickListener(this);
 
         //imgDashbaord.setOnClickListener(this);
     }
@@ -589,8 +591,6 @@ public class DashboardFragment extends BaseFragment {
 
         TextView setup = leftSideDrawerView.findViewById(R.id.setup);
 
-//        close.setVisibility(View.GONE);
-
         imgIcon.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -648,26 +648,6 @@ public class DashboardFragment extends BaseFragment {
             }
         });
 
-        /*imgDashbaord.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                drawerLayout.closeDrawer(Gravity.LEFT);
-
-                new Handler().postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-
-                        BOBActivity.mTabHost.setCurrentTab(0);
-
-                    }
-
-                }, DRAWER_ITEMS_OPEN_TIME);
-            }
-        });*/
-
         portFolio.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -699,7 +679,7 @@ public class DashboardFragment extends BaseFragment {
                     @Override
                     public void run() {
 
-                        //viewPager.setCurrentItem(1);
+                        replaceFragment(new ReportFragment());
                     }
 
                 }, DRAWER_ITEMS_OPEN_TIME);
@@ -794,6 +774,7 @@ public class DashboardFragment extends BaseFragment {
                     @Override
                     public void run() {
 
+                        replaceFragment(new SetUpFragment());
                     }
 
                 }, DRAWER_ITEMS_OPEN_TIME);

@@ -3,51 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/tab_header"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="My Orders"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:id="@+id/txtMyOrders"/>
+
+        <TextView
+            android:id="@+id/txtInvestmentCart"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="Investment Cart"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_inner_orange"/>
+
+        <TextView
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Filter"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textColor="@color/colorGray"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/light_gray_half"
+        android:layout_below="@+id/tab_header"
+        android:id="@+id/tab_line"/>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <include layout="@layout/investment_header"/>
+        android:orientation="vertical"
+        android:layout_below="@+id/tab_line">
+
+        <include layout="@layout/investment_header"
+            android:visibility="gone"/>
+
         <View android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
             android:background="@color/light_gray"/>
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:isScrollContainer="false">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="horizontal">
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearBuy"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/buy"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                     <View
                         android:id="@+id/viewBuy"
                         android:layout_width="@dimen/_65sdp"
                         android:layout_height="@dimen/_1sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:background="@color/color_light_orange"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearSIP"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
@@ -56,21 +117,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sip"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                 <View
                     android:id="@+id/viewSip"
                     android:layout_width="@dimen/_65sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/light_gray"/>
+                    android:background="@color/colorGray"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearRedeem"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
@@ -79,21 +140,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/redeem"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                 <View
                     android:id="@+id/viewRedeem"
                     android:layout_width="@dimen/_65sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/light_gray"/>
+                    android:background="@color/colorGray"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearSwitch"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
@@ -102,21 +163,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/switch_"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                 <View
                     android:id="@+id/viewSwitch"
                     android:layout_width="@dimen/_65sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/light_gray"/>
+                    android:background="@color/colorGray"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearSWP"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
@@ -125,21 +186,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/swp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                 <View
                     android:id="@+id/viewSWP"
                     android:layout_width="@dimen/_65sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/light_gray"/>
+                    android:background="@color/colorGray"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearSTP"
-                android:layout_width="@dimen/_65sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
@@ -148,22 +209,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/stp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15ssp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
                     android:textColor="@color/dark_black"/>
 
                 <View
                     android:id="@+id/viewSTP"
                     android:layout_width="@dimen/_65sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/light_gray"/>
+                    android:background="@color/colorGray"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         </HorizontalScrollView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -398,4 +457,5 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
+
 </RelativeLayout>

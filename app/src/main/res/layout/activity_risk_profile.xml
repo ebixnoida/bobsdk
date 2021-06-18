@@ -5,16 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.RiskProfileActivity">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <include layout="@layout/investment_header"/>
+
+        <include layout="@layout/investment_header"
+            android:visibility="gone"/>
+
         <View android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
             android:background="@color/light_gray"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -47,16 +47,27 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RiskProfileActivity extends BaseFragment implements View.OnClickListener, onAnswerItemListener {
+
     private TextView txtAboutUs;
+
     private Util util;
+
     private AppCompatButton btnNext;
+
     private int count = 0;
+
     private RecyclerView recyclerQuestion;
+
     private QuestionAdapter questionAdapter;
+
     private APIInterface apiInterface;
+
     private ArrayList<RiskProfileQuestionCollection> riskProfileQuestionCollectionArrayList = new ArrayList<>();
+
     private ArrayList<RiskProfileQuestionCollection> tempArrayList = new ArrayList<>();
+
     private RiskProfileResponse riskProfileResponse;
+
     private Context context;
 
     @Override
@@ -74,55 +85,56 @@ public class RiskProfileActivity extends BaseFragment implements View.OnClickLis
 
         super.onViewCreated(view, savedInstanceState);
 
-        findView(view);
-
-        setIcon(util);
-
         RiskProfileQuestionnaireAPiCall();
     }
 
     @Override
     protected void getIds(View view) {
 
+        apiInterface = BOBApp.getApi(context, Constants.ACTION_RiskProfileQuestionnaire);
+
+        util = new Util(context);
+
+        txtAboutUs = view.findViewById(R.id.txtAboutUs);
+
+        recyclerQuestion = view.findViewById(R.id.recyclerQuestion);
+
+        btnNext = view.findViewById(R.id.btnNext);
+    }
+
+    @Override
+    protected void setIcon(Util util) {
+
+        FontManager.markAsIconContainer(txtAboutUs, util.iconFont);
     }
 
     @Override
     protected void handleListener() {
 
         BOBActivity.imgBack.setOnClickListener(this);
-    }
-
-    @Override
-    protected void initializations() {
-        BOBActivity.llMenu.setVisibility(View.GONE);
-        BOBActivity.title.setText("Risk Profile");
-    }
-
-    // initialize object here..
-    private void findView(View view) {
-        apiInterface = BOBApp.getApi(context, Constants.ACTION_RiskProfileQuestionnaire);
-        util = new Util(context);
-
-        txtAboutUs = view.findViewById(R.id.txtAboutUs);
-        recyclerQuestion = view.findViewById(R.id.recyclerQuestion);
-        btnNext = view.findViewById(R.id.btnNext);
 
         btnNext.setOnClickListener(this);
     }
 
-    // icon set
-    public void setIcon(Util util) {
-        FontManager.markAsIconContainer(txtAboutUs, util.iconFont);
+    @Override
+    protected void initializations() {
+
+        BOBActivity.llMenu.setVisibility(View.GONE);
+
+        BOBActivity.title.setText("Risk Profile");
     }
 
-    // handle listener here...
     @Override
     public void onClick(View v) {
 
         int id = v.getId();
+
         if (id == R.id.menu) {
+
             getActivity().onBackPressed();
+
         } else if (id == R.id.btnNext) {
+
             String text = btnNext.getText().toString();
 
             if (text.equalsIgnoreCase("Submit")) {
@@ -143,6 +155,7 @@ public class RiskProfileActivity extends BaseFragment implements View.OnClickLis
                 }
             }
         }else if (id == R.id.imgBack) {
+
             getActivity().onBackPressed();
         }
     }

@@ -25,6 +25,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import com.bob.bobapp.Home.MyInvestmentContainerFragment;
 import com.bob.bobapp.Home.BaseContainerFragment;
 import com.bob.bobapp.Home.HomeContainerFragment;
 import com.bob.bobapp.Home.InvestNowContainerFragment;
+import com.bob.bobapp.Home.MyOrderContainerFragment;
 import com.bob.bobapp.Home.ProfileContainerFragment;
 import com.bob.bobapp.R;
 import com.bob.bobapp.adapters.AccountListAdapter;
@@ -118,7 +120,7 @@ public class BOBActivity extends BaseActivity {
 
     public static FragmentTabHost mTabHost;
 
-    private View homeView = null, myInvestment = null, investNow = null, profileView = null;
+    private View homeView = null, myInvestment = null, investNow = null, profileView = null, myOrder = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -190,13 +192,13 @@ public class BOBActivity extends BaseActivity {
 
         imgBack.setOnClickListener(this);
 
-        //imgDashbaord.setOnClickListener(this);
+        imgDashbaord.setOnClickListener(this);
     }
 
     @Override
     public void initializations() {
 
-
+        BOBActivity.tvMenu.setText(getResources().getString(R.string.fa_icon_menu));
     }
 
     public void setUpTabs() {
@@ -206,20 +208,45 @@ public class BOBActivity extends BaseActivity {
 
         homeView = LayoutInflater.from(context).inflate(R.layout.home, null);
 
+        TextView homeIcon = (TextView) homeView.findViewById(R.id.txt_home_icon);
+
+        FontManager.markAsIconContainer(homeIcon, util.iconFont);
+
         mTabHost.addTab(mTabHost.newTabSpec("Home").setIndicator(homeView), HomeContainerFragment.class, null);
 
 
         myInvestment = LayoutInflater.from(context).inflate(R.layout.my_investment, null);
+
+        TextView myInvestmentIcon = (TextView) myInvestment.findViewById(R.id.txt_my_investment_icon);
+
+        FontManager.markAsIconContainer(myInvestmentIcon, util.iconFont);
 
         mTabHost.addTab(mTabHost.newTabSpec("My Investment").setIndicator(myInvestment), MyInvestmentContainerFragment.class, null);
 
 
         investNow = LayoutInflater.from(context).inflate(R.layout.invest_now, null);
 
+        TextView investNowIcon = (TextView) investNow.findViewById(R.id.txt_invest_now_icon);
+
+        FontManager.markAsIconContainer(investNowIcon, util.iconFont);
+
         mTabHost.addTab(mTabHost.newTabSpec("Invest Now").setIndicator(investNow), InvestNowContainerFragment.class, null);
 
 
+        myOrder = LayoutInflater.from(context).inflate(R.layout.my_order, null);
+
+        TextView myOrderIcon = (TextView) myOrder.findViewById(R.id.txt_my_order_icon);
+
+        FontManager.markAsIconContainer(myOrderIcon, util.iconFont);
+
+        mTabHost.addTab(mTabHost.newTabSpec("My Orders").setIndicator(myOrder), MyOrderContainerFragment.class, null);
+
+
         profileView = LayoutInflater.from(context).inflate(R.layout.profile, null);
+
+        TextView profileViewIcon = (TextView) profileView.findViewById(R.id.txt_profile_icon);
+
+        FontManager.markAsIconContainer(profileViewIcon, util.iconFont);
 
         mTabHost.addTab(mTabHost.newTabSpec("Profile").setIndicator(profileView), ProfileContainerFragment.class, null);
 
@@ -234,6 +261,7 @@ public class BOBActivity extends BaseActivity {
                 ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Home")).clearBackStack();
             }
         });
+
     }
 
     @Override
@@ -266,6 +294,10 @@ public class BOBActivity extends BaseActivity {
             isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("My Investment")).popFragment();
 
         } else if (currentTabTag.equals("Invest Now")) {
+
+            isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Invest Now")).popFragment();
+
+        } else if (currentTabTag.equals("My Orders")) {
 
             isPopFragment = ((BaseContainerFragment) getSupportFragmentManager().findFragmentByTag("Invest Now")).popFragment();
 
@@ -306,13 +338,7 @@ public class BOBActivity extends BaseActivity {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
 
-                                Intent intent = new Intent(Intent.ACTION_MAIN);
-
-                                intent.addCategory(Intent.CATEGORY_HOME);
-
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                                context.startActivity(intent);
+                                System.exit(0);
                             }
                         })
 
@@ -365,6 +391,9 @@ public class BOBActivity extends BaseActivity {
 
             finish();
 
+        }else if (id == R.id.imgDashbaord) {
+
+            alertboxExitFromApp("Alert!", "Are you sure? Do you want to exit from app?");
         }
     }
 

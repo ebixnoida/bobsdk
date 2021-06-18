@@ -50,6 +50,10 @@
 
     <string name="fa_icon_right_arrow">&#xf054;</string>
 
+    <string name="fa_icon_plus">&#xf067;</string>
 
+    <string name="fa_icon_list">&#xf022;</string>
+
+    <string name="fa_icon_my_order">&#xf161;</string>
 
 </resources>

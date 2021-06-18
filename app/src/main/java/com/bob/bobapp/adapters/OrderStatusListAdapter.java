@@ -17,24 +17,33 @@ import java.util.ArrayList;
 public class OrderStatusListAdapter extends RecyclerView.Adapter<OrderStatusListAdapter.ViewHolder> {
 
     private Context context;
+
     private ArrayList<OrderStatusResponse> arrayList;
 
     public OrderStatusListAdapter(Context context, ArrayList<OrderStatusResponse> arrayList) {
+
         this.context = context;
+
         this.arrayList = arrayList;
     }
 
     public void updateList(ArrayList<OrderStatusResponse> arrayList) {
+
         this.arrayList = arrayList;
+
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
         View listItem = layoutInflater.inflate(R.layout.order_status_item, parent, false);
+
         ViewHolder viewHolder = new ViewHolder(listItem);
+
         return viewHolder;
     }
 
@@ -44,11 +53,26 @@ public class OrderStatusListAdapter extends RecyclerView.Adapter<OrderStatusList
         OrderStatusResponse model = arrayList.get(position);
 
         holder.fundName.setText(model.getFundName());
-        holder.name.setText(model.getClientName());
-        holder.date.setText(model.getOrderDate().substring(0, 10));
-        holder.amount.setText(model.getOrderAmount() + "");
-        holder.status.setText(model.getOrderStatus());
 
+        holder.name.setText(model.getClientName());
+
+        holder.date.setText(model.getOrderDate().substring(0, 10));
+
+        holder.amount.setText(model.getOrderAmount() + "");
+
+        holder.status.setPadding(10,10,10,10);
+
+        if(model.getOrderStatus() != null && model.getOrderStatus().equalsIgnoreCase("Pending")){
+
+            holder.status.setBackgroundResource(R.drawable.rounded_inner_orange);
+        }
+
+        if(model.getOrderStatus() != null && model.getOrderStatus().equalsIgnoreCase("Placed")){
+
+            holder.status.setBackgroundResource(R.drawable.rounded_inner_green);
+        }
+
+        holder.status.setText(model.getOrderStatus());
     }
 
     @Override
@@ -62,15 +86,18 @@ public class OrderStatusListAdapter extends RecyclerView.Adapter<OrderStatusList
         TextView fundName, name, date, amount, status;
 
         public ViewHolder(@NonNull View itemView) {
+
             super(itemView);
 
             fundName = itemView.findViewById(R.id.fundName);
+
             name = itemView.findViewById(R.id.name);
+
             date = itemView.findViewById(R.id.date);
+
             amount = itemView.findViewById(R.id.amount);
+
             status = itemView.findViewById(R.id.status);
-
         }
-
     }
 }

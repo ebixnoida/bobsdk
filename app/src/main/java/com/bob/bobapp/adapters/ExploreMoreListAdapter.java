@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -49,6 +50,21 @@ public abstract class ExploreMoreListAdapter extends RecyclerView.Adapter<Explor
         String title = exploreMoreArrayList.get(position);
 
         holder.tvTitle.setText(title);
+
+        if(title.equalsIgnoreCase("Equity Funds")){
+
+            holder.icon.setBackgroundResource(R.drawable.equityfunds);
+        }
+
+        if(title.equalsIgnoreCase("Debt Funds")){
+
+            holder.icon.setBackgroundResource(R.drawable.debtfund);
+        }
+
+        if(title.equalsIgnoreCase("Tax Saving")){
+
+            holder.icon.setBackgroundResource(R.drawable.taxsaving);
+        }
     }
 
     @Override
@@ -63,6 +79,8 @@ public abstract class ExploreMoreListAdapter extends RecyclerView.Adapter<Explor
 
         TextView tvTitle;
 
+        ImageView icon;
+
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
@@ -70,6 +88,8 @@ public abstract class ExploreMoreListAdapter extends RecyclerView.Adapter<Explor
             item = itemView.findViewById(R.id.item);
 
             tvTitle = itemView.findViewById(R.id.tv_title);
+
+            icon = itemView.findViewById(R.id.img_explore_more_icon);
 
             item.setOnClickListener(this);
         }

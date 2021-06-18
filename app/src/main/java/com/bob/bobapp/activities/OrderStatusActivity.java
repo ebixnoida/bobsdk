@@ -100,7 +100,7 @@ public class OrderStatusActivity extends BaseFragment {
     @Override
     public void initializations() {
         BOBActivity.llMenu.setVisibility(View.GONE);
-        BOBActivity.title.setText("Order Status");
+        BOBActivity.title.setText("My Orders");
         apiInterface = BOBApp.getApi(context, Constants.ACTION_SIP_SWP_STP_DUE);
         util = new Util(context);
         getApiCall();
@@ -217,7 +217,9 @@ public class OrderStatusActivity extends BaseFragment {
         } else if (id == R.id.txtInvestmentCart) {
 
             replaceFragment(new InvestmentCartActivity());
+
         }else if (id == R.id.imgBack) {
+
             getActivity().onBackPressed();
         }
     }

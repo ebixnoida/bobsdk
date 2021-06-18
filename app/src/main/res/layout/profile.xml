@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
     android:background="@color/color_light_orange"
-    android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorGray" />
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:id="@+id/homelinear_buttom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txt_home_icon"
+            android:id="@+id/txt_profile_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/usericon_whitecolor"
             android:textColor="@drawable/home_selector"
-            android:textSize="@dimen/_20sdp"/>
+            android:textSize="@dimen/_20sdp"
+            android:text="@string/fa_icon_user"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/txthome_buttom"
@@ -31,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Profile"
             android:textColor="@drawable/home_selector"
-            android:textSize="12sp" />
+            android:textSize="9sp" />
 
     </LinearLayout>
 

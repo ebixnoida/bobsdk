@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,7 +57,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InvestmentCartActivity extends BaseFragment {
-    private TextView txtBuyImage;
+    private TextView txtBuyImage, txtMyOrders;
     private AppCompatTextView txtInvestmentTab, txtTranCount, txtTotalAmount;
     private LinearLayoutCompat linearBankDetail, linearBuy, linearSIP, linearRedeem, linearSwitch, linearSWP,linearSTP;
     private RecyclerView recyclerBuy, recyclerSIP, recyclerRedeem, recyclerSwitch, recyclerSWP,recyclerSTP;
@@ -98,6 +99,8 @@ public class InvestmentCartActivity extends BaseFragment {
 
     @Override
     protected void getIds(View view) {
+
+        txtMyOrders = view.findViewById(R.id.txtMyOrders);
 
         txtBuyImage = view.findViewById(R.id.txtBuyImage);
 
@@ -152,6 +155,7 @@ public class InvestmentCartActivity extends BaseFragment {
         linearSwitch.setOnClickListener(this);
         linearSWP.setOnClickListener(this);
         linearSTP.setOnClickListener(this);
+        txtMyOrders.setOnClickListener(this);
         BOBActivity.imgBack.setOnClickListener(this);
     }
 
@@ -272,11 +276,24 @@ public class InvestmentCartActivity extends BaseFragment {
             recyclerSwitch.setVisibility(View.GONE);
             recyclerSWP.setVisibility(View.GONE);
             recyclerSTP.setVisibility(View.VISIBLE);
+
         } else if (id == R.id.menu) {
+
             getActivity().onBackPressed();
+
         }else if (id == R.id.imgBack) {
-            getActivity().onBackPressed();
+
+            BOBActivity.mTabHost.setCurrentTab(3);
+
+        }else if (id == R.id.txtMyOrders) {
+
+            replaceFragment(new OrderStatusActivity());
         }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+
+        ((BaseContainerFragment)getParentFragment()).replaceFragment(fragment, false);
     }
 
     // buy adapter

@@ -33,14 +33,12 @@
         <LinearLayout
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorGray"
@@ -65,14 +63,12 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorGray"
@@ -93,18 +89,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="center"
+            android:gravity="right"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorGray"
@@ -115,13 +110,11 @@
                 android:id="@+id/status"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                android:padding="7dp"
+                android:padding="10dp"
                 android:textSize="14sp"
-                android:background="@drawable/rounded_inner_orange"
                 android:layout_width="wrap_content"
                 android:textColor="@color/white"
-                android:layout_height="wrap_content"
-                android:text="Pending" />
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>

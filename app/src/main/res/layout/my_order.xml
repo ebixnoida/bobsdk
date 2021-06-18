@@ -2,33 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="5dp"
     android:background="@color/color_light_orange"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:layout_gravity="center">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:orientation="vertical"
         android:id="@+id/homelinear_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:gravity="center"
-        >
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txt_home_icon"
+            android:id="@+id/txt_my_order_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:textColor="@drawable/home_selector"
             android:textSize="@dimen/_20sdp"
-            android:text="@string/fa_icon_home"
+            android:text="@string/fa_icon_my_order"
             android:gravity="center"/>
 
         <TextView
             android:id="@+id/txthome_buttom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:text="My Orders"
             android:textColor="@drawable/home_selector"
             android:textSize="9sp" />
 
